@@ -1,0 +1,14 @@
+{
+    "id": "mannpower",
+    "name": "Mannpower",
+    "author": [
+        "ImaginaryNeon"
+    ],
+    "description": "Adds Mannpower-themed Boss Blinds and consumables",
+    "prefix": "mannpower",
+    "main_file": "main.lua",
+    "icon_path": "Logo.png",
+    "version": "0.0.0",
+    "badge_colour": "2b3969",
+    "badge_text_colour": "ffff00"
+}
