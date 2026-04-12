@@ -31,8 +31,8 @@ return {
             bl_mannpower_haste2 = {
                 name = 'The Haste 2',
                 text = {
-                    'Destroys 1 card in hand',
-                    'every 12 seconds,',
+                    'Discards 1 random card',
+                    'every 10 seconds,',
                     'multiplied by game speed'
                 }
             }
