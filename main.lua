@@ -18,7 +18,7 @@ SMODS.Atlas { -- Mannpower Blinds
 
 SMODS.Atlas { -- Mannpower Packs
     key = 'mannpowerpack',
-    path = 'mannpowerpacks.png',
+    path = 'powerpacks.png',
     px = 58,
     py = 73
 }
