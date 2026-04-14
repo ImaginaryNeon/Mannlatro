@@ -52,6 +52,13 @@ return {
                     'and permenantly give it {X:blind,C:white}x#2#{} Blind size',
                     '{C:inactive}(This effect stacks){}'
                 }
+            },
+            c_mannpower_precision = {
+                name = 'Precision',
+                text = {
+                    'Use this card to earn {C:money}$#1#{}',
+                    'Increases by {C:money}$#2#{} when a Blind is defeated in one hand'
+                }
             }
         }
     }
