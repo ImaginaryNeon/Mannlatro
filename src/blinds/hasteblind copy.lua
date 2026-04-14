@@ -7,13 +7,22 @@ SMODS.Blind {
     config = {
         extra = {
             timer = 0,
-            timer_speed = 0.5,
-            timer_end = 8
+            timer_speed = 1,
+            timer_end = 10
         },
     },
     boss = { min = 2, max = 10 },
     boss_colour = HEX('ED712B'),
+
     loc_vars = function(self)
+        local original_update = Game.original_update
+        function Game:update(dt)
+            original_update(self, dt)
+            if G.GAME.blind and G.GAME.blind.config.blind.key == 'bl_prefix_key' then
+                timer = 0
+            end
+        end
+
         return { vars = { self.config.extra.timer, self.config.extra.timer_end } }
     end,
     calculate = function(self, blind, context)
