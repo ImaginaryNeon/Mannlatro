@@ -79,7 +79,7 @@ return {
                     'Increases by {C:money}$#2#{} when a Blind is defeated in one hand'
                 }
             },
-            c_mannpower_supernova= {
+            c_mannpower_supernova = {
                 name = 'Supernova',
                 text = {
                     'Removes all Stickers',
