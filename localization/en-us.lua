@@ -78,6 +78,13 @@ return {
                     'Use this card to earn {C:money}$#1#{}',
                     'Increases by {C:money}$#2#{} when a Blind is defeated in one hand'
                 }
+            },
+            c_mannpower_knockout = {
+                name = 'Knockout',
+                text = {
+                    'Removes all Stickers',
+                    'from up to #1# Joker'
+                }
             }
         }
     }
