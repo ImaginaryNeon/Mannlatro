@@ -47,6 +47,15 @@ return {
                 }
             }
         },
+        Spectral = {
+            c_mannpower_powerplay = {
+                name = 'PowerPlay',
+                text = {
+                    "All Editionless cards in deck become {C:dark_edition}Polychrome{}",
+                    "All Editionless Jokers become {C:dark_edition}Negative{}"
+                }
+            }
+        },
         Mannpower = {
             c_mannpower_kingmp = {
                 name = 'King',
