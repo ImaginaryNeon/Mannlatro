@@ -4,7 +4,8 @@ return {
             bl_mannpower_supernova = {
                 name = 'The Supernova',
                 text = {
-                    'Played cards lose their Enhancements'
+                    'Played cards lose',
+                    'their Enhancements'
                 }
             },
             bl_mannpower_plague = {
@@ -29,7 +30,7 @@ return {
                 }
             },
             bl_mannpower_haste2 = {
-                name = 'The Haste 2',
+                name = 'The Haste (V2)',
                 text = {
                     'Discards 1 random card',
                     'every 10 seconds,',
