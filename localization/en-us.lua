@@ -38,6 +38,22 @@ return {
                 }
             }
         },
+        Booster = {
+            p_mannpower_powerpack1 = {
+                name = 'Power Pack',
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2#{C:gold} Power-Up{} cards"
+                }
+            },
+            p_mannpower_powerpack2 = {
+                name = 'Power Pack',
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2#{C:gold} Power-Up{} cards"
+                }
+            }
+        },
         Mannpower = {
             c_mannpower_kingmp = {
                 name = 'King',
