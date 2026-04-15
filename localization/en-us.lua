@@ -39,8 +39,15 @@ return {
             }
         },
         Booster = {
-            p_mannpower_powerpack = {
+            p_mannpower_powerpack_1 = {
                 name = 'Power Pack',
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2#{C:gold} Power-Up{} cards"
+                }
+            },
+            p_mannpower_powerpack_2 = {
+                name = 'Mannpower Pack',
                 text = {
                     "Choose {C:attention}#1#{} of up to",
                     "{C:attention}#2#{C:gold} Power-Up{} cards"
@@ -51,7 +58,7 @@ return {
             c_mannpower_powerplay = {
                 name = 'PowerPlay',
                 text = {
-                    "All Editionless cards in deck become {C:dark_edition}Polychrome{}",
+                    "All Editionless cards in hand become {C:dark_edition}Polychrome{}",
                     "All Editionless Jokers become {C:dark_edition}Negative{}"
                 }
             }

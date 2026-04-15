@@ -23,6 +23,13 @@ SMODS.Atlas { -- Mannpower Packs
     py = 73
 }
 
+SMODS.Atlas { -- Jokers
+    key = 'RTD',
+    path = 'PowerPlay.png',
+    px = 71,
+    py = 95
+}
+
 --#endregion
 
 --#region File Loading
@@ -35,6 +42,11 @@ end
 local mannpower_src = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "src/mannpower")
 for _, file in ipairs(mannpower_src) do
     assert(SMODS.load_file("src/mannpower/" .. file))()
+end
+
+local boosters_src = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "src/boosters")
+for _, file in ipairs(boosters_src) do
+    assert(SMODS.load_file("src/boosters/" .. file))()
 end
 
 SMODS.current_mod.optional_features = function()

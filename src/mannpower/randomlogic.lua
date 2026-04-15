@@ -1,6 +1,6 @@
 -- Literally just copying the Cryptid highlighted cards thing and trimming some of the fat so I can target Jokers with consumables without needing Cryptid as a dependency.
 -- I genuinely don't understand half of this, so there's a chance everything breaks when I try to implement it
-function Mannlatro.get_highlighted_cards(areas, ignore, min, max, blacklist, seed)
+function SMODS.get_highlighted_cards(areas, ignore, min, max, blacklist, seed)
 	ignore.checked = true
 	blacklist = blacklist or function()
 		return true

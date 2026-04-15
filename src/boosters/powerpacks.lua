@@ -3,7 +3,7 @@ SMODS.Booster {
     weight = 1,
     kind = 'MannpowerP', -- You can also use Arcana if you want it to belong to the vanilla kind
     cost = 4,
-    atlas = 'mannpowerpack'
+    atlas = 'mannpowerpack',
     pos = { x = 0, y = 0 },
     config = { extra = 3, choose = 1 },
     group_key = "k_mannpower_pack", -- Delete this if you're using `group_name` in `loc_txt`
@@ -11,7 +11,7 @@ SMODS.Booster {
         local cfg = (card and card.ability) or self.config
         return {
             vars = { cfg.choose, cfg.extra },
-            key = self.key:sub(1, -3), -- This uses the description key of the booster without the number at the end. Remove this if your booster doesn't have artwork variants like vanilla
+            --            key = self.key:sub(1, -3), -- This uses the description key of the booster without the number at the end. Remove this if your booster doesn't have artwork variants like vanilla
         }
     end,
     ease_background_colour = function(self)
@@ -42,16 +42,15 @@ SMODS.Booster {
             key_append =
             "Haltwhereisgabrielandwhathaveyoudonewithhim"
         }
-        end
-        return _card
+        return { _card }
     end,
-},
+}
 SMODS.Booster {
     key = "powerpack_normal_2",
     weight = 1,
     kind = 'MannpowerP', -- You can also use Arcana if you want it to belong to the vanilla kind
     cost = 4,
-    atlas = 'mannpowerpack'
+    atlas = 'mannpowerpack',
     pos = { x = 1, y = 0 },
     config = { extra = 3, choose = 1 },
     group_key = "k_mannpower_pack", -- Delete this if you're using `group_name` in `loc_txt`
@@ -59,7 +58,7 @@ SMODS.Booster {
         local cfg = (card and card.ability) or self.config
         return {
             vars = { cfg.choose, cfg.extra },
-            key = self.key:sub(1, -3), -- This uses the description key of the booster without the number at the end. Remove this if your booster doesn't have artwork variants like vanilla
+            --            key = self.key:sub(2, -2), -- This uses the description key of the booster without the number at the end. Remove this if your booster doesn't have artwork variants like vanilla
         }
     end,
     ease_background_colour = function(self)
@@ -90,7 +89,6 @@ SMODS.Booster {
             key_append =
             "Haltwhereisgabrielandwhathaveyoudonewithhim"
         }
-        end
         return _card
-    end,
+    end
 }
