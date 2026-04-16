@@ -16,6 +16,13 @@ SMODS.Atlas { -- Mannpower Blinds
     py = 34
 }
 
+SMODS.Atlas { -- Mannpower Cards
+    key = 'mannpowercards',
+    path = 'mannpowercards.png',
+    px = 71,
+    py = 95
+}
+
 SMODS.Atlas { -- Mannpower Packs
     key = 'mannpowerpack',
     path = 'powerpacks.png',

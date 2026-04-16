@@ -1,7 +1,7 @@
 SMODS.Consumable {
     key = 'precision',
     set = 'Mannpower',
-    atlas = 'mannpowerblind',
+    atlas = 'mannpowercards',
     pos = {
         y = 6
     },

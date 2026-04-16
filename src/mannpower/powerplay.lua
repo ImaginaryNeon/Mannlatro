@@ -13,7 +13,7 @@ SMODS.Consumable {
                 delay = 0.4,
                 func = function()
                     play_sound('timpani')
-                    local editionless_jokers = SMODS.Edition:get_edition_cards(G.jokers.cards, true)
+                    local editionless_jokers = SMODS.Edition:get_edition_cards(G.jokers, true)
                     for i2 = 1, #editionless_jokers do
                         local edition = 'e_negative'
                         editionless_jokers[i]:set_edition(edition, true)

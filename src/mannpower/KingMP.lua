@@ -1,7 +1,7 @@
 SMODS.Consumable {
     key = 'kingmp',
     set = 'Mannpower',
-    atlas = 'mannpowerblind',
+    atlas = 'mannpowercards',
     pos = {
         y = 9
     },
