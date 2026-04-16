@@ -7,13 +7,13 @@ SMODS.Consumable {
     hidden = true,
     soul_set = 'Mannpower',
     use = function(self, card, area, copier)
-        for i = 1, #G.jokers do
+        for i = 1, #G.jokers.cards do
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',
                 delay = 0.4,
                 func = function()
                     play_sound('timpani')
-                    local editionless_jokers = SMODS.Edition:get_edition_cards(G.jokers, true)
+                    local editionless_jokers = SMODS.Edition:get_edition_cards(G.jokers.cards, true)
                     for i2 = 1, #editionless_jokers do
                         local edition = 'e_negative'
                         editionless_jokers[i]:set_edition(edition, true)
@@ -25,7 +25,7 @@ SMODS.Consumable {
             }))
             delay(0.6)
         end
-        for i, playing_card in ipairs(G.hand) do
+        for i, playing_card in ipairs(G.hand.cards) do
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',
                 delay = 0.4,
