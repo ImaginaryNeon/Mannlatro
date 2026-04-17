@@ -6,6 +6,11 @@ return {
             text = {
                 "After defeating each {C:attention}Boss Blind{},",
                 "open a {C:attention}Mannpower Pack{}"
+            },
+            unlock = {
+                "Win a run with",
+                "{C:attention}#1#{}",
+                "on any difficulty",
             }
         }
     },
