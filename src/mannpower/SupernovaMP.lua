@@ -13,7 +13,7 @@ SMODS.Consumable {
 		return #cards == 1
 	end,
 	use = function(self, card, area, copier)
-		local cards = Cryptid.get_highlighted_cards({ G.jokers }, card, 1, 1, function(card)
+		local cards = SMODS.get_highlighted_cards({ G.jokers }, card, 1, 1, function(card)
 			return card.ability.set == "Joker"
 		end)
 		local jkr = cards[1]
