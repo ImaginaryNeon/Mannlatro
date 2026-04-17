@@ -1,5 +1,14 @@
 return {
     descriptions = {
+        Back = {
+        b_mannpower_manndeck = {
+            name = 'Mannpower Deck',
+            text = {
+                "After defeating each {C:attention}Boss Blind{},",
+                "open a {C:attention}Mannpower Pack{}"
+            }
+        }
+    },
         Blind = {
             bl_mannpower_supernova = {
                 name = 'The Supernova',
