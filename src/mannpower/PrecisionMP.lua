@@ -8,6 +8,7 @@ SMODS.Consumable {
     select_card = 'consumeables',
     config = { extra = { money = 5, money_gain = 3 } },
     loc_vars = function(self, info_queue, card)
+        -- Add money if the last hand scored over the blind requirements
         if SMODS.last_hand_oneshot then
             card.ability.extra.money = card.ability.extra.money + card.ability.extra.money_gain
         end
