@@ -1,10 +1,9 @@
 SMODS.ConsumableType {
     key = 'Mannpower',
     name = 'Mannpower249596',
-    primary_colour = HEX('ED712B'),
-    secondary_colour = HEX('ED712B'),
+    primary_colour = HEX('FFA630'),
+    secondary_colour = HEX('FFF812'),
     badge_colour = HEX('ED712B'),
-    display_size = { x = 20, y = 20 },
     shop_rate = 1,
     loc_txt = {
         name = 'Mannpower',       -- used on card type badges
