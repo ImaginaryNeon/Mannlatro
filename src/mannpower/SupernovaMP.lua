@@ -3,7 +3,8 @@ SMODS.Consumable {
 	set = 'Mannpower',
 	atlas = 'mannpowercards',
 	pos = {
-		y = 11
+		x = 3,
+		y = 2
 	},
 	select_card = 'consumeables',
 	can_use = function(self, card)
