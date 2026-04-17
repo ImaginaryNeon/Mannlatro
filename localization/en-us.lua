@@ -72,6 +72,13 @@ return {
                     "card by {C:attention}#2#{}",
                 },
             },
+            c_mannpower_resistance = {
+                name = 'Resistance',
+                text = {
+                    'Disables the current',
+                    '{C:attention}Boss Blind{}'
+                },
+            },
             c_mannpower_reflect = {
                 name = 'Reflect',
                 text = {
