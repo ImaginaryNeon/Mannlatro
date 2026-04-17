@@ -83,7 +83,8 @@ return {
                 name = 'Precision',
                 text = {
                     'Use this card to earn {C:money}$#1#{}',
-                    'Increases by {C:money}$#2#{} when a Blind is defeated in one hand'
+                    'Increases by {C:money}$#2#{} when a hand scores',
+                    'more than the Blind requirements'
                 }
             },
             c_mannpower_supernova = {
