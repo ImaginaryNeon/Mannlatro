@@ -3,7 +3,8 @@ SMODS.Consumable {
     set = 'Mannpower',
     atlas = 'mannpowercards',
     pos = {
-        y = 9
+        x = 1,
+        y = 2
     },
     select_card = 'consumeables',
     config = { max_highlighted = 1 },
