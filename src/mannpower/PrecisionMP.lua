@@ -3,7 +3,8 @@ SMODS.Consumable {
     set = 'Mannpower',
     atlas = 'mannpowercards',
     pos = {
-        y = 6
+        x = 2,
+        y = 1
     },
     select_card = 'consumeables',
     config = { extra = { money = 5, money_gain = 3 } },
