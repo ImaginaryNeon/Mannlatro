@@ -3,10 +3,11 @@ SMODS.Consumable {
     set = 'Mannpower',
     atlas = 'mannpowercards',
     pos = {
-        y = 3
+        x = 3,
+        y = 0
     },
     select_card = 'consumeables',
-    config = { max_highlighted = 1, extra = 0.9 },
+    config = { max_highlighted = 1, extra = 0.95 },
     weight = 2,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.max_highlighted, card.ability.extra } }

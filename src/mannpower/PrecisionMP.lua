@@ -3,11 +3,13 @@ SMODS.Consumable {
     set = 'Mannpower',
     atlas = 'mannpowercards',
     pos = {
-        y = 6
+        x = 2,
+        y = 1
     },
     select_card = 'consumeables',
     config = { extra = { money = 5, money_gain = 3 } },
     loc_vars = function(self, info_queue, card)
+        -- Add money if the last hand scored over the blind requirements
         if SMODS.last_hand_oneshot then
             card.ability.extra.money = card.ability.extra.money + card.ability.extra.money_gain
         end

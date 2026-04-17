@@ -1,5 +1,19 @@
 return {
     descriptions = {
+        Back = {
+        b_mannpower_manndeck = {
+            name = 'Mannpower Deck',
+            text = {
+                "After defeating each {C:attention}Boss Blind{},",
+                "open a {C:attention}Mannpower Pack{}"
+            },
+            unlock = {
+                "Win a run with",
+                "{C:attention}#1#{}",
+                "on any difficulty",
+            }
+        }
+    },
         Blind = {
             bl_mannpower_supernova = {
                 name = 'The Supernova',
@@ -64,12 +78,20 @@ return {
             }
         },
         Mannpower = {
-            c_mannpower_kingmp = {
-                name = 'King',
+            c_mannpower_strength = {
+                name = 'Strength',
                 text = {
-                    'Enhance up to #1# card',
-                    'into a Steel King'
-                }
+                    "Increases rank of",
+                    "up to {C:attention}#1#{} selected",
+                    "card by {C:attention}#2#{}",
+                },
+            },
+            c_mannpower_resistance = {
+                name = 'Resistance',
+                text = {
+                    'Disables the current',
+                    '{C:attention}Boss Blind{}'
+                },
             },
             c_mannpower_reflect = {
                 name = 'Reflect',
@@ -83,14 +105,29 @@ return {
                 name = 'Precision',
                 text = {
                     'Use this card to earn {C:money}$#1#{}',
-                    'Increases by {C:money}$#2#{} when a Blind is defeated in one hand'
+                    'Increases by {C:money}$#2#{} when a hand scores',
+                    'more than the Blind requirements'
+                }
+            },
+            c_mannpower_kingmp = {
+                name = 'King',
+                text = {
+                    'Enhance up to #1# card',
+                    'into a Steel King'
+                }
+            },
+            c_mannpower_plague = {
+                name = 'Plague',
+                text = {
+                    'Make #1# Joker',
+                    '{C:legendary}Eternal{} and {C:dark_edition}Negative{}'
                 }
             },
             c_mannpower_supernova = {
                 name = 'Supernova',
                 text = {
-                    'Removes all Stickers',
-                    'from up to #1# Joker'
+                    'Remove all Stickers',
+                    'from #1# Joker'
                 }
             }
         }

@@ -1,15 +1,10 @@
 SMODS.Consumable {
-    key = 'kingmp',
+    key = 'strength',
     set = 'Mannpower',
-    atlas = 'mannpowercards',
-    pos = {
-        x = 1,
-        y = 2
-    },
-    select_card = 'consumeables',
-    config = { max_highlighted = 1 },
+    pos = { x = 0, y = 0 },
+    config = { extra = { max_highlighted = 1, ranks = 2 } },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.max_highlighted } }
+        return { vars = { card.ability.extra.max_highlighted, card.ability.extra.ranks } }
     end,
     use = function(self, card, area, copier)
         G.E_MANAGER:add_event(Event({
@@ -41,9 +36,7 @@ SMODS.Consumable {
                 delay = 0.1,
                 func = function()
                     -- SMODS.modify_rank will increment/decrement a given card's rank by a given amount
-                    local _card = G.hand.cards[i]
-                    assert(SMODS.change_base(G.hand.highlighted[i], nil, "King"))
-                    G.hand.highlighted[i]:set_ability('m_steel')
+                    assert(SMODS.modify_rank(G.hand.highlighted[i], to_number(math.floor(card.ability.extra.ranks))))
                     return true
                 end
             }))
@@ -71,4 +64,7 @@ SMODS.Consumable {
         }))
         delay(0.5)
     end,
+    can_use = function(self, card)
+        return G.hand and #G.hand.highlighted > 0 and #G.hand.highlighted <= card.ability.extra.max_highlighted
+    end
 }
