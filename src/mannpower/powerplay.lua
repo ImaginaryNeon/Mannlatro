@@ -16,7 +16,7 @@ SMODS.Consumable {
                     local editionless_jokers = SMODS.Edition:get_edition_cards(G.jokers, true)
                     for i2 = 1, #editionless_jokers do
                         local edition = 'e_negative'
-                        editionless_jokers[i]:set_edition(edition, true)
+                        editionless_jokers[i2]:set_edition(edition, true)
                     end
                     check_for_unlock({ type = 'have_edition' })
                     card:juice_up(0.3, 0.5)
@@ -30,10 +30,10 @@ SMODS.Consumable {
                 trigger = 'after',
                 delay = 0.4,
                 func = function()
-                    local editionless_cards = SMODS.Edition:get_edition_cards(G.hand, true)
+                    local editionless_cards = SMODS.Edition:get_edition_cards(G.handlaying_cards, true)
                     for i2 = 1, #editionless_cards do
                         local edition = 'e_polychrome'
-                        editionless_cards[i]:set_edition(edition, true)
+                        editionless_cards[i2]:set_edition(edition, true)
                     end
                     check_for_unlock({ type = 'have_edition' })
                     card:juice_up(0.3, 0.5)
