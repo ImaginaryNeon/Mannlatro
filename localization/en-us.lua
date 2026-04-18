@@ -1,19 +1,17 @@
 return {
     descriptions = {
         Back = {
-        b_mannpower_manndeck = {
-            name = 'Mannpower Deck',
-            text = {
-                "After defeating each {C:attention}Boss Blind{},",
-                "open a {C:attention}Mannpower Pack{}"
-            },
-            unlock = {
-                "Win a run with",
-                "{C:attention}#1#{}",
-                "on any difficulty",
+            b_mannpower_manndeck = {
+                name = 'Mannpower Deck',
+                text = {
+                    "After defeating each {C:attention}Boss Blind{},",
+                    "open a {C:attention}Mannpower Pack{}"
+                },
+                unlock = {
+                    "Test",
+                }
             }
-        }
-    },
+        },
         Blind = {
             bl_mannpower_supernova = {
                 name = 'The Supernova',
@@ -53,20 +51,20 @@ return {
             }
         },
         Booster = {
-            p_mannpower_powerpack_1 = {
-                name = 'Power Pack',
-                text = {
-                    "Choose {C:attention}#1#{} of up to",
-                    "{C:attention}#2#{C:gold} Power-Up{} cards"
-                }
-            },
-            p_mannpower_powerpack_2 = {
+            p_mannpower_mannpowerpack_1 = { -- say that five times fast
                 name = 'Mannpower Pack',
                 text = {
                     "Choose {C:attention}#1#{} of up to",
-                    "{C:attention}#2#{C:gold} Power-Up{} cards"
+                    "{C:attention}#2# {C:gold}Power-Up{} cards"
                 }
-            }
+            },
+            p_mannpower_mannpowerpack_2 = {
+                name = 'Mannpower Pack',
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2# {C:gold}Power-Up{} cards"
+                }
+            },
         },
         Spectral = {
             c_mannpower_powerplay = {
@@ -131,5 +129,9 @@ return {
                 }
             }
         }
+    },
+    dictionary = {
+        k_mannpower_pack = "Mannpower Pack",
+        mannpower_plus_mp = "+1 Power-Up"
     }
 }

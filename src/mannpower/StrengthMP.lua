@@ -1,5 +1,6 @@
 SMODS.Consumable {
     key = 'strength',
+    atlas = 'mannpowercards',
     set = 'Mannpower',
     pos = { x = 0, y = 0 },
     config = { extra = { max_highlighted = 1, ranks = 2 } },

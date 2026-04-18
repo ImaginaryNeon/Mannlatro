@@ -6,40 +6,37 @@ SMODS.Consumable {
     soul_pos = { x = 1, y = 0 },
     hidden = true,
     soul_set = 'Mannpower',
+    no_doe = true,
     use = function(self, card, area, copier)
         for i = 1, #G.jokers.cards do
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.4,
-                func = function()
-                    play_sound('timpani')
-                    local editionless_jokers = SMODS.Edition:get_edition_cards(G.jokers, true)
-                    for i2 = 1, #editionless_jokers do
-                        local edition = 'e_negative'
-                        editionless_jokers[i2]:set_edition(edition, true)
+            if not G.jokers.cards[i].edition then
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    delay = 0.4,
+                    func = function()
+                        play_sound('timpani')
+                        G.jokers.cards[i]:set_edition('e_negative', true)
+                        check_for_unlock({ type = 'have_edition' })
+                        card:juice_up(0.3, 0.5)
+                        return true
                     end
-                    check_for_unlock({ type = 'have_edition' })
-                    card:juice_up(0.3, 0.5)
-                    return true
-                end
-            }))
-            delay(0.6)
+                }))
+                delay(0.6)
+            end
         end
         for i, playing_card in ipairs(G.hand.cards) do
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.4,
-                func = function()
-                    local editionless_cards = SMODS.Edition:get_edition_cards(G.handlaying_cards, true)
-                    for i2 = 1, #editionless_cards do
-                        local edition = 'e_polychrome'
-                        editionless_cards[i2]:set_edition(edition, true)
-                    end
-                    check_for_unlock({ type = 'have_edition' })
-                    card:juice_up(0.3, 0.5)
-                    return true
-                end,
-            }))
+            if not playing_card[i].edition then
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    delay = 0.4,
+                    func = function()
+                        playing_card:set_edition('e_polychrome', true)
+                        check_for_unlock({ type = 'have_edition' })
+                        card:juice_up(0.3, 0.5)
+                        return true
+                    end,
+                }))
+            end
         end
     end,
     can_use = function(self, card)

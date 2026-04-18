@@ -1,5 +1,5 @@
 SMODS.Consumable {
-	key = 'Supernova',
+	key = 'supernova',
 	set = 'Mannpower',
 	atlas = 'mannpowercards',
 	pos = {
