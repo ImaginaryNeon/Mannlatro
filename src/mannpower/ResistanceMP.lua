@@ -16,5 +16,10 @@ SMODS.Consumable {
                 end
             }
         end
+    end,
+    can_use = function(self, card)
+        if G.GAME.blind and not G.GAME.blind.disabled and G.GAME.blind.boss then
+            return true
+        end
     end
 }

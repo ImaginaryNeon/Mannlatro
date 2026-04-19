@@ -1,6 +1,6 @@
 SMODS.Booster {
-    key = "mannpowerpack_1",
-    weight = 1,
+    key = "powerpack_1",
+    weight = 2,
     kind = 'Mannpower', -- You can also use Arcana if you want it to belong to the vanilla kind
     cost = 4,
     atlas = 'mannpowerpack',
@@ -15,6 +15,7 @@ SMODS.Booster {
                 cfg.extra,
                 --colours = { HEX('00FF00') }
             },
+            key = self.key:sub(1, -3) -- This uses the description key of the booster without the number at the end. Remove this if your booster doesn't have artwork variants like vanilla
         }
     end,
     --    particles = function(self)
@@ -38,7 +39,7 @@ SMODS.Booster {
             area = G.pack_cards,
             skip_materialize = true,
             soulable = true,
-            key_append = "unique_string_for_rng"
+            key_append = "Haltwhereisgabrielandwhathaveyoudonewithhim"
         }
     end,
     ease_background_colour = function(self)
@@ -46,9 +47,9 @@ SMODS.Booster {
             SMODS.ConsumableTypes['Mannpower'].secondary_colour)
     end,
     cry_digital_hallucinations = {
-        colour = HEX("14b341"),        --The message color to be displayed
-        loc_key = "mannpower_plus_mp", --Localization key for the message to be displayed
-        create = function()            --The function that adds the card to your run (example here for Program Packs)
+        colour = HEX("ED712B"),          --The message color to be displayed
+        loc_key = "mannpower_plus_mann", --Localization key for the message to be displayed
+        create = function()              --The function that adds the card to your run (example here for Program Packs)
             local ccard = create_card("Mannpower", G.consumables, nil, nil, nil, nil, nil, "diha")
             ccard:set_edition({ negative = true }, true)
             ccard:add_to_deck()
@@ -57,8 +58,8 @@ SMODS.Booster {
     }
 }
 SMODS.Booster {
-    key = "mannpowerpack_2",
-    weight = 1,
+    key = "powerpack_2",
+    weight = 2,
     kind = 'Mannpower', -- You can also use Arcana if you want it to belong to the vanilla kind
     cost = 4,
     atlas = 'mannpowerpack',
@@ -69,7 +70,7 @@ SMODS.Booster {
         local cfg = (card and card.ability) or self.config
         return {
             vars = { cfg.choose, cfg.extra },
-            key = self.key:sub(2, -2) -- This uses the description key of the booster without the number at the end. Remove this if your booster doesn't have artwork variants like vanilla
+            key = self.key:sub(1, -3) -- This uses the description key of the booster without the number at the end. Remove this if your booster doesn't have artwork variants like vanilla
         }
     end,
     ease_background_colour = function(self)
@@ -104,9 +105,9 @@ SMODS.Booster {
         return _card
     end,
     cry_digital_hallucinations = {
-        colour = HEX("14b341"),    --The message color to be displayed
-        loc_key = "cry_plus_code", --Localization key for the message to be displayed
-        create = function()        --The function that adds the card to your run (example here for Program Packs)
+        colour = HEX("ED712B"),          --The message color to be displayed
+        loc_key = "mannpower_plus_mann", --Localization key for the message to be displayed
+        create = function()              --The function that adds the card to your run (example here for Program Packs)
             local ccard = create_card("Mannpower", G.consumables, nil, nil, nil, nil, nil, "diha")
             ccard:set_edition({ negative = true }, true)
             ccard:add_to_deck()

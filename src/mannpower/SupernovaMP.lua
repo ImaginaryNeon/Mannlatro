@@ -34,6 +34,7 @@ SMODS.Consumable {
 				---					SMODS.Stickers.cry_flickering:apply(CARD, nil)
 				play_sound("card1", percent)
 				jkr:juice_up(0.3, 0.3)
+				jkr:flip()
 				return true
 			end,
 		}))

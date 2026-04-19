@@ -51,20 +51,13 @@ return {
             }
         },
         Other = {
-            p_mannpower_mannpowerpack_1 = { -- say that five times fast
+            p_mannpower_powerpack = { -- say that five times fast
                 name = 'Mannpower Pack',
                 text = {
                     "Choose {C:attention}#1#{} of up to",
                     "{C:attention}#2# {C:gold}Power-Up{} cards"
                 }
-            },
-            p_mannpower_mannpowerpack_2 = {
-                name = 'Mannpower Pack',
-                text = {
-                    "Choose {C:attention}#1#{} of up to",
-                    "{C:attention}#2# {C:gold}Power-Up{} cards"
-                }
-            },
+            }
         },
         Spectral = {
             c_mannpower_powerplay = {
@@ -130,8 +123,10 @@ return {
             }
         }
     },
-    dictionary = {
-        k_mannpower_pack = "Mannpower Pack",
-        mannpower_plus_mp = "+1 Power-Up"
+    misc = {
+        dictionary = {
+            k_mannpower_pack = "Mannpower Pack",
+            mannpower_plus_mann = "+1 Power-Up"
+        },
     }
 }

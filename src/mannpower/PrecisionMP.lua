@@ -9,7 +9,7 @@ SMODS.Consumable {
     select_card = 'consumeables',
     config = { extra = { money = 5, money_gain = 3 } },
     loc_vars = function(self, info_queue, card)
-        if SMODS.last_hand_oneshot and test ~= true then
+        if SMODS.last_hand_oneshot then
             card.ability.extra.money = card.ability.extra.money + card.ability.extra.money_gain
         end
         return { vars = { card.ability.extra.money, card.ability.extra.money_gain } }
@@ -27,4 +27,7 @@ SMODS.Consumable {
         }))
         delay(0.6)
     end,
+    can_use = function(self, card)
+        return true
+    end
 }
