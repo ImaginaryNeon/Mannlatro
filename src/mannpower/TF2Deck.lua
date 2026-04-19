@@ -12,7 +12,7 @@ SMODS.Back {
 			G.E_MANAGER:add_event(Event({
 				trigger = "before",
 				func = function()
-					local key = "p_mannpower_powerpack_1"
+					local key = "p_mannpower_nannpowerpack_1"
 					local card = Card(
 						G.play.T.x + G.play.T.w / 2 - G.CARD_W * 1.27 / 2,
 						G.play.T.y + G.play.T.h / 2 - G.CARD_H * 1.27 / 2,

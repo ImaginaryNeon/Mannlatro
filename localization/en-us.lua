@@ -50,7 +50,7 @@ return {
                 }
             }
         },
-        Booster = {
+        Other = {
             p_mannpower_mannpowerpack_1 = { -- say that five times fast
                 name = 'Mannpower Pack',
                 text = {
