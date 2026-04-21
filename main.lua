@@ -23,6 +23,13 @@ SMODS.Atlas { -- Mannpower Cards
     py = 95
 }
 
+SMODS.Atlas {
+    key = "sleeve_atlas",
+    path = "Sleeve.png",
+    px = 73,
+    py = 95
+}
+
 SMODS.Atlas { -- Deck
     key = 'deck',
     path = 'manndeck.png',
