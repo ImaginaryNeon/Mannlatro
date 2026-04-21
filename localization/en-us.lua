@@ -147,6 +147,32 @@ return {
                     "and {C:cry_code}Developer Console{}"
                 },
             }
+        },
+        Voucher = {
+            v_mannpower_tour_of_duty = {
+                name = "Tour of Duty",
+                text = {
+                    "{C:attention}Mannpower{} cards",
+					"can appear",
+					"in the {C:attention}shop{}",
+                },
+            },
+            v_mannpower_squad_surplus = {
+                name = "Squad Surplus",
+                text = {
+                    "{C:attention}Mannpower{} cards appear",
+                    "{C:attention}#1#X{} more frequently",
+                    "in the shop",
+                },
+            },
+            v_mannpower_developer_console = {
+                name = "Developer Console",
+                text = {
+                    "{C:attention}Spectral{} cards may",
+                    "appear in any of",
+                    "the {C:cry_code}Code Packs",
+                },
+            },
         }
     },
     misc = {
