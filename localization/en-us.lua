@@ -118,7 +118,7 @@ return {
                 name = 'Supernova',
                 text = {
                     'Remove all Stickers',
-                    'from #1# Joker'
+                    'from 1 Joker'
                 }
             }
         }
