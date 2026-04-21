@@ -121,6 +121,58 @@ return {
                     'from 1 Joker'
                 }
             }
+        },
+        Sleeve = {
+            sleeve_mannpower_mannsleve = {
+                name = "Mannpower Sleeve",
+                text = {
+                    "After defeating each {C:attention}Boss Blind{},",
+                    "open a {C:attention}Mannpower Pack{}"
+                },
+            },
+            sleeve_mannpower_mannsleve_alt = {
+                name = "Mannpower Sleeve",
+                text = {
+                    "Start run with",
+                    "{C:attention}Tour of Duty{}",
+                    "and {C:attention}Squad Surplus{}"
+                },
+            },
+            sleeve_mannpower_mannsleve_cry_alt = {
+                name = "Mannpower Sleeve",
+                text = {
+                    "Start run with",
+                    "{C:attention}Tour of Duty{},",
+                    "{C:attention}Squad Surplus{},",
+                    "and {C:cry_code}Developer Console{}"
+                },
+            }
+        },
+        Voucher = {
+            v_mannpower_tour_of_duty = {
+                name = "Tour of Duty",
+                text = {
+                    "{C:attention}Mannpower{} cards",
+					"can appear",
+					"in the {C:attention}shop{}",
+                },
+            },
+            v_mannpower_squad_surplus = {
+                name = "Squad Surplus",
+                text = {
+                    "{C:attention}Mannpower{} cards appear",
+                    "{C:attention}#1#X{} more frequently",
+                    "in the shop",
+                },
+            },
+            v_mannpower_developer_console = {
+                name = "Developer Console",
+                text = {
+                    "{C:attention}Spectral{} cards may",
+                    "appear in any of",
+                    "the {C:cry_code}Code Packs",
+                },
+            },
         }
     },
     misc = {

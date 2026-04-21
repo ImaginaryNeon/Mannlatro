@@ -6,7 +6,7 @@ SMODS.ConsumableType {
     badge_colour = HEX('ED712B'),
     default = "c_mannpower_strength",
     select_card = "consumeables",
-    shop_rate = 1,
+    shop_rate = 0,
     loc_txt = {
         name = 'Mannpower',       -- used on card type badges
         collection = 'Mannpower', -- label for the button to access the collection
