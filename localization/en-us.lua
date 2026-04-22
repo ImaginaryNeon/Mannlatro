@@ -120,6 +120,15 @@ return {
                     'Remove all Stickers',
                     'from 1 Joker'
                 }
+            },
+			c_mannpower_vampire = {
+                name = 'Vampire',
+				text = {
+					"Removes {C:red}all {C:green}modifications{}",
+					"from up to {C:attention}#1#{} cards,",
+					"Earn {C:money}$#2#{} per {C:green}modification{} removed",
+					"{C:inactive,s:0.7}(ex. Enhancements, Seals, Editions)",
+				}
             }
         },
         Sleeve = {
