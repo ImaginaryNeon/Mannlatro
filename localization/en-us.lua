@@ -110,8 +110,8 @@ return {
             c_mannpower_plague = {
                 name = 'Plague',
                 text = {
-                    'Make #1# Joker',
-                    '{C:legendary}Eternal{} and {C:dark_edition}Negative{}'
+                    'Make #1# Joker {C:legendary}Eternal{},',
+                    '{C:common}Perishable{}, and {C:dark_edition}Negative{}'
                 }
             },
             c_mannpower_supernova = {
