@@ -30,6 +30,7 @@ SMODS.Consumable {
 				jkr:flip()
         jkr:set_edition('e_negative', true)
 				jkr.ability.eternal = true
+				jkr.ability.perishable = true
 				play_sound("card1", percent)
 				jkr:juice_up(0.3, 0.3)
 				return true
