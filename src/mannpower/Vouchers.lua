@@ -36,20 +36,27 @@ SMODS.Voucher {
                 return true
             end
         }))
-    end, --,
-    --    unredeem = function(self)
-    --        G.E_MANAGER:add_event(Event({
-    --            func = function()
-    --                G.GAME.mannpower_rate = math.max(0, G.GAME.mannpower_rate / 4)
-    --                return true
-    --            end
-    --        }))
-    --    end
+    end,
+    unredeem = function(self)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                G.GAME.mannpower_rate = math.max(0, G.GAME.mannpower_rate / 4)
+                return true
+            end
+        }))
+    end,
 }
 if Cryptid then
     SMODS.Voucher {
         key = 'developer_console',
         atlas = 'vouchers',
+        order = 32657,
+        dependencies = {
+            items = {
+                "set_cry_tier3",
+            },
+        },
+        pools = { ["Tier3"] = true },
         pos = { x = 2, y = 0 },
         --    unlocked = false,
         requires = { 'v_mannpower_squad_surplus' },
