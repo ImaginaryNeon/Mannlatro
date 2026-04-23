@@ -1,5 +1,16 @@
 return {
     descriptions = {
+		Joker = {
+            j_mannpower_passjack = {
+                name = 'PASS Time JACK',
+                text = {
+                    "{C:green}#1# in #2#{} chance for each",
+                    "played {C:attention}Jack{} to create a",
+                    "{C:diamonds}Mannpower{} card when scored",
+                    "{C:inactive}(Must have room)",
+                }
+            },
+		},
         Back = {
             b_mannpower_manndeck = {
                 name = 'Mannpower Deck',
@@ -55,7 +66,7 @@ return {
                 name = 'Mannpower Pack',
                 text = {
                     "Choose {C:attention}#1#{} of up to",
-                    "{C:attention}#2# {C:gold}Power-Up{} cards"
+                    "{C:attention}#2# {C:diamonds}Power-Up{} cards"
                 }
             },
 			mannpower_strange_seal = {
@@ -97,7 +108,7 @@ return {
                 name = 'Reflect',
                 text = {
                     'Select up to #1# card',
-                    'and permenantly give it {X:blind,C:white}x#2#{} Blind size',
+                    'and permenantly give it {X:blind,C:white}X#2#{} Blind size',
                     '{C:inactive}(This effect stacks){}'
                 }
             },
