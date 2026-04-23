@@ -57,6 +57,15 @@ return {
                     "Choose {C:attention}#1#{} of up to",
                     "{C:attention}#2# {C:gold}Power-Up{} cards"
                 }
+            },
+			mannpower_strange_seal = {
+                name = 'Stat Clock',
+                text = {
+                    'Gains {C:mult}+#2#{} Mult when",
+                    "this card is played",
+                    "and scores",
+                    '{C:inactive}(Currently{} {C:mult}+#1#{}{C:inactive} Mult){}'
+                }
             }
         },
         Spectral = {
@@ -189,5 +198,8 @@ return {
             k_mannpower_pack = "Mannpower Pack",
             mannpower_plus_mann = "+1 Power-Up"
         },
+		labels = {
+            mannpower_strange_seal = "Stat Clock"
+		],
     }
 }
