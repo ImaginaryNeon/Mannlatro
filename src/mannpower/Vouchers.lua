@@ -60,6 +60,11 @@ if Cryptid then
         pos = { x = 2, y = 0 },
         --    unlocked = false,
         requires = { 'v_mannpower_squad_surplus' },
+        calculate = function(self, card, context)
+            if context.create_booster_card and context.booster.config.center.group_key == "k_cry_program_pack" and pseudorandom("developer_console") > 0.8 then
+                return { set = "Mannpower", key_append = "ar2" }
+            end
+        end
         --    locked_loc_vars = function(self, info_queue, card)
         --        return { vars = { 25, G.PROFILES[G.SETTINGS.profile].career_stats.c_shop_rerolls } }
         --    end,
@@ -67,31 +72,4 @@ if Cryptid then
         --        return args.type == 'c_tarot_reading_used' and G.PROFILES[G.SETTINGS.profile].career_stats.c_shop_rerolls >= 25
         --    end
     }
-    SMODS.Booster:take_ownership_by_kind('Code', {
-            create_card = function(self, card, i)
-                local _card
-                if (G.GAME.used_vouchers.v_mannpower_developer_console and pseudorandom('developer_console') > 0.8) then
-                    _card = {
-                        set = "Mannpower",
-                        area = G.pack_cards,
-                        skip_materialize = true,
-                        soulable = true,
-                        key_append =
-                        "ar2"
-                    }
-                else
-                    _card = {
-                        set = "Code",
-                        area = G.pack_cards,
-                        skip_materialize = true,
-                        soulable = true,
-                        key_append =
-                        "ar1"
-                    }
-                end
-                return _card
-            end,
-        },
-        true
-    )
 end
