@@ -89,12 +89,21 @@ return {
             }
         },
         Mannpower = {
-            c_mannpower_strength = {
+			c_mannpower_strength = {
                 name = 'Strength',
+                text = {
+                    "Add a {C:attention}Stat Clock{}",
+                    "to {C:attention}#1#{} selected",
+                    "card in your hand",
+                },
+            },
+            c_mannpower_knockout = {
+                name = 'Knockout',
                 text = {
                     "Increases rank of",
                     "up to {C:attention}#1#{} selected",
-                    "card by {C:attention}#2#{}",
+                    "cards by {C:attention}#2#{} and",
+					"remove their {C:attention}Enhancements{}",
                 },
             },
             c_mannpower_resistance = {
