@@ -1,5 +1,5 @@
 SMODS.Seal {
-    key = 'Strange',
+    key = 'strange',
     atlas = 'statclock',
     pos = { x = 0, y = 0 },
     config = {
