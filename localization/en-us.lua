@@ -112,6 +112,13 @@ return {
                     '{C:inactive}(This effect stacks){}'
                 }
             },
+			c_mannpower_regeneration = {
+                name = 'Regeneration',
+                text = {
+                    'Use to create',
+                    'a {C:attention}D6 Tag{}'
+                }
+            },
             c_mannpower_precision = {
                 name = 'Precision',
                 text = {
