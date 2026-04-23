@@ -7,13 +7,13 @@ SMODS.Consumable {
         y = 0
     },
     select_card = 'consumeables',
-    config = { extra = { max_highlighted = 3, money = 4 } },
+    config = { extra = { max_highlighted = 3, money = 3 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.max_highlighted, card.ability.extra.money } }
     end,
     use = function(self, card, area, copier)
-		local used_consumable = copier or card
-		local earnings = 0
+        local used_consumable = copier or card
+        local earnings = 0
         G.E_MANAGER:add_event(Event({
             trigger = 'after',
             delay = 0.4,
@@ -38,32 +38,32 @@ SMODS.Consumable {
         end
         delay(0.2)
         for i = 1, #G.hand.highlighted do
-	    		local CARD = G.hand.highlighted.cards[i]
-		    	if CARD.config.center ~= G.P_CENTERS.c_base then
-			    	earnings = earnings + 1
-	    		end
-		    	if CARD.edition then
-		    		earnings = earnings + 1
-	    		end
-	    		if CARD.seal then
-		    		earnings = earnings + 1
-	    		end
-		    	local percent = 0.85 + (i - 0.999) / (#G.hand.highlighted.cards - 0.998) * 0.3
-		    	G.E_MANAGER:add_event(Event({
-		    		trigger = "after",
-			    	delay = 0.15,
-		    		func = function()
-			    		CARD:flip()
-		    			CARD:set_ability(G.P_CENTERS.c_base, true, nil)
-				    	CARD:set_edition(nil, true)
-		    			CARD:set_seal(nil, true)
-		    			play_sound("tarot2", percent)
-		    			CARD:juice_up(0.3, 0.3)
-		    			return true
-		    		end,
-		    	}))
-		    end
-		ease_dollars(earnings * card.ability.extra.money)
+            local CARD = G.hand.highlighted[i]
+            if CARD.config.center ~= G.P_CENTERS.c_base then
+                earnings = earnings + 1
+            end
+            if CARD.edition then
+                earnings = earnings + 1
+            end
+            if CARD.seal then
+                earnings = earnings + 1
+            end
+            local percent = 0.85 + (i - 0.999) / (#G.hand.highlighted - 0.998) * 0.3
+            G.E_MANAGER:add_event(Event({
+                trigger = "after",
+                delay = 0.15,
+                func = function()
+                    CARD:flip()
+                    CARD:set_ability(G.P_CENTERS.c_base, true, nil)
+                    CARD:set_edition(nil, true)
+                    CARD:set_seal(nil, true)
+                    play_sound("tarot2", percent)
+                    CARD:juice_up(0.3, 0.3)
+                    return true
+                end,
+            }))
+        end
+        ease_dollars(earnings * card.ability.extra.money)
         G.E_MANAGER:add_event(Event({
             trigger = 'after',
             delay = 0.2,
