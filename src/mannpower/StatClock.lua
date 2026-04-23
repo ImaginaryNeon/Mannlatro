@@ -1,7 +1,11 @@
 SMODS.Seal {
     key = 'strange',
     atlas = 'statclock',
+    if Cryptid then
+    pos = { x = 1, y = 0 },
+    else
     pos = { x = 0, y = 0 },
+    end,
     config = {
         extra = {
             mult = 0,
