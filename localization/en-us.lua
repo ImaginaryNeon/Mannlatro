@@ -24,6 +24,13 @@ return {
             }
         },
         Blind = {
+            bl_mannpower_agility = {
+                name = 'The Agility',
+                text = {
+                    'Discards highlighted cards',
+                    'every 10 seconds'
+                }
+            },
             bl_mannpower_supernova = {
                 name = 'The Supernova',
                 text = {
@@ -96,6 +103,14 @@ return {
                     "card in your hand",
                 },
             },
+            c_mannpower_agility = {
+                name = 'Agility',
+                text = {
+                    'Use this card to earn {C:money}$#2#{}',
+                    'Earn {C:money}$#3#{} more if the last hand scored',
+                    'more than the Blind requirements.'
+                }
+            },
             c_mannpower_knockout = {
                 name = 'Knockout',
                 text = {
@@ -131,8 +146,8 @@ return {
                 name = 'Precision',
                 text = {
                     'Use this card to earn {C:money}$#1#{}',
-                    'Increases by {C:money}$#2#{} when a hand scores',
-                    'more than the Blind requirements'
+                    'Earn {C:red}$#2#{} less per Joker owned',
+                    'more than the Blind requirements.'
                 }
             },
             c_mannpower_kingmp = {
