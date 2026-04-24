@@ -7,13 +7,13 @@ SMODS.Consumable {
         -- This will add a tooltip.
         mod_conv = "mannpower_strange_seal",
         -- Tooltip args
-        seal = { change = 2 },
+        seal = { extra = { change = 2 } },
         max_highlighted = 1,
     },
     loc_vars = function(self, info_queue, center)
         -- Handle creating a tooltip with set args.
         info_queue[#info_queue + 1] =
-        { set = "Other", key = "mannpower_strange_seal", specific_vars = { self.config.seal.change } }
+        { set = "Other", key = "mannpower_strange_seal", specific_vars = { self.config.seal.extra.change } }
         return { vars = { center.ability.max_highlighted } }
     end,
     use = function(self, card, area, copier)
