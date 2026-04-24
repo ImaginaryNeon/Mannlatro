@@ -103,6 +103,14 @@ return {
                     "card in your hand",
                 },
             },
+            c_mannpower_agility = {
+                name = 'Agility',
+                text = {
+                    'Use this card to earn {C:money}$#2#{}',
+                    'Earn {C:money}$#3#{} more if the last hand scored',
+                    'more than the Blind requirements.'
+                }
+            },
             c_mannpower_knockout = {
                 name = 'Knockout',
                 text = {
@@ -137,8 +145,8 @@ return {
             c_mannpower_precision = {
                 name = 'Precision',
                 text = {
-                    'Use this card to earn {C:money}$#2#{}',
-                    'Earn {C:money}$#3#{} more if the last hand scored',
+                    'Use this card to earn {C:money}$#1#{}',
+                    'Earn {C:red}$#2#{} less per Joker owned',
                     'more than the Blind requirements.'
                 }
             },
