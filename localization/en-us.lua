@@ -54,17 +54,8 @@ return {
             bl_mannpower_haste = {
                 name = 'The Haste',
                 text = {
-                    'Destroys 1 card in hand',
-                    'every 12 seconds,',
-                    'multiplied by game speed'
-                }
-            },
-            bl_mannpower_haste2 = {
-                name = 'The Haste (V2)',
-                text = {
-                    'Discards 1 random card',
-                    'every 10 seconds,',
-                    'multiplied by game speed'
+                    'Destroys 1 random unselected',
+                    'card every 6 seconds,'
                 }
             }
         },
@@ -103,23 +94,6 @@ return {
                     "card in your hand",
                 },
             },
-            c_mannpower_agility = {
-                name = 'Agility',
-                text = {
-                    'Use this card to earn {C:money}$#2#{}',
-                    'Earn {C:money}$#3#{} more if the last hand scored',
-                    'more than the Blind requirements.'
-                }
-            },
-            c_mannpower_knockout = {
-                name = 'Knockout',
-                text = {
-                    "Increases rank of",
-                    "up to {C:attention}#1#{} selected",
-                    "cards by {C:attention}#2#{} and",
-                    "remove their {C:attention}Enhancements{}",
-                },
-            },
             c_mannpower_resistance = {
                 name = 'Resistance',
                 text = {
@@ -127,12 +101,28 @@ return {
                     '{C:attention}Boss Blind{}'
                 },
             },
+            c_mannpower_vampire = {
+                name = 'Vampire',
+                text = {
+                    "Removes {C:red}all {C:green}modifications{}",
+                    "from up to {C:attention}#1#{} cards,",
+                    "Earn {C:money}$#2#{} per {C:green}modification{} removed",
+                    "{C:inactive,s:0.7}(ex. Enhancements, Seals, Editions)",
+                }
+            },
             c_mannpower_reflect = {
                 name = 'Reflect',
                 text = {
                     'Select up to #1# card',
                     'and permenantly give it {X:blind,C:white}X#2#{} Blind size',
                     '{C:inactive}(This effect stacks){}'
+                }
+            },
+            c_mannpower_haste = {
+                name = 'Haste',
+                text = {
+                    'Use on the {C:attention}first hand{} of a Blind',
+                    'to double {C:blue}hands{} and {C:red}discards{}'
                 }
             },
             c_mannpower_regeneration = {
@@ -149,6 +139,23 @@ return {
                     'Earn {C:red}$#2#{} less per Joker owned',
                     '{C:inactive}(Currently {C:money}$#3#{C:inactive})'
                 }
+            },
+            c_mannpower_agility = {
+                name = 'Agility',
+                text = {
+                    'Use this card to earn {C:money}$#2#{}',
+                    'Earn {C:money}$#3#{} more if the last hand scored',
+                    'more than the Blind requirements.'
+                }
+            },
+            c_mannpower_knockout = {
+                name = 'Knockout',
+                text = {
+                    "Increases rank of",
+                    "up to {C:attention}#1#{} selected",
+                    "cards by {C:attention}#2#{} and",
+                    "remove their {C:attention}Enhancements{}",
+                },
             },
             c_mannpower_kingmp = {
                 name = 'King',
@@ -169,15 +176,6 @@ return {
                 text = {
                     'Remove all Stickers',
                     'from 1 Joker'
-                }
-            },
-            c_mannpower_vampire = {
-                name = 'Vampire',
-                text = {
-                    "Removes {C:red}all {C:green}modifications{}",
-                    "from up to {C:attention}#1#{} cards,",
-                    "Earn {C:money}$#2#{} per {C:green}modification{} removed",
-                    "{C:inactive,s:0.7}(ex. Enhancements, Seals, Editions)",
                 }
             }
         },

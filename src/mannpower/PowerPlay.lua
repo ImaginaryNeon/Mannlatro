@@ -25,7 +25,7 @@ SMODS.Consumable {
             end
         end
         for i, playing_card in ipairs(G.hand.cards) do
-            if not playing_card[i].edition then
+            if not playing_card.edition then
                 G.E_MANAGER:add_event(Event({
                     trigger = 'after',
                     delay = 0.4,
@@ -42,11 +42,4 @@ SMODS.Consumable {
     can_use = function(self, card)
         return next(SMODS.Edition:get_edition_cards(G.jokers, true))
     end,
-    --    draw = function(self, card, layer)
-    -- This is for the Spectral shader. You don't need this with `set = "Spectral"`
-    -- Also look into SMODS.DrawStep if you make multiple cards that need the same shader
-    --        if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
-    --            card.children.center:draw_shader('booster', nil, card.ARGS.send_to_shader)
-    --        end
-    --    end
 }

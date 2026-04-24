@@ -18,7 +18,7 @@ SMODS.Consumable {
             end
         end
         card.ability.extra.money = math.max(money, 0)
-        return { vars = { card.ability.extra.money_basw, card.ability.extra.money_per, card.ability.extra.money } }
+        return { vars = { card.ability.extra.money_base, card.ability.extra.money_per, card.ability.extra.money } }
     end,
     use = function(self, card, area, copier)
         G.E_MANAGER:add_event(Event({
