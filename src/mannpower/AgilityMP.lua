@@ -1,9 +1,9 @@
 SMODS.Consumable {
-    key = 'precision',
+    key = 'agility',
     set = 'Mannpower',
     atlas = 'mannpowercards',
     pos = {
-        x = 2,
+        x = 3,
         y = 1
     },
     select_card = 'consumeables',
