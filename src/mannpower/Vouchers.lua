@@ -62,7 +62,7 @@ if Cryptid then
         requires = { 'v_mannpower_squad_surplus' },
         calculate = function(self, card, context)
             if context.create_booster_card and context.booster.config.center.group_key == "k_cry_program_pack" and pseudorandom("developer_console") > 0.8 then
-                return { set = "Mannpower", key_append = "ar2" }
+                return { booster_create_flags = { set = 'Mannpower', key_append = 'ar2' } }
             end
         end
         --    locked_loc_vars = function(self, info_queue, card)
