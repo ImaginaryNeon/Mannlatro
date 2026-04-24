@@ -24,6 +24,13 @@ return {
             }
         },
         Blind = {
+            bl_mannpower_agility = {
+                name = 'The Agility',
+                text = {
+                    'Discards highlighted cards',
+                    'every 10 seconds'
+                }
+            },
             bl_mannpower_supernova = {
                 name = 'The Supernova',
                 text = {
