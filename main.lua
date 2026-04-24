@@ -7,7 +7,7 @@ SMODS.Atlas { -- Jokers
     py = 95
 }
 
-SMODS.Atlas { -- Jokers
+SMODS.Atlas { -- Vouchers
     key = 'vouchers',
     path = 'Vouchers.png',
     px = 71,
@@ -33,6 +33,13 @@ SMODS.Atlas { -- Mannpower Cards
 SMODS.Atlas {
     key = "sleeve_atlas",
     path = "Sleeve.png",
+    px = 73,
+    py = 95
+}
+
+SMODS.Atlas {
+    key = "statclock",
+    path = "StatClock.png",
     px = 73,
     py = 95
 }

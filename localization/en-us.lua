@@ -1,6 +1,6 @@
 return {
     descriptions = {
-		Joker = {
+        Joker = {
             j_mannpower_passjack = {
                 name = 'PASS Time JACK',
                 text = {
@@ -10,7 +10,7 @@ return {
                     "{C:inactive}(Must have room)",
                 }
             },
-		},
+        },
         Back = {
             b_mannpower_manndeck = {
                 name = 'Mannpower Deck',
@@ -69,13 +69,12 @@ return {
                     "{C:attention}#2# {C:diamonds}Power-Up{} cards"
                 }
             },
-			mannpower_strange_seal = {
+            mannpower_strange_seal = {
                 name = 'Stat Clock',
                 text = {
-                    'Gains {C:mult}+#2#{} Mult when",
-                    "this card is played",
-                    "and scores",
-                    '{C:inactive}(Currently{} {C:mult}+#1#{}{C:inactive} Mult){}'
+                    'Gains {C:mult}+#1#{} Mult when',
+                    'this card is played',
+                    'and scores',
                 }
             }
         },
@@ -89,7 +88,7 @@ return {
             }
         },
         Mannpower = {
-			c_mannpower_strength = {
+            c_mannpower_strength = {
                 name = 'Strength',
                 text = {
                     "Add a {C:attention}Stat Clock{}",
@@ -103,7 +102,7 @@ return {
                     "Increases rank of",
                     "up to {C:attention}#1#{} selected",
                     "cards by {C:attention}#2#{} and",
-					"remove their {C:attention}Enhancements{}",
+                    "remove their {C:attention}Enhancements{}",
                 },
             },
             c_mannpower_resistance = {
@@ -121,7 +120,7 @@ return {
                     '{C:inactive}(This effect stacks){}'
                 }
             },
-			c_mannpower_regeneration = {
+            c_mannpower_regeneration = {
                 name = 'Regeneration',
                 text = {
                     'Use to create',
@@ -157,14 +156,14 @@ return {
                     'from 1 Joker'
                 }
             },
-			c_mannpower_vampire = {
+            c_mannpower_vampire = {
                 name = 'Vampire',
-				text = {
-					"Removes {C:red}all {C:green}modifications{}",
-					"from up to {C:attention}#1#{} cards,",
-					"Earn {C:money}$#2#{} per {C:green}modification{} removed",
-					"{C:inactive,s:0.7}(ex. Enhancements, Seals, Editions)",
-				}
+                text = {
+                    "Removes {C:red}all {C:green}modifications{}",
+                    "from up to {C:attention}#1#{} cards,",
+                    "Earn {C:money}$#2#{} per {C:green}modification{} removed",
+                    "{C:inactive,s:0.7}(ex. Enhancements, Seals, Editions)",
+                }
             }
         },
         Sleeve = {
@@ -198,8 +197,8 @@ return {
                 name = "Tour of Duty",
                 text = {
                     "{C:attention}Mannpower{} cards",
-					"can appear",
-					"in the {C:attention}shop{}",
+                    "can appear",
+                    "in the {C:attention}shop{}",
                 },
             },
             v_mannpower_squad_surplus = {
@@ -225,8 +224,8 @@ return {
             k_mannpower_pack = "Mannpower Pack",
             mannpower_plus_mann = "+1 Power-Up"
         },
-		labels = {
-            mannpower_strange_seal = "Stat Clock"
-		],
+        labels = {
+            mannpower_strange_seal = "Stat Clock",
+        }
     }
 }
