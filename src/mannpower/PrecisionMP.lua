@@ -7,9 +7,9 @@ SMODS.Consumable {
         y = 1
     },
     select_card = 'consumeables',
-    config = { extra = { money = 20, money_per = 4 } },
+    config = { extra = { money_base = 20, money_per = 4, money = 20 } },
     loc_vars = function(self, info_queue, card)
-        local money = 20
+        local money = card.ability.extra.money_base
         if G.jokers then
             for i = 1, #G.jokers.cards do
                 if G.jokers.cards[i].ability.set == 'Joker' then
@@ -18,7 +18,7 @@ SMODS.Consumable {
             end
         end
         card.ability.extra.money = math.max(money, 0)
-        return { vars = { card.ability.extra.money, card.ability.extra.money_per } }
+        return { vars = { card.ability.extra.money_basw, card.ability.extra.money_per, card.ability.extra.money } }
     end,
     use = function(self, card, area, copier)
         G.E_MANAGER:add_event(Event({
