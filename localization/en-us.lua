@@ -147,7 +147,7 @@ return {
                 text = {
                     'Use this card to earn {C:money}$#1#{}',
                     'Earn {C:red}$#2#{} less per Joker owned',
-                    'more than the Blind requirements.'
+                    '{C:inactive}(Currently {C:money}$#3#{C:inactive})'
                 }
             },
             c_mannpower_kingmp = {
