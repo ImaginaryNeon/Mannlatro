@@ -137,9 +137,9 @@ return {
             c_mannpower_precision = {
                 name = 'Precision',
                 text = {
-                    'Use this card to earn {C:money}$#1#{}',
-                    'Increases by {C:money}$#2#{} when a hand scores',
-                    'more than the Blind requirements'
+                    'Use this card to earn {C:money}$#2#{}',
+                    'Earn {C:money}$#3#{} more if the last hand scored',
+                    'more than the Blind requirements.'
                 }
             },
             c_mannpower_kingmp = {
