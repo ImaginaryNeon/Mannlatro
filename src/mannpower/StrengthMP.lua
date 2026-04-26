@@ -31,6 +31,7 @@ SMODS.Consumable {
             delay = 0.1,
             func = function()
                 conv_card:set_seal("mannpower_strange", nil, true)
+                check_for_unlock({ type = 'strange_made' })
                 return true
             end
         }))
