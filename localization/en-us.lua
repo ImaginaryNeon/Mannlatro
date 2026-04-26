@@ -41,7 +41,9 @@ return {
             bl_mannpower_plague = {
                 name = 'The Plague',
                 text = {
-                    'Played cards gain a permenant -$1'
+                    'Played cards have a',
+                    '1 in 4 chance to',
+                    'gain a permenant -$1'
                 }
             },
             bl_mannpower_knockout = {
@@ -77,13 +79,21 @@ return {
             }
         },
         Spectral = {
+            c_mannpower_godmode = {
+                name = 'Godmode',
+                text = {
+                    "All {C:attention}Editionless{} Jokers",
+                    "become {C:dark_edition}Negative{}"
+                }
+            },
             c_mannpower_powerplay = {
                 name = 'PowerPlay',
                 text = {
-                    "All Editionless cards in hand become {C:dark_edition}Polychrome{}",
-                    "All Editionless Jokers become {C:dark_edition}Negative{}"
+                    "All {C:attention}Editionless{} cards in hand",
+                    "become {C:dark_edition}Polychrome{}"
                 }
             }
+
         },
         Mannpower = {
             c_mannpower_strength = {
