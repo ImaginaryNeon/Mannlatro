@@ -19,7 +19,10 @@ return {
                     "open a {C:attention}Mannpower Pack{}"
                 },
                 unlock = {
-                    "Test",
+                    "Trigger playing cards with",
+                    "a {V:1}Stat Clock{} 10 times",
+                    "in a single run on {C:red}Red Stake{}",
+                    "or {C:blue}Blue Stake{} difficulty"
                 }
             }
         },
@@ -289,10 +292,10 @@ return {
             ach_mannpower_strange12 = "Trigger playing cards with Stat Clocks 750 times in a run",
             ach_mannpower_strange13 = "Trigger playing cards with Stat Clocks 999 times in a run",
             ach_mannpower_strange14 = "Trigger playing cards with Stat Clocks 1000 times in a run",
-            ach_mannpower_strange15 = "Trigger playing cards with Stat Clocks 25 times in a run",
-            ach_mannpower_strange16 = "Trigger playing cards with Stat Clocks 25 times in a run",
-            ach_mannpower_strange17 = "Trigger playing cards with Stat Clocks 25 times in a run",
-            ach_mannpower_strange18 = "Trigger playing cards with Stat Clocks 25 times in a run",
+            ach_mannpower_strange15 = "Trigger playing cards with Stat Clocks 1500 times in a run",
+            ach_mannpower_strange16 = "Trigger playing cards with Stat Clocks 2500 times in a run",
+            ach_mannpower_strange17 = "Trigger playing cards with Stat Clocks 5000 times in a run",
+            ach_mannpower_strange18 = "Trigger playing cards with Stat Clocks 7500 times in a run",
             ach_mannpower_strange19 = "Trigger playing cards with Stat Clocks 7616 times in a run",
             ach_mannpower_strange20 = "Trigger playing cards with Stat Clocks 8500 times in a run",
         }

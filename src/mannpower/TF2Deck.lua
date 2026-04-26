@@ -21,16 +21,16 @@ SMODS.Back {
 				end
 			}))
 		end
+	end,
+	locked_loc_vars = function(self, info_queue, back)
+		return {
+			vars = {
+				colours = { SMODS.ConsumableTypes['Mannpower'].secondary_colour }
+			}
+		}
+	end,
+	check_for_unlock = function(self, args)
+		return args.type == "strange_threshold1" and (G.P_CENTER_POOLS.Stake[G.GAME.stake].key == "red" or
+			G.P_CENTER_POOLS.Stake[G.GAME.stake].key == "blue") and true -- and get_deck_win_stake('b_green') > 0
 	end
-	--locked_loc_vars = function(self, info_queue, back)
-	--	return {
-	--		vars = {
-	--			localize { type = 'name_text', set = 'Stake', key = 'stake_black' },
-	--			colours = { get_stake_col(4) }
-	--		}
-	--	}
-	--end,
-	--check_for_unlock = function(self, args)
-	--	return args.type == 'win_stake' and get_deck_win_stake() >= 4
-	--end
 }
