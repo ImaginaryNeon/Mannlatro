@@ -28,10 +28,11 @@ SMODS.Consumable {
 				jkr.ability.pinned = nil
 				jkr:set_rental(nil)
 				jkr:set_eternal(nil)
-				--- Add these once I learn how to filter for if another mod is active without it being fully dependent
-				---					jkr.ability.banana = nil
-				---					jkr.ability.cry_possessed = nil
-				---					SMODS.Stickers.cry_flickering:apply(CARD, nil)
+				if Cryptid then
+					jkr.ability.banana = nil
+					jkr.ability.cry_possessed = nil
+					SMODS.Stickers.cry_flickering:apply(CARD, nil)
+				end
 				play_sound("card1", percent)
 				jkr:juice_up(0.3, 0.3)
 				jkr:flip()
