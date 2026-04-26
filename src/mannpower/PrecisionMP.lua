@@ -7,7 +7,7 @@ SMODS.Consumable {
         y = 1
     },
     select_card = 'consumeables',
-    config = { extra = { money_base = 20, money_per = 4, money = 20 } },
+    config = { extra = { money_base = 20, money_per = 3, money = 20 } },
     loc_vars = function(self, info_queue, card)
         local money = card.ability.extra.money_base
         if G.jokers then

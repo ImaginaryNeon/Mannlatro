@@ -7,7 +7,7 @@ SMODS.Consumable {
         y = 1
     },
     select_card = 'consumeables',
-    config = { extra = { money = 5, money_base = 5, money_bonus = 15 } },
+    config = { extra = { money = 5, money_base = 5, money_bonus = 10 } },
     loc_vars = function(self, info_queue, card)
         -- supposed to increase the money one time when a hand scores more than the blind requirements, but currently increases it each time you hover over it, as long as the last hand was a oneshot.
         if SMODS.last_hand_oneshot then
