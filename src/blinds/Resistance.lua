@@ -15,7 +15,7 @@ SMODS.Blind {
 			  	number_format(lenient_bignum((get_blind_amount(G.GAME.round_resets.ante) * 0.25))),
 			  },
 	  	}
-	  end,
+	end,
   	collection_loc_vars = function(self)
 	  	return {
 		  	vars = {
