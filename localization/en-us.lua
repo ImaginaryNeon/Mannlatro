@@ -39,6 +39,13 @@ return {
                     'every 10 seconds'
                 }
             },
+            bl_mannpower_strength = {
+                name = 'The Strength',
+                text = {
+                    'Played cards have their rank',
+                    'decreased by 1 before scoring'
+                }
+            },
             bl_mannpower_supernova = {
                 name = 'The Supernova',
                 text = {
