@@ -5,7 +5,7 @@ SMODS.Blind {
         y = 3
     },
     boss = { min = 3 },
-    boss_colour = HEX("b52d2d"),
+    boss_colour = HEX("ed712b"),
     calculate = function(self, blind, context)
         if not blind.disabled then
             if context.press_play then
