@@ -42,7 +42,7 @@ return {
             bl_mannpower_strength = {
                 name = 'The Strength',
                 text = {
-                    'Played cards have their rank',
+                    'Scoring cards have their rank',
                     'decreased by 1 before scoring'
                 }
             },
