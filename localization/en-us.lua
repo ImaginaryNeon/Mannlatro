@@ -111,7 +111,14 @@ return {
                     'Destroys 1 random unselected',
                     'card every 6 seconds,'
                 }
-            }
+            },
+			bl_mannpower_vampire = {
+				name = "The Vampire",
+				text = {
+					"+#1# blind requirements",
+					"per card played"
+				},
+			},
         },
         Other = {
             p_mannpower_powerpack = { -- say that five times fast
