@@ -83,6 +83,13 @@ return {
                     'when hand is played'
                 }
             },
+			bl_mannpower_regen = {
+				name = "The Regeneration",
+				text = {
+					"Lose #1# score",
+					"after each hand"
+				},
+			}
             bl_mannpower_resistance = {
 				name = "The Resistance",
 				text = {
