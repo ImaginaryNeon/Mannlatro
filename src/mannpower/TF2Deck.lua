@@ -25,12 +25,24 @@ SMODS.Back {
 	locked_loc_vars = function(self, info_queue, back)
 		return {
 			vars = {
-				colours = { SMODS.ConsumableTypes['Mannpower'].secondary_colour }
+				colours = { SMODS.ConsumableTypes['Mannpower'].badge_colour }
 			}
 		}
 	end,
 	check_for_unlock = function(self, args)
-		return args.type == "strange_threshold1" and (G.P_CENTER_POOLS.Stake[G.GAME.stake].key == "red" or
-			G.P_CENTER_POOLS.Stake[G.GAME.stake].key == "blue") and true -- and get_deck_win_stake('b_green') > 0
+		if args.type == "strange_threshold2" then
+			return true
+		end
 	end
+
+	--[[
+	check_for_unlock = function(self, args)
+		if args.type == "strange_threshold1" then
+			if G.P_CENTER_POOLS.Stake[G.GAME.stake].key == "red" or
+				G.P_CENTER_POOLS.Stake[G.GAME.stake].key == "blue" then
+				return true
+			end
+		end
+	end
+--]]
 }

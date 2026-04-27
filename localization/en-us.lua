@@ -20,9 +20,14 @@ return {
                 },
                 unlock = {
                     "Trigger playing cards with",
+                    "a {V:1}Stat Clock{} 25 times",
+                    "in a single run"
+                    --[[
+                    "Trigger playing cards with",
                     "a {V:1}Stat Clock{} 10 times",
                     "in a single run on {C:red}Red Stake{}",
                     "or {C:blue}Blue Stake{} difficulty"
+                    --]]
                 }
             }
         },
@@ -238,7 +243,7 @@ return {
             v_mannpower_developer_console = {
                 name = "Developer Console",
                 text = {
-                    "{C:attention}Spectral{} cards may",
+                    "{C:attention}Mannpower{} cards may",
                     "appear in any of",
                     "the {C:cry_code}Code Packs",
                 },

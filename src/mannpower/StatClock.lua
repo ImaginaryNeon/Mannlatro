@@ -29,8 +29,7 @@ else
         pos = { x = 0, y = 0 },
         config = {
             extra = {
-                mult = 0,
-                change = 1,
+                change = 2,
             }
         },
         badge_colour = HEX('ED712B'),
