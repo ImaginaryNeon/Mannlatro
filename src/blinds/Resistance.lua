@@ -24,7 +24,7 @@ SMODS.Blind {
 	  	}
 	  end,
   	mult = 1,
-    boss_colour = HEX("b52d2d"),
+    boss_colour = HEX("ed712b"),
 	set_blind = function(self, reset, silent)
     local joker_count = 0
         if G.jokers then
