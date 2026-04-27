@@ -39,6 +39,14 @@ return {
                     'every 10 seconds'
                 }
             },
+			bl_mannpower_king = {
+                name = 'The King',
+                text = {
+                    "All non-face cards",
+                    "are debuffed",
+					"{C:inactive}#1#{}"
+                }
+            },
             bl_mannpower_strength = {
                 name = 'The Strength',
                 text = {
