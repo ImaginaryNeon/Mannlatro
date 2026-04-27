@@ -74,7 +74,15 @@ return {
                     'Lose $1 for each owned Joker',
                     'when hand is played'
                 }
-            }
+            },
+            bl_mannpower_resistance = {
+				name = "The Resistance",
+				text = {
+					"+#1# blind requirement",
+					"per Joker owned when",
+                    "blind is selected"
+				},
+			},
             bl_mannpower_knockout = {
                 name = 'The Knockout',
                 text = {
