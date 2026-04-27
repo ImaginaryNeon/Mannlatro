@@ -68,6 +68,13 @@ return {
                     'and 1 discard'
                 }
             },
+            bl_mannpower_reflect = {
+                name = 'The Reflect',
+                text = {
+                    'Lose $1 for each owned Joker',
+                    'when hand is played'
+                }
+            }
             bl_mannpower_knockout = {
                 name = 'The Knockout',
                 text = {
