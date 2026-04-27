@@ -61,6 +61,13 @@ return {
                     'gain a permenant -$1'
                 }
             },
+            bl_mannpower_precision = {
+                name = 'The Precision',
+                text = {
+                    'Start with 1 hand',
+                    'and 1 discard'
+                }
+            },
             bl_mannpower_knockout = {
                 name = 'The Knockout',
                 text = {
