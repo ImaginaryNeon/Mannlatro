@@ -25,7 +25,7 @@ SMODS.Blind {
     boss_colour = HEX("ED712B"),
     calculate = function(self, blind, context)
         if not blind.disabled then
-            if context.after then
+            if context.final_scoring_step then
                 return {
                     score = get_blind_amount(G.GAME.round_resets.ante) * -0.2,
                 }
