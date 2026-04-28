@@ -43,8 +43,12 @@ SMODS.Consumable {
                 func = function()
                     -- SMODS.modify_rank will increment/decrement a given card's rank by a given amount
                     local _card = G.hand.cards[i]
+                      if G.hand.highlighted[i].ability.perma_x_blind_size == 0 then
+                        G.hand.highlighted[i].ability.perma_x_blind_size = card.ability.extra
+                            else
                     G.hand.highlighted[i].ability.perma_x_blind_size = (G.hand.highlighted[i].ability.perma_x_blind_size or 1) *
                         card.ability.extra
+                            end
                     return true
                 end
             }))
