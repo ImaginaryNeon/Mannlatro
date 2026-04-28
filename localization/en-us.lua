@@ -39,12 +39,12 @@ return {
                     'every 10 seconds'
                 }
             },
-			bl_mannpower_king = {
+            bl_mannpower_king = {
                 name = 'The King',
                 text = {
-                    "All non-face cards",
+                    "All number cards",
                     "are debuffed",
-					"{C:inactive}#1#{}"
+                    "{C:inactive}#1#{}"
                 }
             },
             bl_mannpower_strength = {
@@ -83,21 +83,21 @@ return {
                     'when hand is played'
                 }
             },
-			bl_mannpower_regen = {
-				name = "The Regeneration",
-				text = {
-					"Lose #1# score",
-					"after each hand"
-				},
-			}
+            bl_mannpower_regen = {
+                name = "The Regeneration",
+                text = {
+                    "Lose #1# score",
+                    "after each hand"
+                },
+            },
             bl_mannpower_resistance = {
-				name = "The Resistance",
-				text = {
-					"+#1# blind requirement",
-					"per Joker owned when",
+                name = "The Resistance",
+                text = {
+                    "+#1# blind requirement",
+                    "per Joker owned when",
                     "blind is selected"
-				},
-			},
+                },
+            },
             bl_mannpower_knockout = {
                 name = 'The Knockout',
                 text = {
@@ -112,13 +112,13 @@ return {
                     'card every 6 seconds,'
                 }
             },
-			bl_mannpower_vampire = {
-				name = "The Vampire",
-				text = {
-					"+#1# blind requirements",
-					"per card played"
-				},
-			},
+            bl_mannpower_vampire = {
+                name = "The Vampire",
+                text = {
+                    "+#1# blind requirements",
+                    "per card played"
+                },
+            },
         },
         Other = {
             p_mannpower_powerpack = { -- say that five times fast

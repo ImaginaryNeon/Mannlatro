@@ -41,7 +41,6 @@ SMODS.Consumable {
                 trigger = 'after',
                 delay = 0.1,
                 func = function()
-                    -- SMODS.modify_rank will increment/decrement a given card's rank by a given amount
                     local _card = G.hand.cards[i]
                     G.hand.highlighted[i].ability.perma_x_blind_size = (G.hand.highlighted[i].ability.perma_x_blind_size or 1) *
                         card.ability.extra
