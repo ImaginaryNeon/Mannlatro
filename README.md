@@ -1,6 +1,6 @@
-Adds Mannpower-themed blinds and consumables. Work in progress
+Adds Mannpower-themed blinds and consumables, plus some other items to go alongside them.
 
-Requires [Lovely](https://github.com/ethangreen-dev/lovely-injector), which I hope I grabbed the right link for.
+Requires Steammodded.
 
 Contains:
 - 12 Boss Blinds
