@@ -2,7 +2,7 @@ SMODS.ConsumableType {
     key = 'Mannpower',
     name = 'Mannpower',
     primary_colour = HEX('FFA630'),
-    secondary_colour = HEX('FFF812'),
+    secondary_colour = HEX('FFA630'),
     badge_colour = HEX('ED712B'),
     default = "c_mannpower_strength",
     select_card = "consumeables",

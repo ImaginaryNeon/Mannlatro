@@ -11,12 +11,15 @@ SMODS.current_mod.calculate = function(self, context)
     if context.individual and context.cardarea == G.play and context.other_card.seal == "mannpower_strange" then
         G.GAME.mannpower_strange_counter = G.GAME.mannpower_strange_counter or 0
         G.GAME.mannpower_strange_counter = (G.GAME.mannpower_strange_counter or 0) + 1
-        print(G.GAME.mannpower_strange_counter)
+        G.mannpower_strange_counter_total = G.mannpower_strange_counter_total or 0
+        G.mannpower_strange_counter_total = (G.mannpower_strange_counter_total or 0) + 1
+        -- print(G.GAME.mannpower_strange_counter)
+        -- print(G.mannpower_strange_counter_total)
         if G.GAME.mannpower_strange_counter >= 10 and G.GAME.mannpower_strange_counter <= 10000 then
-            if G.P_CENTER_POOLS.Stake[G.GAME.stake].key == "Red" or
+            --[[ if G.P_CENTER_POOLS.Stake[G.GAME.stake].key == "Red" or
                 G.P_CENTER_POOLS.Stake[G.GAME.stake].key == "Blue" then
                 check_for_unlock({ type = "manndeckunlock" })
-            end
+            end --]]
             if G.GAME.mannpower_strange_counter >= 10 and G.GAME.mannpower_strange_counter <= 25 then
                 check_for_unlock({ type = "strange_threshold1" })
             end
@@ -32,49 +35,51 @@ SMODS.current_mod.calculate = function(self, context)
             if G.GAME.mannpower_strange_counter >= 100 and G.GAME.mannpower_strange_counter <= 135 then
                 check_for_unlock({ type = "strange_threshold5" })
             end
-            if G.GAME.mannpower_strange_counter >= 135 and G.GAME.mannpower_strange_counter <= 175 then
+        end
+        if G.mannpower_strange_counter_total >= 125 and G.mannpower_strange_counter_total <= 10000 then
+            if G.mannpower_strange_counter_total >= 135 and G.mannpower_strange_counter_total <= 175 then
                 check_for_unlock({ type = "strange_threshold6" })
             end
-            if G.GAME.mannpower_strange_counter >= 175 and G.GAME.mannpower_strange_counter <= 225 then
+            if G.mannpower_strange_counter_total >= 175 and G.mannpower_strange_counter_total <= 225 then
                 check_for_unlock({ type = "strange_threshold7" })
             end
-            if G.GAME.mannpower_strange_counter >= 225 and G.GAME.mannpower_strange_counter <= 275 then
+            if G.mannpower_strange_counter_total >= 225 and G.mannpower_strange_counter_total <= 275 then
                 check_for_unlock({ type = "strange_threshold8" })
             end
-            if G.GAME.mannpower_strange_counter >= 275 and G.GAME.mannpower_strange_counter <= 350 then
+            if G.mannpower_strange_counter_total >= 275 and G.mannpower_strange_counter_total <= 350 then
                 check_for_unlock({ type = "strange_threshold9" })
             end
-            if G.GAME.mannpower_strange_counter >= 350 and G.GAME.mannpower_strange_counter <= 500 then
+            if G.mannpower_strange_counter_total >= 350 and G.mannpower_strange_counter_total <= 500 then
                 check_for_unlock({ type = "strange_threshold10" })
             end
-            if G.GAME.mannpower_strange_counter >= 500 and G.GAME.mannpower_strange_counter <= 750 then
+            if G.mannpower_strange_counter_total >= 500 and G.mannpower_strange_counter_total <= 750 then
                 check_for_unlock({ type = "strange_threshold11" })
             end
-            if G.GAME.mannpower_strange_counter >= 750 and G.GAME.mannpower_strange_counter <= 999 then
+            if G.mannpower_strange_counter_total >= 750 and G.mannpower_strange_counter_total <= 999 then
                 check_for_unlock({ type = "strange_threshold12" })
             end
-            if G.GAME.mannpower_strange_counter >= 999 and G.GAME.mannpower_strange_counter <= 1500 then
+            if G.mannpower_strange_counter_total >= 999 and G.mannpower_strange_counter_total <= 1500 then
                 check_for_unlock({ type = "strange_threshold13" })
             end
-            if G.GAME.mannpower_strange_counter >= 1000 and G.GAME.mannpower_strange_counter <= 1500 then
+            if G.mannpower_strange_counter_total >= 1000 and G.mannpower_strange_counter_total <= 1500 then
                 check_for_unlock({ type = "strange_threshold14" })
             end
-            if G.GAME.mannpower_strange_counter >= 1500 and G.GAME.mannpower_strange_counter < 2500 then
+            if G.mannpower_strange_counter_total >= 1500 and G.mannpower_strange_counter_total < 2500 then
                 check_for_unlock({ type = "strange_threshold15" })
             end
-            if G.GAME.mannpower_strange_counter >= 2500 and G.GAME.mannpower_strange_counter < 5000 then
+            if G.mannpower_strange_counter_total >= 2500 and G.mannpower_strange_counter_total < 5000 then
                 check_for_unlock({ type = "strange_threshold16" })
             end
-            if G.GAME.mannpower_strange_counter >= 5000 and G.GAME.mannpower_strange_counter < 7500 then
+            if G.mannpower_strange_counter_total >= 5000 and G.mannpower_strange_counter_total < 7500 then
                 check_for_unlock({ type = "strange_threshold17" })
             end
-            if G.GAME.mannpower_strange_counter >= 7500 and G.GAME.mannpower_strange_counter < 7616 then
+            if G.mannpower_strange_counter_total >= 7500 and G.mannpower_strange_counter_total < 7616 then
                 check_for_unlock({ type = "strange_threshold18" })
             end
-            if G.GAME.mannpower_strange_counter >= 7616 and G.GAME.mannpower_strange_counter < 8500 then
+            if G.mannpower_strange_counter_total >= 7616 and G.mannpower_strange_counter_total < 8500 then
                 check_for_unlock({ type = "strange_threshold19" })
             end
-            if G.GAME.mannpower_strange_counter >= 8500 and G.GAME.mannpower_strange_counter < 10000 then
+            if G.mannpower_strange_counter_total >= 8500 and G.mannpower_strange_counter_total < 10000 then
                 check_for_unlock({ type = "strange_threshold20" })
             end
         end
@@ -103,8 +108,8 @@ SMODS.Achievement {
 }
 SMODS.Achievement {
     key = "strange3",
-    --    bypass_all_unlocked = true,
-    reset_on_startup = true,
+    bypass_all_unlocked = true,
+    -- reset_on_startup = true,
     unlock_condition = function(self, args)
         if args.type == "strange_threshold3" then
             return true
@@ -113,8 +118,8 @@ SMODS.Achievement {
 }
 SMODS.Achievement {
     key = "strange4",
-    --    bypass_all_unlocked = true,
-    reset_on_startup = true,
+    bypass_all_unlocked = true,
+    -- reset_on_startup = true,
     unlock_condition = function(self, args)
         if args.type == "strange_threshold4" then
             return true
@@ -123,8 +128,8 @@ SMODS.Achievement {
 }
 SMODS.Achievement {
     key = "strange5",
-    --    bypass_all_unlocked = true,
-    reset_on_startup = true,
+    bypass_all_unlocked = true,
+    -- reset_on_startup = true,
     unlock_condition = function(self, args)
         if args.type == "strange_threshold5" then
             return true
@@ -133,8 +138,15 @@ SMODS.Achievement {
 }
 SMODS.Achievement {
     key = "strange6",
-    --    bypass_all_unlocked = true,
-    reset_on_startup = true,
+    bypass_all_unlocked = true,
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.mannpower_strange_counter_total
+            },
+        }
+    end,
+    -- reset_on_startup = true,
     unlock_condition = function(self, args)
         if args.type == "strange_threshold6" then
             return true
@@ -143,8 +155,8 @@ SMODS.Achievement {
 }
 SMODS.Achievement {
     key = "strange7",
-    --    bypass_all_unlocked = true,
-    reset_on_startup = true,
+    bypass_all_unlocked = true,
+    -- reset_on_startup = true,
     unlock_condition = function(self, args)
         if args.type == "strange_threshold7" then
             return true
@@ -153,8 +165,8 @@ SMODS.Achievement {
 }
 SMODS.Achievement {
     key = "strange8",
-    --    bypass_all_unlocked = true,
-    reset_on_startup = true,
+    bypass_all_unlocked = true,
+    -- reset_on_startup = true,
     unlock_condition = function(self, args)
         if args.type == "strange_threshold8" then
             return true
@@ -163,8 +175,8 @@ SMODS.Achievement {
 }
 SMODS.Achievement {
     key = "strange9",
-    --    bypass_all_unlocked = true,
-    reset_on_startup = true,
+    bypass_all_unlocked = true,
+    -- reset_on_startup = true,
     unlock_condition = function(self, args)
         if args.type == "strange_threshold9" then
             return true
@@ -173,8 +185,8 @@ SMODS.Achievement {
 }
 SMODS.Achievement {
     key = "strange10",
-    --    bypass_all_unlocked = true,
-    reset_on_startup = true,
+    bypass_all_unlocked = true,
+    -- reset_on_startup = true,
     unlock_condition = function(self, args)
         if args.type == "strange_threshold10" then
             return true
@@ -183,8 +195,8 @@ SMODS.Achievement {
 }
 SMODS.Achievement {
     key = "strange11",
-    --    bypass_all_unlocked = true,
-    reset_on_startup = true,
+    bypass_all_unlocked = true,
+    -- reset_on_startup = true,
     unlock_condition = function(self, args)
         if args.type == "strange_threshold11" then
             return true
@@ -193,8 +205,8 @@ SMODS.Achievement {
 }
 SMODS.Achievement {
     key = "strange12",
-    --    bypass_all_unlocked = true,
-    reset_on_startup = true,
+    bypass_all_unlocked = true,
+    -- reset_on_startup = true,
     unlock_condition = function(self, args)
         if args.type == "strange_threshold12" then
             return true
@@ -203,8 +215,8 @@ SMODS.Achievement {
 }
 SMODS.Achievement {
     key = "strange13",
-    --    bypass_all_unlocked = true,
-    reset_on_startup = true,
+    bypass_all_unlocked = true,
+    -- reset_on_startup = true,
     unlock_condition = function(self, args)
         if args.type == "strange_threshold13" then
             return true
@@ -213,8 +225,8 @@ SMODS.Achievement {
 }
 SMODS.Achievement {
     key = "strange14",
-    --    bypass_all_unlocked = true,
-    reset_on_startup = true,
+    bypass_all_unlocked = true,
+    -- reset_on_startup = true,
     unlock_condition = function(self, args)
         if args.type == "strange_threshold14" then
             return true
@@ -223,8 +235,8 @@ SMODS.Achievement {
 }
 SMODS.Achievement {
     key = "strange15",
-    --    bypass_all_unlocked = true,
-    reset_on_startup = true,
+    bypass_all_unlocked = true,
+    -- reset_on_startup = true,
     unlock_condition = function(self, args)
         if args.type == "strange_threshold15" then
             return true
@@ -233,8 +245,8 @@ SMODS.Achievement {
 }
 SMODS.Achievement {
     key = "strange16",
-    --    bypass_all_unlocked = true,
-    reset_on_startup = true,
+    bypass_all_unlocked = true,
+    -- reset_on_startup = true,
     unlock_condition = function(self, args)
         if args.type == "strange_threshold16" then
             return true
@@ -243,8 +255,8 @@ SMODS.Achievement {
 }
 SMODS.Achievement {
     key = "strange17",
-    --    bypass_all_unlocked = true,
-    reset_on_startup = true,
+    bypass_all_unlocked = true,
+    -- reset_on_startup = true,
     unlock_condition = function(self, args)
         if args.type == "strange_threshold17" then
             return true
@@ -253,8 +265,8 @@ SMODS.Achievement {
 }
 SMODS.Achievement {
     key = "strange18",
-    --    bypass_all_unlocked = true,
-    reset_on_startup = true,
+    bypass_all_unlocked = true,
+    -- reset_on_startup = true,
     unlock_condition = function(self, args)
         if args.type == "strange_threshold18" then
             return true
@@ -263,8 +275,8 @@ SMODS.Achievement {
 }
 SMODS.Achievement {
     key = "strange19",
-    --    bypass_all_unlocked = true,
-    reset_on_startup = true,
+    bypass_all_unlocked = true,
+    -- reset_on_startup = true,
     unlock_condition = function(self, args)
         if args.type == "strange_threshold19" then
             return true
@@ -273,8 +285,8 @@ SMODS.Achievement {
 }
 SMODS.Achievement {
     key = "strange20",
-    --    bypass_all_unlocked = true,
-    reset_on_startup = true,
+    bypass_all_unlocked = true,
+    -- reset_on_startup = true,
     unlock_condition = function(self, args)
         if args.type == "strange_threshold20" then
             return true

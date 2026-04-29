@@ -339,7 +339,7 @@ return {
             ach_mannpower_strange3 = "Trigger playing cards with Stat Clocks 45 times in a run",
             ach_mannpower_strange4 = "Trigger playing cards with Stat Clocks 70 times in a run",
             ach_mannpower_strange5 = "Trigger playing cards with Stat Clocks 100 times in a run",
-            ach_mannpower_strange6 = "Trigger playing cards with Stat Clocks 135 times in a run",
+            ach_mannpower_strange6 = "Trigger playing cards with Stat Clocks 135 times {C:inactive}[#1#]{}",
             ach_mannpower_strange7 = "Trigger playing cards with Stat Clocks 175 times in a run",
             ach_mannpower_strange8 = "Trigger playing cards with Stat Clocks 225 times in a run",
             ach_mannpower_strange9 = "Trigger playing cards with Stat Clocks 275 times in a run",

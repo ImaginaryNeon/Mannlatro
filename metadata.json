@@ -1,5 +1,5 @@
 {
-    "id": "mannpower",
+    "id": "Mannlatro",
     "name": "Mannlatro",
     "author": [
         "ImaginaryNeon"
@@ -9,6 +9,9 @@
     "main_file": "main.lua",
     "icon_path": "Logo.png",
     "version": "1.0.0",
-    "badge_colour": "2b3969",
-    "badge_text_colour": "ffff00"
+    "badge_colour": "56351b",
+    "dependencies": [
+        "Steamodded (>=1.)"
+    ],
+    "badge_text_colour": "ffa233"
 }
