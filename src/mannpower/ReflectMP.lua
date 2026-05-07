@@ -12,6 +12,13 @@ SMODS.Consumable {
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.max_highlighted, card.ability.extra } }
     end,
+    can_use = function(self, card)
+        if card.area ~= G.hand then
+            return G.hand and #G.hand.highlighted > 0 and #G.hand.highlighted <= card.ability.max_highlighted
+        else
+            return G.hand and #G.hand.highlighted > 1 and #G.hand.highlighted <= card.ability.max_highlighted + 1
+        end
+    end,
     use = function(self, card, area, copier)
         G.E_MANAGER:add_event(Event({
             trigger = 'after',
@@ -43,11 +50,12 @@ SMODS.Consumable {
                 func = function()
                     -- SMODS.modify_rank will increment/decrement a given card's rank by a given amount
                     local _card = G.hand.cards[i]
-                      --if G.hand.highlighted[i].ability.perma_x_blind_size == 0 then
-                        --G.hand.highlighted[i].ability.perma_x_blind_size = card.ability.extra
-                            --else
-                    G.hand.highlighted[i].ability.perma_x_blind_size = ((G.hand.highlighted[i].ability.perma_x_blind_size+1)*card.ability.extra)-1
-                            --end
+                    --if G.hand.highlighted[i].ability.perma_x_blind_size == 0 then
+                    --G.hand.highlighted[i].ability.perma_x_blind_size = card.ability.extra
+                    --else
+                    G.hand.highlighted[i].ability.perma_x_blind_size = ((G.hand.highlighted[i].ability.perma_x_blind_size + 1) * card.ability.extra) -
+                        1
+                    --end
                     return true
                 end
             }))

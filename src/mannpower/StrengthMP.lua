@@ -47,6 +47,10 @@ SMODS.Consumable {
         }))
     end,
     can_use = function(self, card)
-        return G.hand and #G.hand.highlighted > 0 and #G.hand.highlighted <= card.ability.max_highlighted
+        if card.area ~= G.hand then
+            return G.hand and #G.hand.highlighted > 0 and #G.hand.highlighted <= card.ability.max_highlighted
+        else
+            return G.hand and #G.hand.highlighted > 1 and #G.hand.highlighted <= card.ability.max_highlighted + 1
+        end
     end
 }

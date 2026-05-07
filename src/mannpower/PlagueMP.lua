@@ -1,17 +1,17 @@
 SMODS.Consumable {
-    key = 'plague',
-    set = 'Mannpower',
-    atlas = 'mannpowercards',
-    pos = {
-        x = 2,
-        y = 2
-    },
-    select_card = 'consumeables',
-    config = { max_highlighted = 1 },
-    weight = 2,
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.max_highlighted } }
-    end,
+	key = 'plague',
+	set = 'Mannpower',
+	atlas = 'mannpowercards',
+	pos = {
+		x = 2,
+		y = 2
+	},
+	select_card = 'consumeables',
+	config = { max_highlighted = 1 },
+	weight = 0.75,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.max_highlighted } }
+	end,
 	can_use = function(self, card)
 		local cards = SMODS.get_highlighted_cards({ G.jokers }, card, 1, 1, function(card)
 			return card.ability.set == "Joker"
@@ -28,7 +28,7 @@ SMODS.Consumable {
 			delay = 0.15,
 			func = function()
 				jkr:flip()
-        jkr:set_edition('e_negative', true)
+				jkr:set_edition('e_negative', true)
 				jkr.ability.eternal = true
 				jkr.ability.perishable = true
 				play_sound("card1", percent)

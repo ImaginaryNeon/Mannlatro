@@ -88,6 +88,7 @@ SMODS.current_mod.optional_features = function()
     return {
         post_trigger = true,
         retrigger_joker = true,
+        object_weights = true,
         cardareas = {
             discard = true,
             deck = true
