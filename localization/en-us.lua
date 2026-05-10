@@ -36,7 +36,7 @@ return {
                 name = 'The Agility',
                 text = {
                     'Discards highlighted cards',
-                    'every 10 seconds'
+                    'every 8 seconds'
                 }
             },
             bl_mannpower_king = {

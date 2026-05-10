@@ -6,7 +6,7 @@ function Game.update(self, dt)
         blind.effect.extra.timer = blind.effect.extra.timer + dt
 
         -- trigger after 10 seconds
-        if blind.effect.extra.timer >= 6 then
+        if blind.effect.extra.timer >= 6 and not blind.debuffed then
             -- reset timer to 0
             blind.effect.extra.timer = 0
 

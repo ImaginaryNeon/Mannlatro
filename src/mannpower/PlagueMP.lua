@@ -8,7 +8,7 @@ SMODS.Consumable {
 	},
 	select_card = 'consumeables',
 	config = { max_highlighted = 1 },
-	weight = 0.75,
+	weight = 7.5, -- Apparently weights are 10 by default, so 0.75 was practically banning it outright.
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.max_highlighted } }
 	end,
