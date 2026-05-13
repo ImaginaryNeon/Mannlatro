@@ -40,7 +40,7 @@ SMODS.Voucher {
     unredeem = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
-                G.GAME.mannpower_rate = math.max(0, G.GAME.mannpower_rate / 4)
+                G.GAME.mannpower_rate = math.max(0, G.GAME.mannpower_rate / 3)
                 return true
             end
         }))
