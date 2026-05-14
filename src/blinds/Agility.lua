@@ -2,7 +2,7 @@ local original_update = Game.update
 function Game.update(self, dt)
     original_update(self, dt)
     local blind = G.GAME.blind
-    if not G.SETTINGS.paused and blind and blind.config.blind.key == 'bl_mannpower_agility' then
+    if not G.SETTINGS.paused and blind and blind.config.blind.key == 'bl_mannpower_agility' and not blind.debuffed then
         blind.effect.extra.timer = blind.effect.extra.timer + dt
         -- trigger after 10 seconds
         if blind.effect.extra.timer >= 8 and not blind.debuffed then
