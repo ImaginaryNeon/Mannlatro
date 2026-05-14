@@ -24,7 +24,7 @@ SMODS.Voucher {
     key = 'squad_surplus',
     atlas = 'vouchers',
     pos = { x = 1, y = 0 },
-    config = { extra = { rate = 4 } },
+    config = { extra = { rate = 3 } },
     requires = { 'v_mannpower_tour_of_duty' },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.rate } }
@@ -40,7 +40,7 @@ SMODS.Voucher {
     unredeem = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
-                G.GAME.mannpower_rate = math.max(0, G.GAME.mannpower_rate / 4)
+                G.GAME.mannpower_rate = math.max(0, G.GAME.mannpower_rate / 3)
                 return true
             end
         }))
