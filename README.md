@@ -1,6 +1,6 @@
 Adds Mannpower-themed blinds and consumables, plus some other items to go alongside them.
 
-Requires Steammodded.
+Requires Steammodded and probably Lovely?
 
 Contains:
 - 12 Boss Blinds
