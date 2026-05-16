@@ -10,11 +10,19 @@ SMODS.Blind {
         blind_mod = 0.05,
     },
     loc_vars = function(self, info_queue, card)
-        return {
-            vars = {
-                number_format(lenient_bignum((get_blind_amount(G.GAME.round_resets.ante) * 0.1))),
-            },
-        }
+        if Talisman or Amulet then
+            return {
+                vars = {
+                    number_format(lenient_bignum((get_blind_amount(G.GAME.round_resets.ante) * 0.1))),
+                },
+            }
+        else
+            return {
+                vars = {
+                    number_format((get_blind_amount(G.GAME.round_resets.ante) * 0.1)),
+                },
+            }
+        end
     end,
     collection_loc_vars = function(self)
         return {

@@ -43,7 +43,7 @@ SMODS.Booster {
         }
     end,
     ease_background_colour = function(self)
-        ease_background_colour_blind(SMODS.ConsumableTypes['Mannpower'].primary_colour)
+        ease_background_colour { new_colour = SMODS.ConsumableTypes['Mannpower'].primary_colour, special_colour = darken(G.C.BLACK, 0.2), contrast = 1.5 }
     end,
     cry_digital_hallucinations = {
         colour = HEX("ED712B"),          --The message color to be displayed
@@ -73,8 +73,7 @@ SMODS.Booster {
         }
     end,
     ease_background_colour = function(self)
-        ease_background_colour_blind(SMODS.ConsumableTypes['Mannpower'].primary_colour,
-            SMODS.ConsumableTypes['Mannpower'].secondary_colour)
+        ease_background_colour { new_colour = SMODS.ConsumableTypes['Mannpower'].primary_colour, special_colour = darken(G.C.BLACK, 0.2), contrast = 1.5 }
     end,
     --    particles = function(self)
     --        G.booster_pack_sparkles = Particles(1, 1, 0, 0, {
