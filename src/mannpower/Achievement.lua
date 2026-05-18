@@ -8,6 +8,13 @@ SMODS.Achievement {
     end,
 }
 SMODS.current_mod.calculate = function(self, context)
+    if context.skipping_booster then
+        G.GAME.mannpower_last_skipped_booster = context.booster
+        G.GAME.mannpower_last_skipped_booster_kind = context.booster.kind
+        if context.booster.key == 'p_cry_empowered' then
+            G.GAME.mannpower_last_skipped_booster_kind = 'Empowered'
+        end
+    end
     if context.individual and context.cardarea == G.play and context.other_card.seal == "mannpower_strange" then
         G.GAME.mannpower_strange_counter = G.GAME.mannpower_strange_counter or 0
         G.GAME.mannpower_strange_counter = (G.GAME.mannpower_strange_counter or 0) + 1

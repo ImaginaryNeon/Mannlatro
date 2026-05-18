@@ -10,6 +10,17 @@ return {
                     "{C:inactive}(Must have room)",
                 }
             },
+            j_mannpower_canteen = {
+                name = 'Power Up Canteen',
+                text = {
+                    "When a Booster Pack is {C:attention}skipped{},",
+                    "this Joker, if empty, gains",
+                    "{C:attention}#2#{} charges of the effect",
+                    "associated with the Booster Pack type",
+                    "{C:inactive}(Charges: {C:attention}#1#{C:inactive})",
+                    "{C:inactive}(Current type: {C:attention}#3#{C:inactive})"
+                }
+            }
         },
         Back = {
             b_mannpower_manndeck = {
@@ -135,7 +146,35 @@ return {
                     'this card is played',
                     'and scores',
                 }
-            }
+            },
+            mannpower_explanation = {
+                name = 'Effects',
+                text = {
+                    "{C:tarot}Arcana{}: Gain {C:money}$#1#{} per",
+                    "Joker owned",
+                    "{C:planet}Planet{}: Level up played hand",
+                    "{C:spectral}Spectral{}: Creates a random",
+                    "{C:spectral}Spectral{} card",
+                    "{C:inactive}(Must have room)",
+                    "{C:attention}Standard{}: Copies the {C:attention}first{}",
+                    "card of hand when scored",
+                    "{C:attention}Buffoon{}: {X:mult,C:white}X#2#{} Mult",
+                    "{C:diamonds}Mannpower{}: Gain {C:red}+3{} discards",
+                    "when {C:attention}Blind{} is selected",
+                }
+            },
+            mannpower_explanation_cry = {
+                name = 'Cryptid Effects',
+                text = {
+                    "{V:3}Code{}: {C:mult}+#1#-#2#{} Mult",
+                    "{C:attention}Meme{}: Creates a {C:dark_edition}Jolly{} Jolly Joker",
+                    "{C:inactive}(Must have room){}",
+                    "{C:spectral}Empowered{}: Creates a random Joker",
+                    "of {V:2}Epic{} or higher rarity",
+                    "{C:inactive}(Must have room)",
+                    "{V:1}Baneful{}: What If Reskins Were Different?"
+                }
+            },
         },
         Spectral = {
             c_mannpower_godmode = {
