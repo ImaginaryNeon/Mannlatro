@@ -77,7 +77,7 @@ return {
                 text = {
                     'Played cards have a',
                     '1 in 4 chance to',
-                    'gain a permenant -$1'
+                    'gain a permanent -$1'
                 }
             },
             bl_mannpower_precision = {
@@ -120,7 +120,7 @@ return {
                 name = 'The Haste',
                 text = {
                     'Destroys 1 random unselected',
-                    'card every 6 seconds,'
+                    'card every 6 seconds'
                 }
             },
             bl_mannpower_vampire = {
