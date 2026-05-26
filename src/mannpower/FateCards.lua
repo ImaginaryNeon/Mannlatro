@@ -477,12 +477,7 @@ SMODS.Consumable {  -- X, Decapitated
         }
     end,
     calculate = function(self, card, context)
-        if context.first_hand_drawn then
-            local eval = function() return G.GAME.current_round.discards_used == 0 and not G.RESET_JIGGLES end
-            juice_card_until(card, eval, true)
-        end
-        if context.discard and not context.blueprint and
-            G.GAME.current_round.discards_used <= 0 and #context.full_hand >= 1 then
+        if context.discard and not context.blueprint and #context.full_hand >= 1 then
             SMODS.destroy_cards(context.full_hand[1])
         end
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
