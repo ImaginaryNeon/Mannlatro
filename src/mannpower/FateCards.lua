@@ -458,14 +458,14 @@ SMODS.Consumable {  -- X, Decapitated
         y = 1
     },
     set_ability = function(self, card)
-        card.ability.extra.duration = math.ceil((2 + (G.GAME.extended_duration_turns or 0)) *
+        card.ability.extra.duration = math.ceil((1 + (G.GAME.extended_duration_turns or 0)) *
             (G.GAME.extended_duration_mult or 1))
     end,
     --    select_card = 'consumeables',
     config = {
         extra = {
             xmult = 1.5,
-            duration = 2,
+            duration = 1,
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -477,10 +477,13 @@ SMODS.Consumable {  -- X, Decapitated
         }
     end,
     calculate = function(self, card, context)
-        if context.joker_main then
-            return {
-                xmult = card.ability.extra.xmult,
-            }
+        if context.first_hand_drawn then
+            local eval = function() return G.GAME.current_round.discards_used == 0 and not G.RESET_JIGGLES end
+            juice_card_until(card, eval, true)
+        end
+        if context.discard and not context.blueprint and
+            G.GAME.current_round.discards_used <= 0 and #context.full_hand >= 1 then
+            SMODS.destroy_cards(context.full_hand[1])
         end
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
             card.ability.extra.duration = card.ability.extra.duration - 1
