@@ -175,6 +175,28 @@ return {
                     "{V:1}Baneful{}: What If Reskins Were Different?"
                 }
             },
+            mannpower_halloween = {
+                name = "Holiday Restriction: Halloween / Full Moon",
+                text = {
+                    "Debuffed until a",
+                    "{V:1}Wheel of Fate{} card",
+                    "is {C:attention}used{}"
+                },
+            },
+            p_mannpower_spell_normal = {
+                name = 'Merasmus Pack',
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2# {V:1}Wheel of Fate{} cards"
+                }
+            },
+            p_mannpower_spell_rare = {
+                name = 'Jumbo Merasmus Pack',
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2# {V:1}Wheel of Fate{} cards"
+                }
+            },
         },
         Spectral = {
             c_mannpower_godmode = {
@@ -190,7 +212,15 @@ return {
                     "All {C:attention}Editionless{} cards in hand",
                     "become {C:dark_edition}Polychrome{}"
                 }
-            }
+            },
+            c_mannpower_luckyyou = {
+                name = 'Lucky You',
+                text = {
+                    "{X:mult,C:white}X#2#{} Mult, {X:chips,C:white}X#2#{} Chips,",
+                    "Earn {C:money}$#2#{} at end of round",
+                    "{C:inactive}(Rounds remaining: {C:attention}#1#{C:inactive})"
+                }
+            },
 
         },
         Mannpower = {
@@ -287,6 +317,95 @@ return {
                 }
             }
         },
+        WheelofFate = {
+            c_mannpower_superjump = {
+                name = 'Super Jump',
+                text = {
+                    "???",
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                },
+            },
+            c_mannpower_smallhead = {
+                name = 'Small Head',
+                text = {
+                    'Disables the current',
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                },
+            },
+            c_mannpower_superspeed = {
+                name = 'Super Speed',
+                text = {
+                    "???",
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                }
+            },
+            c_mannpower_zerogravity = {
+                name = 'Zero Gravity',
+                text = {
+                    "{C:attention}+#2#{} hand size",
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                }
+            },
+            c_mannpower_bighead = {
+                name = 'Big Head',
+                text = {
+                    "???",
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                }
+            },
+            c_mannpower_ubercharge = {
+                name = 'UberCharge',
+                text = {
+                    "Prevents other cards from being destroyed",
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                }
+            },
+            c_mannpower_criticals = {
+                name = 'Critical Hits',
+                text = {
+                    '{C:green}#3# in #4#{} chance',
+                    'for {X:mult,C:white}X#1#{} Mult',
+                    "{C:inactive}(Rounds Remaining: {C:attention}#2#{C:inactive})",
+                }
+            },
+            c_mannpower_danceoff = {
+                name = 'Dance Off',
+                text = {
+                    'Creates a copy of {C:tarot}The Fool',
+                    'when Blind is selected',
+                    "{C:inactive}(Must have room)",
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                }
+            },
+            c_mannpower_fish = {
+                name = 'Fish Troll',
+                text = {
+                    "???",
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                },
+            },
+            c_mannpower_nohead = {
+                name = 'Decapitated',
+                text = {
+                    '???',
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                }
+            },
+            c_mannpower_whammy = {
+                name = 'Whammy',
+                text = {
+                    "Ante changes are {X:attention,C:white}#2#X{} more potent",
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                }
+            },
+            c_mannpower_cherrybomb = {
+                name = 'Cherry Bomb',
+                text = {
+                    '???',
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                }
+            },
+        },
         Sleeve = {
             sleeve_mannpower_mannsleve = {
                 name = "Mannpower Sleeve",
@@ -313,6 +432,7 @@ return {
                 },
             }
         },
+
         Voucher = {
             v_mannpower_tour_of_duty = {
                 name = "Tour of Duty",
@@ -338,15 +458,40 @@ return {
                     "the {C:cry_code}Code Packs",
                 },
             },
+            v_mannpower_spellbook_magazine = {
+                name = "Spellbook Magazine",
+                text = {
+                    "{V:1}Wheel of Fate{} cards appear",
+                    "{C:attention}#1#X{} more frequently",
+                    "in the shop",
+                },
+            },
+            v_mannpower_fancy_spellbook = {
+                name = "Fancy Spellbook",
+                text = {
+                    "{V:1}Wheel of Fate{} cards last",
+                    "{C:attention}#1#{} round longer",
+                },
+            },
+            v_mannpower_fireproof_diary = {
+                name = "Fireproof Secret Diary",
+                text = {
+                    "{V:1}Wheel of Fate{} cards last",
+                    "for {C:attention}#1#X{} as long",
+                },
+            },
         }
     },
     misc = {
         dictionary = {
             k_mannpower_pack = "Mannpower Pack",
-            mannpower_plus_mann = "+1 Power-Up"
+            mannpower_plus_mann = "+1 Power-Up",
+            k_merasmus_pack = "Elige Fatum!",
+            mannpower_plus_fate = "+1 Card of Fate"
         },
         labels = {
             mannpower_strange_seal = "Stat Clock",
+            mannpower_halloween = "Halloween-Restricted"
         },
         achievement_names = {
             ach_mannpower_strange0 = "Strange",

@@ -65,6 +65,26 @@ SMODS.Atlas { -- Jokers
     py = 95
 }
 
+SMODS.Atlas { -- ghostfort
+    key = 'ghostfort',
+    path = 'meratlas.png',
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas { -- Spoopy Packs
+    key = 'halloweenpack',
+    path = 'merasmus.png',
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas { -- Spoopy Sticker
+    key = 'sticker',
+    path = 'sticker.png',
+    px = 71,
+    py = 95
+}
 --#endregion
 
 --#region File Loading
