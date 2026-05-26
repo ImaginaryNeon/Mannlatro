@@ -321,21 +321,23 @@ return {
             c_mannpower_superjump = {
                 name = 'Super Jump',
                 text = {
-                    "???",
+                    "Scoring cards have their",
+                    "rank increased by {C:attention}#2#{}",
                     "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
                 },
             },
             c_mannpower_smallhead = {
                 name = 'Small Head',
                 text = {
-                    'Disables the current',
+                    '{X:chips,C:white}X#2#{} Chips',
                     "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
                 },
             },
             c_mannpower_superspeed = {
                 name = 'Super Speed',
                 text = {
-                    "???",
+                    "Earn {C:money}$#2#{} when skipping",
+                    "a {C:attention}Blind{} or {C:attention}Booster Pack{}",
                     "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
                 }
             },
@@ -349,14 +351,15 @@ return {
             c_mannpower_bighead = {
                 name = 'Big Head',
                 text = {
-                    "???",
+                    "{X:mult,C:white}X#2#{} Mult",
                     "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
                 }
             },
             c_mannpower_ubercharge = {
                 name = 'UberCharge',
                 text = {
-                    "Prevents other cards from being destroyed",
+                    "Prevents Jokers and Consumables from",
+                    "being {C:attention}destroyed{}",
                     "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
                 }
             },
@@ -384,10 +387,19 @@ return {
                     "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
                 },
             },
+            c_mannpower_fish_cry = {
+                name = 'Fish Troll',
+                text = {
+                    "Creates a {C:dark_edition}Negative {C:cry_code}://CRASH{}",
+                    "card when Blind is selected",
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                },
+            },
             c_mannpower_nohead = {
                 name = 'Decapitated',
                 text = {
-                    '???',
+                    "Destroys the {C:attention}first card{}",
+                    "of each discard",
                     "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
                 }
             },
@@ -395,6 +407,13 @@ return {
                 name = 'Whammy',
                 text = {
                     "Ante changes are {X:attention,C:white}#2#X{} more potent",
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                }
+            },
+            c_mannpower_hellsbells = {
+                name = "Hell's Bells",
+                text = {
+                    "???",
                     "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
                 }
             },
