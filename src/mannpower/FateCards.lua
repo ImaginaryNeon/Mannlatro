@@ -1,5 +1,5 @@
 SMODS.Consumable { -- I, Super Jump
-    key = 'superjump',
+    key = 'superjump', -- cards played increase by 1 rank 
     set = 'WheelofFate',
     atlas = 'ghostfort',
     pos = {
@@ -7,14 +7,13 @@ SMODS.Consumable { -- I, Super Jump
         y = 0
     },
     set_ability = function(self, card)
-        card.ability.extra.xmult = 1.5
         card.ability.extra.duration = math.ceil((2 + (G.GAME.extended_duration_turns or 0)) *
             (G.GAME.extended_duration_mult or 1))
     end,
     --    select_card = 'consumeables',
     config = {
         extra = {
-            xmult = 1.5,
+            strength = 1,
             duration = 2,
         }
     },
@@ -22,15 +21,23 @@ SMODS.Consumable { -- I, Super Jump
         return {
             vars = {
                 card.ability.extra.duration,
-                card.ability.extra.xmult
+                card.ability.extra.strength
             }
         }
     end,
     calculate = function(self, card, context)
-        if context.joker_main then
-            return {
-                xmult = card.ability.extra.xmult,
-            }
+        if context.before then
+            for _, scored_card in ipairs(context.scoring_hand) do
+                if not scored_card.debuff then
+                    assert(SMODS.modify_rank(scored_card, 1))
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            scored_card:juice_up()
+                            return true
+                        end
+                    }))
+                end
+            end
         end
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
             card.ability.extra.duration = card.ability.extra.duration - 1
@@ -96,7 +103,7 @@ SMODS.Consumable {     -- II, Small Head
 
 
 SMODS.Consumable { -- III, Super Speed
-    key = 'superspeed',
+    key = 'superspeed', -- $5 when skipping a Blind or Booster
     set = 'WheelofFate',
     atlas = 'ghostfort',
     pos = {
@@ -110,7 +117,7 @@ SMODS.Consumable { -- III, Super Speed
     --    select_card = 'consumeables',
     config = {
         extra = {
-            xmult = 1.5,
+            money = 5,
             duration = 2,
         }
     },
@@ -118,14 +125,19 @@ SMODS.Consumable { -- III, Super Speed
         return {
             vars = {
                 card.ability.extra.duration,
-                card.ability.extra.xmult,
+                card.ability.extra.money,
             }
         }
     end,
     calculate = function(self, card, context)
-        if context.joker_main then
+        if context.skipping_booster then
             return {
-                chips = 1
+                money = card.ability.extra.money
+            }
+        end
+        if context.skip_blind then
+            return {
+                money = card.ability.extra.money
             }
         end
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
@@ -153,13 +165,13 @@ SMODS.Consumable {       -- IV, Zero Gravity
     },
     --    select_card = 'consumeables',
     set_ability = function(self, card)
-        card.ability.extra.duration = math.ceil((3 + (G.GAME.extended_duration_turns or 0)) *
+        card.ability.extra.duration = math.ceil((2 + (G.GAME.extended_duration_turns or 0)) *
             (G.GAME.extended_duration_mult or 1))
     end,
     config = {
         extra = {
             handsize = 2,
-            duration = 3
+            duration = 2
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -266,7 +278,7 @@ SMODS.Consumable {      -- VI, UberCharge
         }
     end,
     calculate = function(self, card, context)
-        if context.joker_type_destroyed and context.card ~= card then
+        if context.joker_type_destroyed and context.card ~= card and context.card.config.center.key ~= card.config.center.key then -- to prevvent infinite protection by stacking Ubercharges
             return {
                 no_destroy = true,
             }
@@ -402,7 +414,7 @@ SMODS.Consumable {    -- VIII, Dance Off
 
 
 SMODS.Consumable { -- IX, Fish Troll
-    key = 'fish',
+    key = 'fish', -- Creates a random non-Common Joker at the end of the round
     set = 'WheelofFate',
     atlas = 'ghostfort',
     pos = {
@@ -410,31 +422,60 @@ SMODS.Consumable { -- IX, Fish Troll
         y = 1
     },
     set_ability = function(self, card)
-        card.ability.extra.duration = math.ceil((2 + (G.GAME.extended_duration_turns or 0)) *
+        card.ability.extra.duration = math.ceil((1 + (G.GAME.extended_duration_turns or 0)) *
             (G.GAME.extended_duration_mult or 1))
     end,
     --    select_card = 'consumeables',
     config = {
         extra = {
-            xmult = 1.5,
-            duration = 2
+            duration = 1
         }
     },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
                 card.ability.extra.duration,
-                card.ability.extra.xmult
             }
         }
     end,
     calculate = function(self, card, context)
-        if context.joker_main then
+--[[        if context.setting_blind and #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
+            G.GAME.joker_buffer = G.GAME.joker_buffer + 1
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    SMODS.add_card {
+                        set = 'Joker',
+                        rarity ~= 'Common', -- hopefully filters out Common Jokers
+                        key_append = 'mannpower_merasmus_fishtroll'
+                    }
+                    G.GAME.joker_buffer = 0
+                    return true
+                end
+            }))
             return {
-                xmult = card.ability.extra.xmult,
+                message = localize('k_plus_joker'),
+                colour = G.C.BLUE,
             }
-        end
+        end]]
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+            if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
+                G.GAME.joker_buffer = G.GAME.joker_buffer + 1
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        SMODS.add_card {
+                            set = 'Joker',
+                            rarity ~= 'Common', -- hopefully filters out Common Jokers
+                            key_append = 'mannpower_merasmus_fishtroll'
+                        }
+                        G.GAME.joker_buffer = 0
+                        return true
+                    end
+                }))
+                return {
+                    message = localize('k_plus_joker'),
+                    colour = G.C.BLUE,
+                }
+            end
             card.ability.extra.duration = card.ability.extra.duration - 1
             if card.ability.extra.duration <= 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
@@ -496,7 +537,7 @@ SMODS.Consumable {  -- X, Decapitated
 
 
 SMODS.Consumable { -- XXX, Whammy
-    key = 'whammy',
+    key = 'whammy', -- Ante changes are doubled
     set = 'WheelofFate',
     atlas = 'ghostfort',
     pos = {
@@ -543,12 +584,59 @@ SMODS.Consumable { -- XXX, Whammy
     end
 }
 
-SMODS.Consumable { -- XXX (2), Cherry Bomb
-    key = 'cherrybomb',
+SMODS.Consumable { -- XXX (2), Hell's Bells
+    key = 'hellsbells', -- ???
     set = 'WheelofFate',
     atlas = 'ghostfort',
     pos = {
         x = 1,
+        y = 2
+    },
+    set_ability = function(self, card)
+        card.ability.extra.duration = math.ceil((2 + (G.GAME.extended_duration_turns or 0)) *
+            (G.GAME.extended_duration_mult or 1))
+    end,
+    --    select_card = 'consumeables',
+    config = {
+        extra = {
+            duration = 2,
+            xmult = 1.2,
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.duration,
+                card.ability.extra.xmult,
+            }
+        }
+    end,
+    calculate = function(self, card, context)
+        if context.joker_main then
+            return {
+                xmult = card.ability.extra.xmult,
+            }
+        end
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+            card.ability.extra.duration = card.ability.extra.duration - 1
+            if card.ability.extra.duration <= 0 then
+                SMODS.destroy_cards(card, nil, nil, true)
+            end
+        end
+    end,
+    use = function(self, card, area, copier)
+    end,
+    can_use = function(self, card)
+        return true
+    end
+}
+
+SMODS.Consumable { -- MMM, Cherry Bomb
+    key = 'cherrybomb', -- ???
+    set = 'WheelofFate',
+    atlas = 'ghostfort',
+    pos = {
+        x = 2,
         y = 2
     },
     set_ability = function(self, card)
