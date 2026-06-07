@@ -1,5 +1,5 @@
-SMODS.Consumable { -- I, Super Jump
-    key = 'superjump', -- cards played increase by 1 rank 
+SMODS.Consumable {     -- I, Super Jump
+    key = 'superjump', -- cards played increase by 1 rank
     set = 'WheelofFate',
     atlas = 'ghostfort',
     pos = {
@@ -55,7 +55,7 @@ SMODS.Consumable { -- I, Super Jump
 
 
 SMODS.Consumable {     -- II, Small Head
-    key = 'smallhead', -- X1.5 Chips
+    key = 'smallhead', -- +125 Chips
     set = 'WheelofFate',
     atlas = 'ghostfort',
     pos = {
@@ -69,7 +69,7 @@ SMODS.Consumable {     -- II, Small Head
     --    select_card = 'consumeables',
     config = {
         extra = {
-            xchips = 1.5,
+            xchips = 125,
             duration = 2,
         }
     },
@@ -84,7 +84,7 @@ SMODS.Consumable {     -- II, Small Head
     calculate = function(self, card, context)
         if context.joker_main then
             return {
-                xchips = card.ability.extra.xchips,
+                chips = card.ability.extra.xchips,
             }
         end
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
@@ -102,7 +102,7 @@ SMODS.Consumable {     -- II, Small Head
 }
 
 
-SMODS.Consumable { -- III, Super Speed
+SMODS.Consumable {      -- III, Super Speed
     key = 'superspeed', -- $5 when skipping a Blind or Booster
     set = 'WheelofFate',
     atlas = 'ghostfort',
@@ -414,7 +414,7 @@ SMODS.Consumable {    -- VIII, Dance Off
 
 
 SMODS.Consumable { -- IX, Fish Troll
-    key = 'fish', -- Creates a random non-Common Joker at the end of the round
+    key = 'fish',  -- Creates a random non-Common Joker at the end of the round
     set = 'WheelofFate',
     atlas = 'ghostfort',
     pos = {
@@ -439,7 +439,7 @@ SMODS.Consumable { -- IX, Fish Troll
         }
     end,
     calculate = function(self, card, context)
---[[        if context.setting_blind and #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
+        --[[        if context.setting_blind and #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
             G.GAME.joker_buffer = G.GAME.joker_buffer + 1
             G.E_MANAGER:add_event(Event({
                 func = function()
@@ -471,12 +471,15 @@ SMODS.Consumable { -- IX, Fish Troll
                         return true
                     end
                 }))
+                card.ability.extra.duration = card.ability.extra.duration - 1
                 return {
                     message = localize('k_plus_joker'),
                     colour = G.C.BLUE,
                 }
+            else
+                card.ability.extra.duration = card.ability.extra.duration - 1
             end
-            card.ability.extra.duration = card.ability.extra.duration - 1
+
             if card.ability.extra.duration <= 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
             end
@@ -536,7 +539,7 @@ SMODS.Consumable {  -- X, Decapitated
 }
 
 
-SMODS.Consumable { -- XXX, Whammy
+SMODS.Consumable {  -- XXX, Whammy
     key = 'whammy', -- Ante changes are doubled
     set = 'WheelofFate',
     atlas = 'ghostfort',
@@ -584,7 +587,7 @@ SMODS.Consumable { -- XXX, Whammy
     end
 }
 
-SMODS.Consumable { -- XXX (2), Hell's Bells
+SMODS.Consumable {      -- XXX (2), Hell's Bells
     key = 'hellsbells', -- ???
     set = 'WheelofFate',
     atlas = 'ghostfort',
@@ -631,7 +634,7 @@ SMODS.Consumable { -- XXX (2), Hell's Bells
     end
 }
 
-SMODS.Consumable { -- MMM, Cherry Bomb
+SMODS.Consumable {      -- MMM, Cherry Bomb
     key = 'cherrybomb', -- ???
     set = 'WheelofFate',
     atlas = 'ghostfort',

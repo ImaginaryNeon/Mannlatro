@@ -55,7 +55,7 @@ return {
                 text = {
                     "All number cards",
                     "are debuffed",
-                    "{C:inactive}#1#{}"
+                    "{C:red}#1#{}"
                 }
             },
             bl_mannpower_strength = {
@@ -306,13 +306,13 @@ return {
                 name = 'Plague',
                 text = {
                     'Make #1# Joker {C:legendary}Eternal{},',
-                    '{C:common}Perishable{}, and {C:dark_edition}Negative{}'
+                    '{C:money}Rental{}, and {C:dark_edition}Negative{}'
                 }
             },
             c_mannpower_supernova = {
                 name = 'Supernova',
                 text = {
-                    'Remove all Stickers',
+                    'Remove all vanilla Stickers',
                     'from 1 Joker'
                 }
             }
@@ -329,7 +329,7 @@ return {
             c_mannpower_smallhead = {
                 name = 'Small Head',
                 text = {
-                    '{X:chips,C:white}X#2#{} Chips',
+                    '{C:chips}+#2#{} Chips',
                     "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
                 },
             },
@@ -383,15 +383,8 @@ return {
             c_mannpower_fish = {
                 name = 'Fish Troll',
                 text = {
-                    "???",
-                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
-                },
-            },
-            c_mannpower_fish_cry = {
-                name = 'Fish Troll',
-                text = {
-                    "Creates a {C:dark_edition}Negative {C:cry_code}://CRASH{}",
-                    "card when Blind is selected",
+                    "Creates a random {C:attention}Joker{}",
+                    "at the end of the round.",
                     "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
                 },
             },
