@@ -5,7 +5,7 @@ SMODS.Blind {
         y = 6
     },
     mult = 0.5,
-    boss = { min = 2, max = 10 },
+    boss = { min = 2 },
     boss_colour = HEX('ED712B'),
     calculate = function(self, blind, context)
         if not blind.disabled then

@@ -132,12 +132,12 @@ SMODS.Consumable {      -- III, Super Speed
     calculate = function(self, card, context)
         if context.skipping_booster then
             return {
-                money = card.ability.extra.money
+                dollars = card.ability.extra.money
             }
         end
         if context.skip_blind then
             return {
-                money = card.ability.extra.money
+                dollars = card.ability.extra.money
             }
         end
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then

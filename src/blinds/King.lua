@@ -20,7 +20,7 @@ SMODS.Blind {
 		}
 	end,
 	mult = 1.5,
-	boss = { min = 3, max = 10 },
+	boss = { min = 3 },
 	boss_colour = HEX('ED712B'),
 	calculate = function(self, blind, context)
 		if not blind.disabled then
@@ -33,7 +33,7 @@ SMODS.Blind {
 		end
 	end,
 	in_pool = function(self, args)
-		if G.GAME.starting_params.no_faces == true then
+		if G.GAME.starting_params.no_faces == true and G.GAME.round_resets.ante >= 3 then
 			return false
 		else
 			return true

@@ -35,7 +35,7 @@ SMODS.Blind {
             timer = 0,
         },
     },
-    boss = { min = 1, max = 10 },
+    boss = { min = 2 },
     boss_colour = HEX('ED712B'),
     loc_vars = function(self)
         return { vars = { self.config.extra.timer } }

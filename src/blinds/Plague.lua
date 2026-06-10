@@ -8,7 +8,7 @@ SMODS.Blind {
         local numerator, denominator = SMODS.get_probability_vars(self, 1, 4, 'vremade_wheel')
         return { vars = { numerator, denominator } }
     end,
-    boss = { min = 2, max = 10 },
+    boss = { min = 2 },
     boss_colour = HEX('ED712B'),
     calculate = function(self, blind, context)
         if context.before and not context.blueprint then

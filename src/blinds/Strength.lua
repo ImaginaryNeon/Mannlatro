@@ -4,7 +4,7 @@ SMODS.Blind {
     pos = {
         y = 0
     },
-    boss = { min = 2, max = 10 },
+    boss = { min = 2 },
     boss_colour = HEX('ED712B'),
     calculate = function(self, blind, context)
         if context.before and not context.blueprint and not blind.disabled then
