@@ -8,6 +8,7 @@ function Game.update(self, dt)
         if blind.effect.extra.timer >= 8 and not blind.debuffed then
             -- reset timer to 0
             blind.effect.extra.timer = 0
+            SMODS.juice_up_blind()
             -- do your effect that happens every 10 seconds here (thanks to srockw for helping with this)
             if G.hand and #G.hand.highlighted > 0 then
                 G.E_MANAGER:add_event(Event({
@@ -18,7 +19,7 @@ function Game.update(self, dt)
                     end
                 }))
             else
-                message = "Missed!"
+
             end
         end
     end
