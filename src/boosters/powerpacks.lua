@@ -1,7 +1,7 @@
 SMODS.Booster {
     key = "powerpack_1",
-    weight = 3,
-    kind = 'Mannpower', -- You can also use Arcana if you want it to belong to the vanilla kind
+    weight = 2,
+    kind = 'Mannpower',
     cost = 4,
     atlas = 'mannpowerpack',
     pos = { x = 0, y = 0 },
@@ -58,8 +58,8 @@ SMODS.Booster {
 }
 SMODS.Booster {
     key = "powerpack_2",
-    weight = 3,
-    kind = 'Mannpower', -- You can also use Arcana if you want it to belong to the vanilla kind
+    weight = 2,
+    kind = 'Mannpower',
     cost = 4,
     atlas = 'mannpowerpack',
     pos = { x = 1, y = 0 },
@@ -182,7 +182,7 @@ SMODS.Booster {
 
 SMODS.Booster {
     key = "spell_normal_2",
-    weight = 1,
+    weight = 0.9,
     kind = 'Merasmus', -- You can also use Arcana if you want it to belong to the vanilla kind
     cost = 4,
     atlas = 'halloweenpack',
@@ -240,7 +240,7 @@ SMODS.Booster {
 
 SMODS.Booster {
     key = "spell_normal_3", -- flask
-    weight = 1,
+    weight = 0.9,
     kind = 'Merasmus',      -- You can also use Arcana if you want it to belong to the vanilla kind
     cost = 4,
     atlas = 'halloweenpack',

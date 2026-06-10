@@ -253,7 +253,7 @@ SMODS.Consumable {   -- V, Big Head
 
 
 SMODS.Consumable {      -- VI, UberCharge
-    key = 'ubercharge', -- Other cards cannot be destroyed
+    key = 'ubercharge', -- Other non-playing-card cards cannot be destroyed
     set = 'WheelofFate',
     atlas = 'ghostfort',
     pos = {
@@ -278,7 +278,8 @@ SMODS.Consumable {      -- VI, UberCharge
         }
     end,
     calculate = function(self, card, context)
-        if context.joker_type_destroyed and context.card ~= card and context.card.config.center.key ~= card.config.center.key then -- to prevvent infinite protection by stacking Ubercharges
+        if context.joker_type_destroyed and context.card ~= card and context.card.config.center.key ~= card.config.center.key then -- to prevent Uber-chaining
+            context.card.getting_sliced = true
             return {
                 no_destroy = true,
             }
