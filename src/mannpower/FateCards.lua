@@ -13,7 +13,6 @@ SMODS.Consumable {     -- I, Super Jump
     --    select_card = 'consumeables',
     config = {
         extra = {
-            strength = 1,
             duration = 2,
         }
     },
@@ -21,12 +20,11 @@ SMODS.Consumable {     -- I, Super Jump
         return {
             vars = {
                 card.ability.extra.duration,
-                card.ability.extra.strength
             }
         }
     end,
     calculate = function(self, card, context)
-        if context.before then
+        if context.before and not context.retrigger_joker then
             for _, scored_card in ipairs(context.scoring_hand) do
                 if not scored_card.debuff then
                     assert(SMODS.modify_rank(scored_card, 1))
@@ -39,7 +37,7 @@ SMODS.Consumable {     -- I, Super Jump
                 end
             end
         end
-        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.retrigger_joker then
             card.ability.extra.duration = card.ability.extra.duration - 1
             if card.ability.extra.duration <= 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
@@ -63,31 +61,31 @@ SMODS.Consumable {     -- II, Small Head
         y = 0
     },
     set_ability = function(self, card)
-        card.ability.extra.duration = math.ceil((2 + (G.GAME.extended_duration_turns or 0)) *
+        card.ability.extra.duration = math.ceil((3 + (G.GAME.extended_duration_turns or 0)) *
             (G.GAME.extended_duration_mult or 1))
     end,
     --    select_card = 'consumeables',
     config = {
         extra = {
-            xchips = 125,
-            duration = 2,
+            chips = 125,
+            duration = 3,
         }
     },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
                 card.ability.extra.duration,
-                card.ability.extra.xchips,
+                card.ability.extra.chips,
             }
         }
     end,
     calculate = function(self, card, context)
-        if context.joker_main then
+        if context.joker_main and not context.retrigger_joker then
             return {
-                chips = card.ability.extra.xchips,
+                chips = card.ability.extra.chips,
             }
         end
-        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.retrigger_joker then
             card.ability.extra.duration = card.ability.extra.duration - 1
             if card.ability.extra.duration <= 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
@@ -130,17 +128,17 @@ SMODS.Consumable {      -- III, Super Speed
         }
     end,
     calculate = function(self, card, context)
-        if context.skipping_booster then
+        if context.skipping_booster and not context.retrigger_joker then
             return {
                 dollars = card.ability.extra.money
             }
         end
-        if context.skip_blind then
+        if context.skip_blind and not context.retrigger_joker then
             return {
                 dollars = card.ability.extra.money
             }
         end
-        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.retrigger_joker then
             card.ability.extra.duration = card.ability.extra.duration - 1
             if card.ability.extra.duration <= 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
@@ -165,13 +163,13 @@ SMODS.Consumable {       -- IV, Zero Gravity
     },
     --    select_card = 'consumeables',
     set_ability = function(self, card)
-        card.ability.extra.duration = math.ceil((2 + (G.GAME.extended_duration_turns or 0)) *
+        card.ability.extra.duration = math.ceil((3 + (G.GAME.extended_duration_turns or 0)) *
             (G.GAME.extended_duration_mult or 1))
     end,
     config = {
         extra = {
-            handsize = 2,
-            duration = 2
+            handsize = 1,
+            duration = 3
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -189,7 +187,7 @@ SMODS.Consumable {       -- IV, Zero Gravity
         G.hand:change_size(-1 * card.ability.extra.handsize)
     end,
     calculate = function(self, card, context)
-        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.retrigger_joker then
             card.ability.extra.duration = card.ability.extra.duration - 1
             if card.ability.extra.duration <= 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
@@ -237,7 +235,7 @@ SMODS.Consumable {   -- V, Big Head
                 xmult = card.ability.extra.xmult,
             }
         end
-        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.retrigger_joker then
             card.ability.extra.duration = card.ability.extra.duration - 1
             if card.ability.extra.duration <= 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
@@ -278,13 +276,13 @@ SMODS.Consumable {      -- VI, UberCharge
         }
     end,
     calculate = function(self, card, context)
-        if context.joker_type_destroyed and context.card ~= card and context.card.config.center.key ~= card.config.center.key then -- to prevent Uber-chaining
+        if context.joker_type_destroyed and context.card ~= card and context.card.config.center.key ~= card.config.center.key and not context.retrigger_joker then -- to prevent Uber-chaining
             context.card.getting_sliced = true
             return {
                 no_destroy = true,
             }
         end
-        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.retrigger_joker then
             card.ability.extra.duration = card.ability.extra.duration - 1
             if card.ability.extra.duration <= 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
@@ -329,14 +327,14 @@ SMODS.Consumable {     -- VII, Critical Hits
         }
     end,
     calculate = function(self, card, context)
-        if context.joker_main then
+        if context.joker_main and not context.retrigger_joker then
             if SMODS.pseudorandom_probability(card, 'the gargoyle...IS GONE', 1, card.ability.extra.odds) then
                 return {
                     xmult = card.ability.extra.xmult,
                 }
             end
         end
-        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.retrigger_joker then
             card.ability.extra.duration = card.ability.extra.duration - 1
             if card.ability.extra.duration <= 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
@@ -377,7 +375,7 @@ SMODS.Consumable {    -- VIII, Dance Off
         }
     end,
     calculate = function(self, card, context)
-        if context.setting_blind and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+        if context.setting_blind and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit and not context.retrigger_joker then
             G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
             G.E_MANAGER:add_event(Event({
                 func = (function()
@@ -399,7 +397,7 @@ SMODS.Consumable {    -- VIII, Dance Off
             }))
             return nil, true
         end
-        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.retrigger_joker then
             card.ability.extra.duration = card.ability.extra.duration - 1
             if card.ability.extra.duration <= 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
@@ -465,7 +463,7 @@ SMODS.Consumable { -- IX, Fish Troll
                     func = function()
                         SMODS.add_card {
                             set = 'Joker',
-                            rarity ~= 'Common', -- hopefully filters out Common Jokers
+                            -- rarity ~= 'Common', -- hopefully filters out Common Jokers -- It doesn't.
                             key_append = 'mannpower_merasmus_fishtroll'
                         }
                         G.GAME.joker_buffer = 0
@@ -473,14 +471,19 @@ SMODS.Consumable { -- IX, Fish Troll
                     end
                 }))
                 card.ability.extra.duration = card.ability.extra.duration - 1
+                if card.ability.extra.duration <= 0 then
+                    SMODS.destroy_cards(card, nil, nil, true)
+                end
                 return {
                     message = localize('k_plus_joker'),
                     colour = G.C.BLUE,
                 }
             else
                 card.ability.extra.duration = card.ability.extra.duration - 1
+                if card.ability.extra.duration <= 0 then
+                    SMODS.destroy_cards(card, nil, nil, true)
+                end
             end
-
             if card.ability.extra.duration <= 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
             end
@@ -522,10 +525,10 @@ SMODS.Consumable {  -- X, Decapitated
         }
     end,
     calculate = function(self, card, context)
-        if context.discard and not context.blueprint and #context.full_hand >= 1 then
+        if context.discard and not context.blueprint and #context.full_hand >= 1 and not context.retrigger_joker then
             SMODS.destroy_cards(context.full_hand[1])
         end
-        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.retrigger_joker then
             card.ability.extra.duration = card.ability.extra.duration - 1
             if card.ability.extra.duration <= 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
@@ -549,14 +552,14 @@ SMODS.Consumable {  -- XXX, Whammy
         y = 2
     },
     set_ability = function(self, card)
-        card.ability.extra.duration = math.ceil((5 + (G.GAME.extended_duration_turns or 0)) *
+        card.ability.extra.duration = math.ceil((6 + (G.GAME.extended_duration_turns or 0)) *
             (G.GAME.extended_duration_mult or 1))
     end,
     --    select_card = 'consumeables',
     config = {
         extra = {
             change_mult = 2,
-            duration = 5,
+            duration = 6,
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -568,13 +571,13 @@ SMODS.Consumable {  -- XXX, Whammy
         }
     end,
     calculate = function(self, card, context)
-        if context.modify_ante then
+        if context.modify_ante and not context.retrigger_joker then
             local piss = card.ability.extra.change_mult * context.modify_ante
             return {
                 modify = piss,
             }
         end
-        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.retrigger_joker then
             card.ability.extra.duration = card.ability.extra.duration - 1
             if card.ability.extra.duration <= 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
@@ -616,12 +619,12 @@ SMODS.Consumable {      -- XXX (2), Hell's Bells
         }
     end,
     calculate = function(self, card, context)
-        if context.joker_main then
+        if context.joker_main and not context.retrigger_joker then
             return {
                 xmult = card.ability.extra.xmult,
             }
         end
-        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.retrigger_joker then
             card.ability.extra.duration = card.ability.extra.duration - 1
             if card.ability.extra.duration <= 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
@@ -663,12 +666,12 @@ SMODS.Consumable {      -- MMM, Cherry Bomb
         }
     end,
     calculate = function(self, card, context)
-        if context.joker_main then
+        if context.joker_main and not context.retrigger_joker then
             return {
                 xmult = card.ability.extra.xmult,
             }
         end
-        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.retrigger_joker then
             card.ability.extra.duration = card.ability.extra.duration - 1
             if card.ability.extra.duration <= 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
@@ -714,13 +717,13 @@ SMODS.Consumable { -- LOL, Lucky You
         }
     end,
     calculate = function(self, card, context)
-        if context.joker_main then
+        if context.joker_main and not context.retrigger_joker then
             return {
                 xmult = card.ability.extra.seven,
                 xchips = card.ability.extra.seven,
             }
         end
-        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.retrigger_joker then
             card.ability.extra.duration = card.ability.extra.duration - 1
             if card.ability.extra.duration <= 0 then
                 SMODS.destroy_cards(card, nil, nil, true)

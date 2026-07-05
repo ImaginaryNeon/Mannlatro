@@ -48,16 +48,20 @@ SMODS.Joker {
     cost = 8,
     atlas = "jonklers",
     pos = { x = 0, y = 0 },
-    config = { extra = { charges = 0, max_charges = 3, type = "None", mismin = 0, mismax = 50, money = 1, xmult = 3 } },
+    config = { extra = { charges = 0, max_charges = 3, type = "None", mismin = 0, mismax = 50, money = 1, xmult = 3, odds_S = 2, odds_T = 2, kill_odds = 2, } },
     loc_vars = function(self, info_queue, card)
         -- This vanilla variable only checks for vanilla Tarots and Planets, you would have to keep track on your own for any custom consumables
         local fool_c = card.ability.extra.type or G.GAME.mannpower_last_skipped_booster_kind or nil
+        local numeratorS, denominatorS = SMODS.get_probability_vars(card, 1, card.ability.extra.odds_S,
+            'mannpower_canteen_spectral')
+        local numeratorT, denominatorT = SMODS.get_probability_vars(card, 1, card.ability.extra.odds_T,
+            'mannpower_canteen_tarot')
         local colour = (card.ability.extra.type == 'None' --[[or fool_c.name == 'The Fool']]) and G.C.RED or G.C.GREEN
         --[[if not (not fool_c or fool_c.name == 'The Fool') then
             info_queue[#info_queue + 1] = fool_c
         end]]
         -- Add tooltips by appending to info_queue
-        info_queue[#info_queue + 1] = { key = 'mannpower_explanation', set = 'Other', vars = { card.ability.extra.money, card.ability.extra.xmult } }
+        info_queue[#info_queue + 1] = { key = 'mannpower_explanation', set = 'Other', vars = { card.ability.extra.money, card.ability.extra.xmult, numeratorS, denominatorS, numeratorT, denominatorT, colours = { HEX('43c77b'), } } }
         if Cryptid then
             info_queue[#info_queue + 1] = { key = 'mannpower_explanation_cry', set = 'Other', vars = { card.ability.extra.mismin, card.ability.extra.mismax, colours = { HEX("474931"), HEX("ef0098"), HEX("14b341") } } }
         end
@@ -178,13 +182,13 @@ SMODS.Joker {
                             xmult = card.ability.extra.xmult
                         }
                     end
-                    if card.ability.extra.type == 'Spectral' then
+                    if card.ability.extra.type == 'Spectral' and SMODS.pseudorandom_probability(card, 'mannpower_canteen_spectral', 1, card.ability.extra.odds_S) then
                         if G.consumeables.config.card_limit > #G.consumeables.cards + G.GAME.consumeable_buffer then
                             G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
                             G.E_MANAGER:add_event(Event({
                                 func = (function()
                                     SMODS.add_card {
-                                        set = 'Spectral', key_append = 'doritos_crash_course_for_the_xbox360'
+                                        set = 'Spectral', key_append = 'mannpower_canteen_spectral'
                                     }
                                     G.GAME.consumeable_buffer = 0
                                     return true
@@ -198,7 +202,7 @@ SMODS.Joker {
                     end
                     if card.ability.extra.type == 'baneful' then
                         for i = 1, #G.jokers.cards do
-                            if G.jokers.cards[i] ~= card and not SMODS.is_eternal(G.jokers.cards[i], card) then
+                            if G.jokers.cards[i] ~= card and not SMODS.is_eternal(G.jokers.cards[i], card) and SMODS.pseudorandom_probability(card, 'mannpower_baneful_kill', 1, card.ability.extra.kill_odds) then
                                 G.E_MANAGER:add_event(Event({
                                     trigger = 'after',
                                     delay = 0.4,
@@ -239,6 +243,24 @@ SMODS.Joker {
                             return {
                                 mult = pseudorandom('vremade_misprint', card.ability.extra.mismin,
                                     card.ability.extra.mismax)
+                            }
+                        end
+                    end
+                    if card.ability.extra.type == "Merasmus" and SMODS.pseudorandom_probability(card, 'mannpower_canteen_spectral', 1, card.ability.extra.odds_S) then
+                        if G.consumeables.config.card_limit > #G.consumeables.cards + G.GAME.consumeable_buffer then
+                            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                            G.E_MANAGER:add_event(Event({
+                                func = (function()
+                                    SMODS.add_card {
+                                        set = 'Tarot', key_append = 'mannpower_canteen_tarot'
+                                    }
+                                    G.GAME.consumeable_buffer = 0
+                                    return true
+                                end)
+                            }))
+                            return {
+                                message = localize('k_plus_tarot'),
+                                colour = G.C.SECONDARY_SET.Tarot
                             }
                         end
                     end

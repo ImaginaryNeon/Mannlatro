@@ -1,3 +1,26 @@
+local isCryptid = SMODS.find_mod("Cryptid")[1]
+local abovestake = (isCryptid and "orange") or "gold"
+
+--[[SMODS.Stake {
+    name = "Haunted Stake",
+    key = "haunted",
+    pos = { x = 0, y = 0 },
+    atlas = "stake",
+    applied_stakes = { abovestake },
+    above_stake = abovestake,
+    colour = HEX("4fe89b"),
+    sticker_atlas = "sticker",
+    sticker_pos = { x = 1, y = 0 },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { colours = { HEX('43c77b') } }, }
+    end,
+    prefix_config = { applied_stakes = { mod = false } },
+    modifiers = function()
+        --        G.GAME.modifiers.enable_eternaween_in_shop = true
+        G.GAME.modifiers.enable_mannpower_halloween = true
+    end,
+}]]
+
 SMODS.Sticker {
     key = "halloween",
     atlas = 'sticker',
@@ -7,11 +30,10 @@ SMODS.Sticker {
         pisspants = false
     },
     needs_enable_flag = true,
-    should_apply = function(self, card, center, area, bypass_roll)
-        -- The eternal check can't be done here because of timing, so the vanilla condition is impossible to recreate with the API
-        return G.GAME.modifiers.enable_perishables_in_shop and
+    --[[should_apply = function(self, card, center, area, bypass_roll)
+        return G.GAME.modifiers.enable_eternaween_in_shop and
             SMODS.Sticker.should_apply(self, card, center, area, bypass_roll) -- this handles the enable flag and rate
-    end,
+    end,]]
     loc_vars = function(self, info_queue, card)
         return { vars = { colours = { SMODS.ConsumableTypes['WheelofFate'].badge_colour } }, }
     end,

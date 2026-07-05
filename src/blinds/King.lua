@@ -4,7 +4,6 @@ SMODS.Blind {
 	pos = {
 		y = 9
 	},
-	mult = 2,
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
@@ -40,3 +39,16 @@ SMODS.Blind {
 		end
 	end
 }
+
+--[[local function reset_mannpower_vaccinator()
+	G.GAME.current_round.neonmod_cheatcode_cards = G.GAME.current_round.neonmod_cheatcode_cards or
+		{ 'Hearts', 'Diamonds', 'Spades', 'Clubs', 'Hearts', 'Diamonds', 'Spades', 'Clubs', 'Hearts', 'Spades' }
+	for i = 1, 10 do
+		local ancient_card = pseudorandom_element(SMODS.Suits, 'neonmod_konamicode' .. G.GAME.round_resets.ante)
+		G.GAME.current_round.neonmod_cheatcode_cards[i] = ancient_card.key
+	end
+end
+
+function SMODS.current_mod.reset_game_globals(run_start)
+	reset_mannpower_vaccinator()
+end]]

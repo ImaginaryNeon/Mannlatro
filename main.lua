@@ -23,6 +23,16 @@ SMODS.Atlas { -- Mannpower Blinds
     py = 34
 }
 
+SMODS.Atlas { -- Vaccinator Blind
+    key = 'vaccinator',
+    path = 'vaccinator.png',
+    atlas_table = 'ANIMATION_ATLAS',
+    frames = 21,
+    px = 34,
+    py = 34,
+    fps = 5, -- 10 is base
+}
+
 SMODS.Atlas { -- Mannpower Cards
     key = 'mannpowercards',
     path = 'mannpowercards.png',
@@ -84,6 +94,13 @@ SMODS.Atlas { -- Spoopy Sticker
     path = 'sticker.png',
     px = 71,
     py = 95
+}
+
+SMODS.Atlas { -- stake
+    key = 'stake',
+    path = 'stake.png',
+    px = 29,
+    py = 29
 }
 --#endregion
 

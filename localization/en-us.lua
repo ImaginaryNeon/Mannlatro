@@ -16,7 +16,7 @@ return {
                     "When a Booster Pack is {C:attention}skipped{},",
                     "this Joker, if empty, gains",
                     "{C:attention}#2#{} charges of the effect",
-                    "associated with the Booster Pack type",
+                    "listed for the Booster Pack type",
                     "{C:inactive}(Charges: {C:attention}#1#{C:inactive})",
                     "{C:inactive}(Current type: {C:attention}#3#{C:inactive})"
                 }
@@ -130,6 +130,24 @@ return {
                     "per card played"
                 },
             },
+            bl_mannpower_final_vaccinator = {
+                name = "Vintage Vaccinator",
+                text = {
+                    "#1# and #2#",
+                    "are debuffed",
+                    "(Changes categories each hand)"
+                },
+            },
+        },
+        Stake = {
+            stake_mannpower_haunted = {
+                name = "Haunted Stake",
+                text = {
+                    "Shop can have {C:attention}Halloween-Restricted{} Jokers",
+                    "{C:inactive,s:0.8}(Debuffed until a {V:1,s:0.8}Wheel of Fate{C:inactive,s:0.8} card is used)",
+                    "{s:0.8}Applies all previous Stakes",
+                },
+            },
         },
         Other = {
             p_mannpower_powerpack = { -- say that five times fast
@@ -150,17 +168,21 @@ return {
             mannpower_explanation = {
                 name = 'Effects',
                 text = {
-                    "{C:tarot}Arcana{}: Gain {C:money}$#1#{} per",
+                    "{C:tarot}Arcana{}: Earn {C:money}$#1#{} per",
                     "Joker owned",
-                    "{C:planet}Planet{}: Level up played hand",
-                    "{C:spectral}Spectral{}: Creates a random",
-                    "{C:spectral}Spectral{} card",
+                    "{C:planet}Planet{}: Level up",
+                    "played poker hand",
+                    "{C:spectral}Spectral{}: {C:green}#3# in #4#{} chance",
+                    "to create a {C:spectral}Spectral{} card",
                     "{C:inactive}(Must have room)",
                     "{C:attention}Standard{}: Copies the {C:attention}first{}",
                     "card of hand when scored",
                     "{C:attention}Buffoon{}: {X:mult,C:white}X#2#{} Mult",
-                    "{C:diamonds}Mannpower{}: Gain {C:red}+3{} discards",
+                    "{C:diamonds}Mannpower{}: {C:red}+3{} discards",
                     "when {C:attention}Blind{} is selected",
+                    "{V:1}Merasmus{}: {C:green}#5# in #6#{} chance",
+                    "to create a {C:tarot}Tarot{} card",
+                    "{C:inactive}(Must have room)",
                 }
             },
             mannpower_explanation_cry = {
@@ -322,7 +344,7 @@ return {
                 name = 'Super Jump',
                 text = {
                     "Scoring cards have their",
-                    "rank increased by {C:attention}#2#{}",
+                    "rank increased by {C:attention}1{}",
                     "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
                 },
             },
