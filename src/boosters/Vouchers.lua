@@ -75,7 +75,7 @@ end
 
 SMODS.Voucher {
     key = 'spellbook_magazine', -- Wheel of Fate cards are 4x more likely to appear in the Shop
-    atlas = 'vouchers',
+    atlas = 'merasmus_vouchers',
     pos = { x = 0, y = 0 },
     config = { extra = { rate = 4 } },
     loc_vars = function(self, info_queue, card)
@@ -100,7 +100,7 @@ SMODS.Voucher {
 }
 SMODS.Voucher {
     key = 'fancy_spellbook', -- Wheel of Fate cards have +1 Duration
-    atlas = 'vouchers',
+    atlas = 'merasmus_vouchers',
     pos = { x = 1, y = 0 },
     config = { extra = { bonus = 1 } },
     requires = { 'v_mannpower_spellbook_magazine' },
@@ -117,7 +117,7 @@ SMODS.Voucher {
 if Cryptid then
     SMODS.Voucher {
         key = 'fireproof_diary', -- Wheel of Fate cards have doubled Duration values
-        atlas = 'vouchers',
+        atlas = 'merasmus_vouchers',
         dependencies = {
             items = {
                 "set_cry_tier3",

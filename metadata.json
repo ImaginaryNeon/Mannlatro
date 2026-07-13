@@ -8,8 +8,9 @@
     "prefix": "mannpower",
     "main_file": "main.lua",
     "icon_path": "Logo.png",
-    "version": "2.0.0~screamfortress",
+    "version": "2.0.0~screamfortress-mftest-a",
     "badge_colour": "56351b",
+    "priority": 1,
     "dependencies": [
         "Steamodded (>=1.)"
     ],

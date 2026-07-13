@@ -440,6 +440,26 @@ return {
                 }
             },
         },
+        Colour = {
+            c_mannpower_col_mannco_orange = {
+                name = "{E:mf_colour_title}Mann Co. Orange",
+                text = {
+                    "Create a random {C:dark_edition}Negative{}",
+                    "{C:planet}Mannpower{} card for every",
+                    "{C:attention}#4#{} rounds this has been held",
+                    "{C:inactive}(Currently {C:attention}#1#{C:inactive}, {}[{C:attention,f:mf_emoji}#2#{C:inactive,f:mf_emoji}#3#{}]{C:inactive})",
+                },
+            },
+            c_mannpower_col_teamspirit = {
+                name = "{E:mf_colour_title}Team Spirit",
+                text = {
+                    "Add a {C:attention}Stat Clock{}",
+                    "{C:planet}Mannpower{} card for every",
+                    "{C:attention}#4#{} rounds this has been held",
+                    "{C:inactive}(Currently {C:attention}#1#{C:inactive}, {}[{C:attention,f:mf_emoji}#2#{C:inactive,f:mf_emoji}#3#{}]{C:inactive})",
+                },
+            },
+        },
         Sleeve = {
             sleeve_mannpower_mannsleve = {
                 name = "Mannpower Sleeve",

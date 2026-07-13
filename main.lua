@@ -14,6 +14,13 @@ SMODS.Atlas { -- Vouchers
     py = 95
 }
 
+SMODS.Atlas { -- Merasmus Vouchers
+    key = 'merasmus_vouchers',
+    path = 'merasmus_vouchers.png',
+    px = 71,
+    py = 95
+}
+
 SMODS.Atlas { -- Mannpower Blinds
     key = 'mannpowerblind',
     path = 'mannpower.png',
@@ -101,6 +108,30 @@ SMODS.Atlas { -- stake
     path = 'stake.png',
     px = 29,
     py = 29
+}
+
+SMODS.Atlas { -- Color Cards
+    key = "mp_colors",
+    path = "mp_colors.png",
+    px = 71,
+    py = 95,
+}
+--merasmus_vouchers
+--[[
+SMODS.Atlas { -- Spectral Spectrum
+    key = "mp_spectral_spectrum",
+    path = "spectral_spectrum.png",
+    px = 71,
+    py = 95,
+}
+]]
+
+SMODS.Attribute {
+    key = "mannpower",
+}
+
+SMODS.Attribute {
+    key = "screamfortress",
 }
 --#endregion
 

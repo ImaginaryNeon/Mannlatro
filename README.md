@@ -10,5 +10,8 @@ Contains:
 - 1 new Seal
 
 To-do:
-- Update Booster Pack designs
+- Update Merasmus Booster Pack designs
+- Fix the Halloween-Restricted Sticker not debuffing (and only updating) outside of blinds
 - Add larger Booster Packs and a tag for said packs
+- Add conflicts with pre-rework MoreFluff versions
+- Wait for SMODS to add the ability to cycle through a whole atlas (like with the Bad Apple mod) so I can add a Color Card (MoreFluff) for the Merasmus cards based on the Spectral Spectrum spell paint thing

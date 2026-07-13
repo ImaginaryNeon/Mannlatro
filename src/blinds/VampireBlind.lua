@@ -112,7 +112,7 @@ SMODS.Blind {
                     "mannpower_vaccinator" .. G.GAME.round_resets.ante)
                 local item_1 = blind.effect.extra.item_1
                 local item_2 = blind.effect.extra.item_2
-                for i, playing_card in ipairs(G.hand.cards) do -- trying this because the fuckass debuff recalcage doesn't actually recalc it I guess
+                --[[for i, playing_card in ipairs(G.hand.cards) do -- trying this because the fuckass debuff recalcage doesn't actually recalc it I guess
                     if playing_card.debuff then                -- because why would it do that?
                         local thing = false                    -- it would be too normal and logical and FUCK YOU
                         if playing_card:is_suit("Hearts") and ((item_1 == "Hearts") or (item_2 == "Hearts")) then
@@ -141,6 +141,9 @@ SMODS.Blind {
                         end
                         if thing == false then SMODS.recalc_debuff(playing_card) end
                     end
+                end]]
+                for k, v in pairs(G.playing_cards) do
+                    SMODS.recalc_debuff(v)
                 end
             end
             blind:set_text()
@@ -149,16 +152,16 @@ SMODS.Blind {
             local rank = context.debuff_card:get_id()
             local item_1 = blind.effect.extra.item_1
             local item_2 = blind.effect.extra.item_2
-            if context.debuff_card:is_suit("Hearts") and ((item_1 == "Hearts") or (item_2 == "Hearts")) then
+            if context.debuff_card:is_suit("Hearts", true) and ((item_1 == "Hearts") or (item_2 == "Hearts")) then
                 return { debuff = true }
             end
-            if context.debuff_card:is_suit("Spades") and ((item_1 == "Spades") or (item_2 == "Spades")) then
+            if context.debuff_card:is_suit("Spades", true) and ((item_1 == "Spades") or (item_2 == "Spades")) then
                 return { debuff = true }
             end
-            if context.debuff_card:is_suit("Diamonds") and ((item_1 == "Diamonds") or (item_2 == "Diamonds")) then
+            if context.debuff_card:is_suit("Diamonds", true) and ((item_1 == "Diamonds") or (item_2 == "Diamonds")) then
                 return { debuff = true }
             end
-            if context.debuff_card:is_suit("Clubs") and ((item_1 == "Clubs") or (item_2 == "Clubs")) then
+            if context.debuff_card:is_suit("Clubs", true) and ((item_1 == "Clubs") or (item_2 == "Clubs")) then
                 return { debuff = true }
             end
             if next(SMODS.get_enhancements(context.debuff_card)) and ((item_1 == "Cards with Enhancements") or (item_2 == "Cards with Enhancements")) then
@@ -167,7 +170,7 @@ SMODS.Blind {
             if context.debuff_card.edition and ((item_1 == "Cards with Editions") or (item_2 == "Cards with Editions")) then
                 return { debuff = true }
             end
-            if context.debuff_card:get_seal() and ((item_1 == "Cards with Seals") or (item_2 == "Cards with Seals")) then
+            if context.debuff_card:get_seal(true) and ((item_1 == "Cards with Seals") or (item_2 == "Cards with Seals")) then
                 return { debuff = true }
             end
             if context.debuff_card:is_face(true) and ((item_1 == "Face cards") or (item_2 == "Face cards")) then

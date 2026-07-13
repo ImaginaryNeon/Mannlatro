@@ -92,8 +92,10 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         if context.skipping_booster and (not card.ability.extra.type or card.ability.extra.type == 'None') then
-            card.ability.extra.type = tostring(context.booster.kind)
-            card.ability.extra.charges = card.ability.extra.max_charges
+            if context.booster.kind then
+                card.ability.extra.type = tostring(context.booster.kind)
+                card.ability.extra.charges = card.ability.extra.max_charges
+            end
             if context.booster.key == 'p_cry_empowered' then
                 card.ability.extra.type = 'Empowered'
             end
