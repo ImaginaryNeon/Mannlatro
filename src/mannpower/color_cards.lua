@@ -1,13 +1,11 @@
-local isFluff = SMODS.find_mod("MoreFluff")
-    [1] -- apparently morefluff is undergoing a substantial rework right when I decide to try to add crossmod,
+--local isFluff = SMODS.find_mod("MoreFluff")[1] -- apparently morefluff is undergoing a substantial rework right when I decide to try to add crossmod,
 -- so until that's all done imma just
-if isFluff then
-    if not (FLUFF and FLUFF.rewrite) then
-        sendInfoMessage("Mannlatro's crossmod content requires the rewrite version of More Fluff.",
-            "Mannlatro - MoreFluff")
-        return
-    else
-        --[[
+--if isFluff then
+if not (FLUFF and FLUFF.is_rewrite) then
+    sendInfoMessage("Mannlatro's crossmod content requires the rewrite version of More Fluff.",
+        "Mannlatro - MoreFluff")
+    return
+else
     FLUFF.Colour({
         key = "col_mannco_orange",
         name = "col_MannCo_Orange",
@@ -27,7 +25,7 @@ if isFluff then
         config = {
             upgrade_rounds = 2,
         },
-        attributes = { attributes = { "modify_card" } },
+        attributes = { attributes = { "modify_card", "mannpower" } },
         can_use = function(self, card)
             if G.hand and #G.hand.cards > 0 then
                 for k, v in pairs(G.hand.cards) do
@@ -82,5 +80,5 @@ if isFluff then
         },
         attributes = { "generation", "screamfortress", "consumable" },
     })]]
-    end
 end
+--end

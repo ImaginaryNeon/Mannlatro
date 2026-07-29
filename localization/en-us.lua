@@ -168,10 +168,10 @@ return {
             mannpower_explanation = {
                 name = 'Effects',
                 text = {
-                    "{C:tarot}Arcana{}: Earn {C:money}$#1#{} per",
-                    "Joker owned",
-                    "{C:planet}Planet{}: Level up",
-                    "played poker hand",
+                    "{C:tarot}Arcana{}: Earn {C:money}$#1#{} for",
+                    "each Joker owned",
+                    "{C:planet}Planet{}: {C:green}#5# in #6#{} chance to",
+                    "level up played poker hand",
                     "{C:spectral}Spectral{}: {C:green}#3# in #4#{} chance",
                     "to create a {C:spectral}Spectral{} card",
                     "{C:inactive}(Must have room)",
@@ -195,6 +195,18 @@ return {
                     "of {V:2}Epic{} or higher rarity",
                     "{C:inactive}(Must have room)",
                     "{V:1}Baneful{}: What If Reskins Were Different?"
+                }
+            },
+            mannpower_explanation_fluff = {
+                name = 'More Fluff Effects',
+                text = {
+                    "{V:1}Color{}: Creates a {C:dark_edition}Negative{} {V:1}Color{} card",
+                    "after all charges are exhausted",
+                    "{V:2}Rotarot{}: Earn {C:money}$#3#{} for",
+                    "each consumable owned",
+                    "{C:dark_edition}Modded{}: {C:green}#1# in #2#{} chance to create",
+                    "a random non-Common Modded Joker",
+                    "{C:inactive}(Must have room)"
                 }
             },
             mannpower_halloween = {
@@ -428,14 +440,14 @@ return {
             c_mannpower_hellsbells = {
                 name = "Hell's Bells",
                 text = {
-                    "???",
+                    "Not implemented.",
                     "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
                 }
             },
             c_mannpower_cherrybomb = {
                 name = 'Cherry Bomb',
                 text = {
-                    '???',
+                    "Not implemented.",
                     "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
                 }
             },
@@ -453,7 +465,16 @@ return {
             c_mannpower_col_teamspirit = {
                 name = "{E:mf_colour_title}Team Spirit",
                 text = {
-                    "Add a {C:attention}Stat Clock{}",
+                    "Add a {C:attention}Stat Clock{} to a",
+                    "random card in hand for every",
+                    "{C:attention}#4#{} rounds this has been held",
+                    "{C:inactive}(Currently {C:attention}#1#{C:inactive}, {}[{C:attention,f:mf_emoji}#2#{C:inactive,f:mf_emoji}#3#{}]{C:inactive})",
+                },
+            },
+            c_mannpower_col_quintbaked = {
+                name = "{E:mf_colour_title}Quintuple-Baked",
+                text = {
+                    "Create a random {C:dark_edition}Negative{}",
                     "{C:planet}Mannpower{} card for every",
                     "{C:attention}#4#{} rounds this has been held",
                     "{C:inactive}(Currently {C:attention}#1#{C:inactive}, {}[{C:attention,f:mf_emoji}#2#{C:inactive,f:mf_emoji}#3#{}]{C:inactive})",

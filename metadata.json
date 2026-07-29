@@ -8,7 +8,7 @@
     "prefix": "mannpower",
     "main_file": "main.lua",
     "icon_path": "Logo.png",
-    "version": "2.0.0~screamfortress-mftest-a",
+    "version": "2.0.0~screamfortress-mftest-b",
     "badge_colour": "56351b",
     "priority": 1,
     "dependencies": [

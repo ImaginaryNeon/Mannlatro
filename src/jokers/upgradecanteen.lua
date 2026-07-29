@@ -1,46 +1,8 @@
-SMODS.Joker {
-    key = "passjack",
-    blueprint_compat = true,
-    rarity = 2,
-    cost = 6,
-    atlas = "jonklers",
-    pos = { x = 1, y = 0 },
-    config = { extra = { odds = 4 } },
-    loc_vars = function(self, info_queue, card)
-        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'mannpower_passjack')
-        return { vars = { numerator, denominator } }
-    end,
-    calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play and
-            #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-            if (context.other_card:get_id() == 11) and SMODS.pseudorandom_probability(card, 'mannpower_passjack', 1, card.ability.extra.odds) then
-                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-                return {
-                    extra = {
-                        message = '+1 Mannpower',
-                        message_card = card,
-                        func = function() -- This is for timing purposes, everything here runs after the message
-                            G.E_MANAGER:add_event(Event({
-                                func = (function()
-                                    SMODS.add_card {
-                                        set = 'Mannpower',
-                                        key_append = 'passjack' -- Optional, useful for manipulating the random seed and checking the source of the creation in `in_pool`.
-                                    }
-                                    G.GAME.consumeable_buffer = 0
-                                    return true
-                                end)
-                            }))
-                        end
-                    },
-                }
-            end
-        end
-    end
-}
 SMODS.Sound({
     key = "strangecase",
     path = "strange.ogg",
 })
+local isFluff = SMODS.find_mod("MoreFluff")[1]
 SMODS.Joker {
     key = "canteen",
     blueprint_compat = false,
@@ -48,10 +10,9 @@ SMODS.Joker {
     cost = 8,
     atlas = "jonklers",
     pos = { x = 0, y = 0 },
-    config = { extra = { charges = 0, max_charges = 3, type = "None", mismin = 0, mismax = 50, money = 1, xmult = 3, odds_S = 2, odds_T = 2, kill_odds = 2, } },
+    config = { extra = { charges = 0, max_charges = 3, type = "None", mismin = 0, mismax = 50, money = 1, xmult = 3, odds_S = 2, odds_T = 2, kill_odds = 2, odds_M = 2, money2 = 2 } },
     loc_vars = function(self, info_queue, card)
-        -- This vanilla variable only checks for vanilla Tarots and Planets, you would have to keep track on your own for any custom consumables
-        local fool_c = card.ability.extra.type or G.GAME.mannpower_last_skipped_booster_kind or nil
+        -- local fool_c = card.ability.extra.type or G.GAME.mannpower_last_skipped_booster_kind or nil
         local numeratorS, denominatorS = SMODS.get_probability_vars(card, 1, card.ability.extra.odds_S,
             'mannpower_canteen_spectral')
         local numeratorT, denominatorT = SMODS.get_probability_vars(card, 1, card.ability.extra.odds_T,
@@ -64,6 +25,11 @@ SMODS.Joker {
         info_queue[#info_queue + 1] = { key = 'mannpower_explanation', set = 'Other', vars = { card.ability.extra.money, card.ability.extra.xmult, numeratorS, denominatorS, numeratorT, denominatorT, colours = { HEX('43c77b'), } } }
         if Cryptid then
             info_queue[#info_queue + 1] = { key = 'mannpower_explanation_cry', set = 'Other', vars = { card.ability.extra.mismin, card.ability.extra.mismax, colours = { HEX("474931"), HEX("ef0098"), HEX("14b341") } } }
+        end
+        if isFluff then
+            local numeratorM, denominatorM = SMODS.get_probability_vars(card, 1, card.ability.extra.odds_M,
+                'mannpower_canteen_modded')
+            info_queue[#info_queue + 1] = { key = 'mannpower_explanation_fluff', set = 'Other', vars = { numeratorM, denominatorM, card.ability.extra.money2, colours = { HEX("4f6367"), HEX("8e73d9") } } }
         end
         local main_end = { {
             n = G.UIT.C,
@@ -98,6 +64,9 @@ SMODS.Joker {
             end
             if context.booster.key == 'p_cry_empowered' then
                 card.ability.extra.type = 'Empowered'
+            end
+            if card.ability.extra.type == "Colour" then
+                card.ability.extra.type = "Color" -- WHAT THE FUCK IS A KILOMETER???
             end
         end
         if context.before then
@@ -265,6 +234,54 @@ SMODS.Joker {
                                 colour = G.C.SECONDARY_SET.Tarot
                             }
                         end
+                    end
+                    if card.ability.extra.type == "Rotarot" then
+                        return { dollars = card.ability.extra.money2 * #G.consumeables.cards, }
+                    end
+                    if card.ability.extra.type == "Color" then
+                        if card.ability.extra.charges <= 0 then
+                            if G.consumeables.config.card_limit > #G.consumeables.cards + G.GAME.consumeable_buffer then
+                                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                                G.E_MANAGER:add_event(Event({
+                                    func = (function()
+                                        SMODS.add_card {
+                                            set = 'Colour', key_append = 'mannpower_canteen_tarot'
+                                        }
+                                        G.GAME.consumeable_buffer = 0
+                                        return true
+                                    end)
+                                }))
+                                return {
+                                    message = "+1 Color",
+                                    colour = G.C.SECONDARY_SET.Colour
+                                }
+                            end
+                        end
+                    end
+                    if card.ability.extra.type == 'Modded' and SMODS.pseudorandom_probability(card, 'mannpower_canteen_spectral', 1, card.ability.extra.odds_S) and #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit
+                    then
+                        G.GAME.joker_buffer = G.GAME.joker_buffer + 1
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                SMODS.add_card {
+                                    set = "Joker",
+                                    attributes = { "Joker" },
+                                    filter = function(pool)
+                                        local new_pool = {}
+                                        for k, v in pairs(pool) do
+                                            if G.P_CENTERS[v.key].original_mod and not G.P_CENTERS[v.key]:is_rarity(1) then
+                                                table.insert(new_pool, v)
+                                            end
+                                        end
+                                        if #new_pool == 0 then return pool end
+                                        return new_pool
+                                    end,
+                                }
+                                G.GAME.joker_buffer = 0
+                                return true
+                            end,
+                        }))
+                        return { message = localize("k_plus_joker"), colour = G.C.BLUE }
                     end
                 end
             end
