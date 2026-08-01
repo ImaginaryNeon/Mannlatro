@@ -6,6 +6,7 @@ SMODS.Consumable {
 		x = 3,
 		y = 2
 	},
+	cost = 4,
 	select_card = 'consumeables',
 	can_use = function(self, card)
 		local cards = SMODS.get_highlighted_cards({ G.jokers }, card, 1, 1, function(card)

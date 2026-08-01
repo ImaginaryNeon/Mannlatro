@@ -10,6 +10,7 @@ SMODS.Consumable {
         seal = { extra = { change = 2 } },
         max_highlighted = 1,
     },
+    cost = 4,
     loc_vars = function(self, info_queue, center)
         -- Handle creating a tooltip with set args.
         info_queue[#info_queue + 1] =

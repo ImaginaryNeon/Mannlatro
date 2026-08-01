@@ -6,6 +6,7 @@ SMODS.Consumable {
 		x = 2,
 		y = 2
 	},
+	cost = 4,
 	select_card = 'consumeables',
 	config = { max_highlighted = 1 },
 	weight = 7.5, -- Apparently weights are 10 by default, so 0.75 was practically banning it outright.

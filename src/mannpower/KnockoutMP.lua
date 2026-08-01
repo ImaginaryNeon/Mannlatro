@@ -7,6 +7,7 @@ SMODS.Consumable {
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.max_highlighted, card.ability.extra.ranks } }
     end,
+    cost = 4,
     use = function(self, card, area, copier)
         G.E_MANAGER:add_event(Event({
             trigger = 'after',

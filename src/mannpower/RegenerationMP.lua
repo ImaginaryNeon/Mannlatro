@@ -6,6 +6,7 @@ SMODS.Consumable {
         x = 1,
         y = 1
     },
+    cost = 4,
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = { key = 'tag_d_six', set = 'Tag' }
     end,
