@@ -32,7 +32,7 @@ SMODS.Blind {
 		end
 	end,
 	in_pool = function(self, args)
-		if G.GAME.starting_params.no_faces == true and G.GAME.round_resets.ante >= 3 then
+		if G.GAME.starting_params.no_faces == true or G.GAME.round_resets.ante <= 3 then
 			return false
 		else
 			return true
