@@ -6,6 +6,6 @@ SMODS.Blind {
     },
     mult = 0.75,
     boss = { min = 3, max = 10 },
-    debuff = { h_size_le = 1 },
+    debuff = { h_size_le = 2 },
     boss_colour = HEX('ED712B'),
 }

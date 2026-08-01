@@ -61,6 +61,7 @@ SMODS.Blind {
         y = 0
     },
     boss_colour = HEX("b83b3b"),
+    dollars = 8,
     config = {
         extra = {
             list = { "Cards with Enhancements", "Cards with Editions", "Cards with Seals", "Face cards", "Cards with Enhancements", "Hearts", "Diamonds", "Clubs", "Spades" },

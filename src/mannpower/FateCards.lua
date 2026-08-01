@@ -699,13 +699,13 @@ SMODS.Consumable { -- LOL, Lucky You
     select_card = 'consumeables',
     no_doe = true,
     set_ability = function(self, card)
-        card.ability.extra.duration = math.ceil((77 + (G.GAME.extended_duration_turns or 0)) *
+        card.ability.extra.duration = math.ceil((7 + (G.GAME.extended_duration_turns or 0)) *
             (G.GAME.extended_duration_mult or 1))
     end,
     config = {
         extra = {
             seven = 7,
-            duration = 77,
+            duration = 7,
         }
     },
     loc_vars = function(self, info_queue, card)

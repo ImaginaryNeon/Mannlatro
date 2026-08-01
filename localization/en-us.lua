@@ -113,7 +113,7 @@ return {
                 name = 'The Knockout',
                 text = {
                     'Played hands may not contain',
-                    'more than 1 card'
+                    'more than 2 cards'
                 }
             },
             bl_mannpower_haste = {
