@@ -90,7 +90,7 @@ return {
             bl_mannpower_reflect = {
                 name = 'The Reflect',
                 text = {
-                    'Lose $1 for each owned Joker',
+                    'Lose $1 per Joker owned',
                     'when hand is played'
                 }
             },
