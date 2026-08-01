@@ -170,7 +170,7 @@ return {
                 text = {
                     "{C:tarot}Arcana{}: Earn {C:money}$#1#{} for",
                     "each Joker owned",
-                    "{C:planet}Planet{}: {C:green}#5# in #6#{} chance to",
+                    "{C:planet}Celestial{}: {C:green}#5# in #6#{} chance to",
                     "level up played poker hand",
                     "{C:spectral}Spectral{}: {C:green}#3# in #4#{} chance",
                     "to create a {C:spectral}Spectral{} card",
@@ -180,9 +180,8 @@ return {
                     "{C:attention}Buffoon{}: {X:mult,C:white}X#2#{} Mult",
                     "{C:diamonds}Mannpower{}: {C:red}+3{} discards",
                     "when {C:attention}Blind{} is selected",
-                    "{V:1}Merasmus{}: {C:green}#5# in #6#{} chance",
-                    "to create a {C:tarot}Tarot{} card",
-                    "{C:inactive}(Must have room)",
+                    "{V:1}Merasmus{}: Held {C:attention}Lucky Cards{}",
+                    "give {X:blind,C:white}X#7#{} Blind size",
                 }
             },
             mannpower_explanation_cry = {
@@ -276,7 +275,7 @@ return {
             c_mannpower_vampire = {
                 name = 'Vampire',
                 text = {
-                    "Removes {C:red}all {C:green}modifications{}",
+                    "Remove {C:red}all {C:green}modifications{}",
                     "from up to {C:attention}#1#{} cards,",
                     "Earn {C:money}$#2#{} per {C:green}modification{} removed",
                     "{C:inactive,s:0.7}(ex. Enhancements, Seals, Editions)",
@@ -285,7 +284,7 @@ return {
             c_mannpower_reflect = {
                 name = 'Reflect',
                 text = {
-                    'Select up to #1# card and',
+                    'Select up to {C:attention}#1#{} card and',
                     'permanently give it {X:blind,C:white}X#2#{} Blind size',
                     '{C:inactive}(This effect stacks){}'
                 }
@@ -317,37 +316,37 @@ return {
                 text = {
                     'Use this card to earn {C:money}$#2#{}',
                     'Earn {C:money}$#3#{} more if the last hand scored',
-                    'more than the Blind requirements.'
+                    'more than the Blind requirements'
                 }
             },
             c_mannpower_knockout = {
                 name = 'Knockout',
                 text = {
-                    "Increases rank of",
-                    "up to {C:attention}#1#{} selected",
-                    "cards by {C:attention}#2#{} and",
-                    "remove their {C:attention}Enhancements{}",
+                    "Increase rank of",
+                    "up to {C:attention}#1#{} cards",
+                    "by {C:attention}#2#{} and remove",
+                    "their {C:attention}Enhancements{}",
                 },
             },
             c_mannpower_kingmp = {
                 name = 'King',
                 text = {
-                    'Enhance up to #1# card',
-                    'into a Steel King'
+                    'Enhance up to {C:attention}#1#{} card',
+                    'into a {C:attention}Steel King{}'
                 }
             },
             c_mannpower_plague = {
                 name = 'Plague',
                 text = {
-                    'Make #1# Joker {C:legendary}Eternal{},',
+                    'Make {C:attention}#1#{} Joker {C:legendary}Eternal{},',
                     '{C:money}Rental{}, and {C:dark_edition}Negative{}'
                 }
             },
             c_mannpower_supernova = {
                 name = 'Supernova',
                 text = {
-                    'Remove all vanilla Stickers',
-                    'from 1 Joker'
+                    'Remove all {C:attention}vanilla{} Stickers',
+                    'from {C:attention}1{} Joker'
                 }
             }
         },
@@ -392,8 +391,8 @@ return {
             c_mannpower_ubercharge = {
                 name = 'UberCharge',
                 text = {
-                    "Prevents Jokers and Consumables from",
-                    "being {C:attention}destroyed{}",
+                    "Prevents Jokers and Consumables",
+                    "from being {C:attention}destroyed{}",
                     "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
                 }
             },
@@ -418,7 +417,7 @@ return {
                 name = 'Fish Troll',
                 text = {
                     "Creates a random {C:attention}Joker{}",
-                    "at the end of the round.",
+                    "at the end of the round",
                     "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
                 },
             },

@@ -6,6 +6,9 @@ SMODS.Consumable {
         x = 1,
         y = 1
     },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = { key = 'tag_d_six', set = 'Tag' }
+    end,
     select_card = 'consumeables',
     use = function(self, card, area, copier)
         G.E_MANAGER:add_event(Event({

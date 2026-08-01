@@ -25,7 +25,6 @@ SMODS.Consumable {
                 return true
             end
         }))
-
         G.E_MANAGER:add_event(Event({
             trigger = 'after',
             delay = 0.1,
@@ -35,7 +34,6 @@ SMODS.Consumable {
                 return true
             end
         }))
-
         delay(0.5)
         G.E_MANAGER:add_event(Event({
             trigger = 'after',
