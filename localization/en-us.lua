@@ -285,8 +285,8 @@ return {
             c_mannpower_reflect = {
                 name = 'Reflect',
                 text = {
-                    'Select up to #1# card',
-                    'and permenantly give it {X:blind,C:white}X#2#{} Blind size',
+                    'Select up to #1# card and',
+                    'permanently give it {X:blind,C:white}X#2#{} Blind size',
                     '{C:inactive}(This effect stacks){}'
                 }
             },
