@@ -512,15 +512,13 @@ SMODS.Consumable {  -- X, Decapitated
     --    select_card = 'consumeables',
     config = {
         extra = {
-            xmult = 1.5,
             duration = 1,
         }
     },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.extra.duration,
-                card.ability.extra.xmult
+                card.ability.extra.duration
             }
         }
     end,
@@ -607,7 +605,7 @@ SMODS.Consumable {      -- XXX (2), Hell's Bells
     config = {
         extra = {
             duration = 2,
-            xmult = 1.2,
+            xmult = 1,
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -654,7 +652,7 @@ SMODS.Consumable {      -- MMM, Cherry Bomb
     config = {
         extra = {
             duration = 2,
-            xmult = 1.2,
+            xmult = 1,
         }
     },
     loc_vars = function(self, info_queue, card)
