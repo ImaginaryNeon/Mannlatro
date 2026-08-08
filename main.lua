@@ -1,3 +1,6 @@
+Mannlatro = Mannlatro or {}
+Mannlatro.mod = SMODS.current_mod
+
 --#region Atlases
 
 SMODS.Atlas { -- Jokers

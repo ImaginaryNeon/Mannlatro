@@ -2,7 +2,12 @@ SMODS.Sound({
     key = "strangecase",
     path = "strange.ogg",
 })
+function Mannlatro.firstToUpper(str)
+    return (str:gsub("^%l", string.upper))
+end
+
 local isFluff = SMODS.find_mod("MoreFluff")[1]
+local isMenthol = SMODS.find_mod("Menthol")[1]
 SMODS.Joker {
     key = "canteen",
     blueprint_compat = true,
@@ -10,19 +15,36 @@ SMODS.Joker {
     cost = 8,
     atlas = "jonklers",
     pos = { x = 0, y = 0 },
-    config = { extra = { charges = 0, max_charges = 3, type = "None", xblindsize = 0.85, mismin = 0, mismax = 50, money = 1, xmult = 2.5, odds_S = 2, odds_T = 2, kill_odds = 2, odds_M = 2, money2 = 2 } },
+    config = { extra = { charges = 0, max_charges = 3, type = "None",
+        xblindsize = 0.85, mismin = 0, mismax = 50, money = 1, xmult = 2.5, odds_S = 2, odds_T = 2, kill_odds = 2, odds_M = 2, money2 = 2, discards = 2,
+        handgive = 1, chips_per = 2,
+        whitelist = { "Empowered", "Color", "Colour", "Celestial", "Mannpower", "Merasmus", 'Arcana', 'Standard', 'Spectral', 'Buffoon', 'baneful', 'Baneful', "Colour",
+            "Meme", "Code", "Rotarot", "Modded", "Mod Pack", "Every Card", "Treat", "None" }, } },
     loc_vars = function(self, info_queue, card)
         -- local fool_c = card.ability.extra.type or G.GAME.mannpower_last_skipped_booster_kind or nil
         local numeratorS, denominatorS = SMODS.get_probability_vars(card, 1, card.ability.extra.odds_S,
             'mannpower_canteen_spectral')
         local numeratorT, denominatorT = SMODS.get_probability_vars(card, 1, card.ability.extra.odds_T,
             'mannpower_canteen_tarot')
-        local colour = (card.ability.extra.type == 'None' --[[or fool_c.name == 'The Fool']]) and G.C.RED or G.C.GREEN
+        local colour = (card.ability.extra.type == 'None') and G.C.RED or G.C.GREEN
         --[[if not (not fool_c or fool_c.name == 'The Fool') then
             info_queue[#info_queue + 1] = fool_c
         end]]
-        -- Add tooltips by appending to info_queue
-        info_queue[#info_queue + 1] = { key = 'mannpower_explanation', set = 'Other', vars = { card.ability.extra.money, card.ability.extra.xmult, numeratorS, denominatorS, numeratorT, denominatorT, card.ability.extra.xblindsize, colours = { HEX('43c77b'), } } }
+        info_queue[#info_queue + 1] = {
+            key = 'mannpower_explanation',
+            set = 'Other',
+            vars = {
+                card.ability.extra.money,
+                card.ability.extra.xmult,
+                numeratorS,
+                denominatorS,
+                numeratorT,
+                denominatorT,
+                card.ability.extra.xblindsize,
+                card.ability.extra.discards,
+                colours = { HEX('43c77b'), }
+            }
+        }
         if Cryptid then
             info_queue[#info_queue + 1] = { key = 'mannpower_explanation_cry', set = 'Other', vars = { card.ability.extra.mismin, card.ability.extra.mismax, colours = { HEX("474931"), HEX("ef0098"), HEX("14b341") } } }
         end
@@ -30,6 +52,16 @@ SMODS.Joker {
             local numeratorM, denominatorM = SMODS.get_probability_vars(card, 1, card.ability.extra.odds_M,
                 'mannpower_canteen_modded')
             info_queue[#info_queue + 1] = { key = 'mannpower_explanation_fluff', set = 'Other', vars = { numeratorM, denominatorM, card.ability.extra.money2, colours = { HEX("4f6367"), HEX("8e73d9") } } }
+        end
+        if isMenthol then
+            if G.P_TAGS.tag_minty_goading.discovered then
+                info_queue[#info_queue + 1] = { key = 'mannpower_explanation_menthol_full', set = 'Other', vars = { card.ability.extra.money2, colours = { HEX("4f6367") } } }
+            else
+                info_queue[#info_queue + 1] = { key = 'mannpower_explanation_menthol', set = 'Other', vars = { card.ability.extra.money2, colours = { HEX("4f6367"), HEX("8e73d9") } } }
+            end
+        end
+        if card.ability.extra.type == "Unknown" then
+            info_queue[#info_queue + 1] = { key = 'mannpower_explanation_unknown', set = 'Other', vars = { card.ability.chips } }
         end
         local main_end = { {
             n = G.UIT.C,
@@ -59,14 +91,32 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.skipping_booster and (not card.ability.extra.type or card.ability.extra.type == 'None') and not context.blueprint then
             if context.booster.kind then
-                card.ability.extra.type = tostring(context.booster.kind)
+                card.ability.extra.type = Mannlatro.firstToUpper(tostring(context.booster.kind))
                 card.ability.extra.charges = card.ability.extra.max_charges
+                if context.booster.kind == "minty_treat" then
+                    card.ability.extra.type = "Treat"
+                end
+                if context.booster.kind == "minty_everycard" then
+                    card.ability.extra.type = "Every Card"
+                end
+                if context.booster.kind == "mod_packs" then
+                    card.ability.extra.type = "Mod Pack"
+                end
             end
             if context.booster.key == 'p_cry_empowered' then
                 card.ability.extra.type = 'Empowered'
             end
             if card.ability.extra.type == "Colour" then
                 card.ability.extra.type = "Color" -- WHAT THE FUCK IS A KILOMETER???
+            end
+            local found = false
+            for i = 1, #card.ability.extra.whitelist do
+                if card.ability.extra.whitelist[i] == card.ability.extra.type then
+                    found = true
+                end
+            end
+            if not found then
+                card.ability.extra.type = "Unknown"
             end
         end
         if context.before then --card.ability.extra.odds_T
@@ -85,7 +135,7 @@ SMODS.Joker {
             if card.ability.extra.charges > 0 then
                 G.E_MANAGER:add_event(Event({
                     func = function()
-                        ease_discard(3)
+                        ease_discard(card.ability.extra.discards)
                         return true
                     end,
                 }))
@@ -186,7 +236,7 @@ SMODS.Joker {
                             }
                         end
                     end
-                    if card.ability.extra.type == 'baneful' and not context.blueprint then
+                    if card.ability.extra.type == 'Baneful' and not context.blueprint then
                         for i = 1, #G.jokers.cards do
                             if G.jokers.cards[i] ~= card and not SMODS.is_eternal(G.jokers.cards[i], card) and SMODS.pseudorandom_probability(card, 'mannpower_baneful_kill', 1, card.ability.extra.kill_odds) then
                                 G.E_MANAGER:add_event(Event({
@@ -222,7 +272,7 @@ SMODS.Joker {
                                 card.ability.extra.mismax)
                         }
                     end
-                    if Cryptid and card.ability.extra.type == "meme" then
+                    if Cryptid and card.ability.extra.type == "Meme" then
                         if G.jokers.config.card_limit > #G.jokers.cards then
                             play_sound('mannpower_strangecase')
                             SMODS.add_card { set = 'Joker', key = "j_jolly", skip_materialize = true, edition = 'e_cry_m' }

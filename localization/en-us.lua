@@ -178,7 +178,7 @@ return {
                     "{C:attention}Standard{}: Copies the {C:attention}first{}",
                     "card of hand when scored",
                     "{C:attention}Buffoon{}: {X:mult,C:white}X#2#{} Mult",
-                    "{C:diamonds}Mannpower{}: {C:red}+3{} discards",
+                    "{C:diamonds}Mannpower{}: {C:red}+#8#{} discards",
                     "when {C:attention}Blind{} is selected",
                     "{V:1}Merasmus{}: Held {C:attention}Lucky Cards{}",
                     "give {X:blind,C:white}X#7#{} Blind size",
@@ -202,6 +202,29 @@ return {
                     "{V:1}Color{}: Creates a {C:dark_edition}Negative{} {V:1}Color{} card",
                     "after all charges are exhausted",
                     "{V:2}Rotarot{}: Earn {C:money}$#3#{} for",
+                    "each consumable owned",
+                    "{C:dark_edition}Modded{}: {C:green}#1# in #2#{} chance to create",
+                    "a random non-Common Modded Joker",
+                    "{C:inactive}(Must have room)"
+                }
+            },
+            mannpower_explanation_menthol = {
+                name = 'Menthol Effects',
+                text = {
+                    "{C:purple}Every Card{}: {C:green}#1# in #2#{} chance to add a",
+                    "playing card with a random {C:dark_edition}Edition",
+                    "to the deck",
+                    "each consumable owned",
+                    "a random non-Common Modded Joker",
+                    "{C:inactive}(Must have room)"
+                }
+            },
+            mannpower_explanation_menthol_full = {
+                name = 'Menthol Effects',
+                text = {
+                    "{C:purple}Every Card{}: {C:green}#1# in #2#{} chance to add a",
+                    "playing card with a random {C:dark_edition}Edition",
+                    "to the deck",
                     "each consumable owned",
                     "{C:dark_edition}Modded{}: {C:green}#1# in #2#{} chance to create",
                     "a random non-Common Modded Joker",
