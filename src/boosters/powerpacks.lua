@@ -13,7 +13,7 @@ SMODS.Booster {
             vars = {
                 cfg.choose,
                 cfg.extra,
-                --colours = { HEX('00FF00') }
+                colours = { HEX('FFA630') }
             },
             key = self.key:sub(1, -3) -- This uses the description key of the booster without the number at the end. Remove this if your booster doesn't have artwork variants like vanilla
         }
@@ -68,7 +68,7 @@ SMODS.Booster {
     loc_vars = function(self, info_queue, card)
         local cfg = (card and card.ability) or self.config
         return {
-            vars = { cfg.choose, cfg.extra },
+            vars = { cfg.choose, cfg.extra, colours = { HEX('FFA630') } },
             key = self.key:sub(1, -3) -- This uses the description key of the booster without the number at the end. Remove this if your booster doesn't have artwork variants like vanilla
         }
     end,

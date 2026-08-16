@@ -154,15 +154,14 @@ return {
                 name = 'Mannpower Pack',
                 text = {
                     "Choose {C:attention}#1#{} of up to",
-                    "{C:attention}#2# {C:diamonds}Power-Up{} cards"
+                    "{C:attention}#2# {V:1}Mannpower{} cards"
                 }
             },
             mannpower_strange_seal = {
                 name = 'Stat Clock',
                 text = {
                     'Gains {C:mult}+#1#{} Mult when',
-                    'this card is played',
-                    'and scores',
+                    'this card is scored',
                 }
             },
             mannpower_explanation = {
