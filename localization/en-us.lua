@@ -211,24 +211,33 @@ return {
             mannpower_explanation_menthol = {
                 name = 'Menthol Effects',
                 text = {
-                    "{C:purple}Every Card{}: {C:green}#1# in #2#{} chance to add a",
-                    "playing card with a random {C:dark_edition}Edition",
+                    "{C:purple}Every Card{}: Adds a playing card",
+                    "with a random {C:dark_edition}Edition",
                     "to the deck",
-                    "each consumable owned",
-                    "a random non-Common Modded Joker",
+                    "{C:dark_edition}Modded{}: Creates a random",
+                    "{C:common}Common{} Modded Joker",
                     "{C:inactive}(Must have room)"
                 }
             },
             mannpower_explanation_menthol_full = {
                 name = 'Menthol Effects',
                 text = {
-                    "{C:purple}Every Card{}: {C:green}#1# in #2#{} chance to add a",
-                    "playing card with a random {C:dark_edition}Edition",
+                    "{C:purple}Every Card{}: Adds a playing card",
+                    "with a random {C:dark_edition}Edition",
                     "to the deck",
-                    "each consumable owned",
-                    "{C:dark_edition}Modded{}: {C:green}#1# in #2#{} chance to create",
-                    "a random non-Common Modded Joker",
-                    "{C:inactive}(Must have room)"
+                    "{C:dark_edition}Modded{}: Creates a random",
+                    "{C:common}Common{} Modded Joker",
+                    "{C:inactive}(Must have room)",
+                    "{C:dark_edition}Treat{}: {C:green}#1# in #2#{} chance to",
+                    "permenantly give {C:red}+#3#{} discard"
+                }
+            },
+            mannpower_explanation_unknown = {
+                name = 'Unknown Effect',
+                text = {
+                    "{C:dark_edition}Unknown{}: {C:chips}+#1#{} Chips",
+                    "per Booster Pack in the Collection",
+                    "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
                 }
             },
             mannpower_halloween = {

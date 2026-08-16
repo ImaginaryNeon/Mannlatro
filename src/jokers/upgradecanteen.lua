@@ -17,11 +17,10 @@ SMODS.Joker {
     pos = { x = 0, y = 0 },
     config = { extra = { charges = 0, max_charges = 3, type = "None",
         xblindsize = 0.85, mismin = 0, mismax = 50, money = 1, xmult = 2.5, odds_S = 2, odds_T = 2, kill_odds = 2, odds_M = 2, money2 = 2, discards = 2,
-        handgive = 1, chips_per = 2,
+        handgive = 1, chips_per = 3,
         whitelist = { "Empowered", "Color", "Colour", "Celestial", "Mannpower", "Merasmus", 'Arcana', 'Standard', 'Spectral', 'Buffoon', 'baneful', 'Baneful', "Colour",
-            "Meme", "Code", "Rotarot", "Modded", "Mod Pack", "Every Card", "Treat", "None" }, } },
+            "Meme", "Code", "Rotarot", "Modded", "Mod Pack", "Every Card", "Treat", "None", "Unknown" }, } },
     loc_vars = function(self, info_queue, card)
-        -- local fool_c = card.ability.extra.type or G.GAME.mannpower_last_skipped_booster_kind or nil
         local numeratorS, denominatorS = SMODS.get_probability_vars(card, 1, card.ability.extra.odds_S,
             'mannpower_canteen_spectral')
         local numeratorT, denominatorT = SMODS.get_probability_vars(card, 1, card.ability.extra.odds_T,
@@ -54,14 +53,17 @@ SMODS.Joker {
             info_queue[#info_queue + 1] = { key = 'mannpower_explanation_fluff', set = 'Other', vars = { numeratorM, denominatorM, card.ability.extra.money2, colours = { HEX("4f6367"), HEX("8e73d9") } } }
         end
         if isMenthol then
+            local numeratorT, denominatorT = SMODS.get_probability_vars(card, 1, card.ability.extra.odds_T,
+                'mannpower_canteen_treat')
             if G.P_TAGS.tag_minty_goading.discovered then
-                info_queue[#info_queue + 1] = { key = 'mannpower_explanation_menthol_full', set = 'Other', vars = { card.ability.extra.money2, colours = { HEX("4f6367") } } }
+                info_queue[#info_queue + 1] = { key = 'mannpower_explanation_menthol_full', set = 'Other', vars = { numeratorT, denominatorT, card.ability.extra.handgive, colours = { HEX("4f6367"), HEX("8e73d9") } } }
             else
-                info_queue[#info_queue + 1] = { key = 'mannpower_explanation_menthol', set = 'Other', vars = { card.ability.extra.money2, colours = { HEX("4f6367"), HEX("8e73d9") } } }
+                info_queue[#info_queue + 1] = { key = 'mannpower_explanation_menthol', set = 'Other', vars = { colours = { HEX("4f6367"), HEX("8e73d9") } } }
             end
         end
         if card.ability.extra.type == "Unknown" then
-            info_queue[#info_queue + 1] = { key = 'mannpower_explanation_unknown', set = 'Other', vars = { card.ability.chips } }
+            local worm = (#G.P_CENTER_POOLS.Booster * card.ability.extra.chips_per) or 0
+            info_queue[#info_queue + 1] = { key = 'mannpower_explanation_unknown', set = 'Other', vars = { card.ability.extra.chips_per, worm } }
         end
         local main_end = { {
             n = G.UIT.C,
@@ -204,6 +206,7 @@ SMODS.Joker {
                     if not context.blueprint then
                         card.ability.extra.charges = (card.ability.extra.charges or 0) - 1
                     end
+                    -- Vanilla
                     if card.ability.extra.type == 'Arcana' then
                         local moneys = 0
                         for i = 1, #G.jokers.cards do
@@ -236,6 +239,7 @@ SMODS.Joker {
                             }
                         end
                     end
+                    -- Cryptid
                     if card.ability.extra.type == 'Baneful' and not context.blueprint then
                         for i = 1, #G.jokers.cards do
                             if G.jokers.cards[i] ~= card and not SMODS.is_eternal(G.jokers.cards[i], card) and SMODS.pseudorandom_probability(card, 'mannpower_baneful_kill', 1, card.ability.extra.kill_odds) then
@@ -282,6 +286,7 @@ SMODS.Joker {
                             }
                         end
                     end
+                    -- More Fluff
                     if card.ability.extra.type == "Rotarot" then
                         return { dollars = card.ability.extra.money2 * #G.consumeables.cards, }
                     end
@@ -305,7 +310,7 @@ SMODS.Joker {
                             end
                         end
                     end
-                    if card.ability.extra.type == 'Modded' and SMODS.pseudorandom_probability(card, 'mannpower_canteen_spectral', 1, card.ability.extra.odds_S) and #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit
+                    if card.ability.extra.type == 'Modded' and SMODS.pseudorandom_probability(card, 'mannpower_canteen_modded', 1, card.ability.extra.odds_M) and #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit
                     then
                         G.GAME.joker_buffer = G.GAME.joker_buffer + 1
                         G.E_MANAGER:add_event(Event({
@@ -329,6 +334,43 @@ SMODS.Joker {
                             end,
                         }))
                         return { message = localize("k_plus_joker"), colour = G.C.BLUE }
+                    end
+                    -- Unknown
+                    if card.ability.extra.type == 'Unknown' then
+                        return { chips = #G.P_CENTER_POOLS.Booster * card.ability.extra.chips_per, }
+                    end
+                    -- Menthol
+                    if card.ability.extra.type == "Mod Pack" and #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
+                        G.GAME.joker_buffer = G.GAME.joker_buffer + 1
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                SMODS.add_card {
+                                    set = "Joker",
+                                    attributes = { "Joker" },
+                                    filter = function(pool)
+                                        local gomypool = {}
+                                        for k, v in pairs(pool) do
+                                            if G.P_CENTERS[v.key].original_mod and G.P_CENTERS[v.key]:is_rarity(1) then
+                                                table.insert(gomypool, v)
+                                            end
+                                        end
+                                        if #gomypool == 0 then return pool end
+                                        return gomypool
+                                    end,
+                                }
+                                G.GAME.joker_buffer = 0
+                                return true
+                            end,
+                        }))
+                        return { message = localize("k_plus_joker"), colour = G.C.BLUE }
+                    end
+                    if card.ability.extra.type == "Every Card" then
+                        local random_edition = SMODS.poll_edition { key = "modprefix_seed", guaranteed = true, no_negative = true }
+                        SMODS.add_card { set = "Playing Card", edition = random_edition, key_append = "mannlatro_canteen_everycard", area = G.deck, }
+                    end
+                    if card.ability.extra.type == "Treat" and SMODS.pseudorandom_probability(card, 'mannpower_canteen_treat', 1, card.ability.extra.odds_T) then
+                        G.GAME.round_resets.discards = G.GAME.round_resets.discards + card.ability.extra.handgive
+                        ease_discard(card.ability.extra.handgive)
                     end
                 end
             end

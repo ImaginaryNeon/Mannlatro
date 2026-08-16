@@ -40,7 +40,7 @@ SMODS.Booster {
             skip_materialize = true,
             soulable = true,
             key_append =
-            "konichiwa"
+            "Greetings mortals...and こんにちは!"
         }
         return _card
     end,
