@@ -12,7 +12,8 @@
     "badge_colour": "56351b",
     "priority": 1,
     "dependencies": [
-        "Steamodded (>=1.)"
+        "Steamodded (>=1.0.0~BETA-1814a)",
+        "Amulet (>=3.*~)"
     ],
     "badge_text_colour": "ffa233"
 }
