@@ -1,6 +1,6 @@
 SMODS.Booster {
     key = "spell_normal_1",
-    weight = 0.8,
+    weight = 0.9,
     kind = 'Merasmus', -- You can also use Arcana if you want it to belong to the vanilla kind
     cost = 5,
     atlas = 'halloweenpack',
@@ -58,7 +58,7 @@ SMODS.Booster {
 
 SMODS.Booster {
     key = "spell_normal_2",
-    weight = 0.8,
+    weight = 0.9,
     kind = 'Merasmus',
     cost = 5,
     atlas = 'halloweenpack',
@@ -113,7 +113,7 @@ SMODS.Booster {
         end
     }
 }
-
+--[[
 SMODS.Booster {
     key = "spell_normal_3", -- flask
     weight = 0.8,
@@ -170,7 +170,7 @@ SMODS.Booster {
             G.consumeables:emplace(ccard)
         end
     }
-}
+}--]]
 
 
 -- BIG
@@ -232,7 +232,6 @@ SMODS.Booster {
         end
     }
 }
-
 SMODS.Booster {
     key = "spell_rare_2", -- ball
     weight = 0.6,
