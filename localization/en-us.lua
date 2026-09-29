@@ -470,7 +470,9 @@ return {
             c_mannpower_hellsbells = {
                 name = "Hell's Bells",
                 text = {
-                    "Not implemented.",
+                    "Played {C:attention}6{}s have a {C:green}#2# in #3#{}",
+                    "chance to create a {C:dark_edition}Negative",
+                    "{C:tarot}Tarot{} card when scored",
                     "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
                 }
             },

@@ -590,7 +590,7 @@ SMODS.Consumable {  -- XXX, Whammy
 }
 
 SMODS.Consumable {      -- XXX (2), Hell's Bells
-    key = 'hellsbells', -- ???
+    key = 'hellsbells', -- 6s can create a random tarot when scored (1 in 6 chance)
     set = 'WheelofFate',
     atlas = 'ghostfort',
     pos = {
@@ -598,29 +598,46 @@ SMODS.Consumable {      -- XXX (2), Hell's Bells
         y = 2
     },
     set_ability = function(self, card)
-        card.ability.extra.duration = math.ceil((2 + (G.GAME.extended_duration_turns or 0)) *
+        card.ability.extra.duration = math.ceil((3 + (G.GAME.extended_duration_turns or 0)) *
             (G.GAME.extended_duration_mult or 1))
     end,
     --    select_card = 'consumeables',
     config = {
         extra = {
-            duration = 2,
-            xmult = 1,
+            duration = 3,
+            odds = 6,
         }
     },
     loc_vars = function(self, info_queue, card)
-        return {
-            vars = {
-                card.ability.extra.duration,
-                card.ability.extra.xmult,
-            }
-        }
+        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds,
+            'hellsbells_odds')
+        info_queue[#info_queue + 1] = { key = 'e_negative_consumable', set = 'Edition', config = { extra = 1 } }
+        return { vars = { card.ability.extra.duration, numerator, denominator } }
     end,
     calculate = function(self, card, context)
-        if context.joker_main and not context.retrigger_joker then
-            return {
-                xmult = card.ability.extra.xmult,
-            }
+        if context.individual and context.cardarea == G.play then
+            if (context.other_card:get_id() == 6) and SMODS.pseudorandom_probability(card, 'hellsbells_odds', 1, card.ability.extra.odds) then
+                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                return {
+                    extra = {
+                        message = '+1 Tarot',
+                        message_card = card,
+                        func = function()
+                            --G.E_MANAGER:add_event(Event({
+                            --func = (function()
+                            SMODS.add_card {
+                                set = 'Tarot',
+                                edition = 'e_negative',
+                                key_append = 'hellsbells_tarot'
+                            }
+                            G.GAME.consumeable_buffer = 0
+                            return true
+                            --end)
+                            --}))
+                        end
+                    },
+                }
+            end
         end
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.retrigger_joker then
             card.ability.extra.duration = card.ability.extra.duration - 1
@@ -640,10 +657,8 @@ SMODS.Consumable {      -- MMM, Cherry Bomb
     key = 'cherrybomb', -- ???
     set = 'WheelofFate',
     atlas = 'ghostfort',
-    pos = {
-        x = 2,
-        y = 2
-    },
+    pos = { x = 2, y = 2 },
+
     set_ability = function(self, card)
         card.ability.extra.duration = math.ceil((2 + (G.GAME.extended_duration_turns or 0)) *
             (G.GAME.extended_duration_mult or 1))
