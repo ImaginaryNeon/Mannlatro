@@ -136,6 +136,11 @@ SMODS.Attribute {
 SMODS.Attribute {
     key = "screamfortress",
 }
+
+Mannlatro.custom_colors = {
+    MANNPOWER = HEX("FFA630"),
+    MERASMUS = HEX("5bf8d0"),
+}
 --#endregion
 
 --#region File Loading
@@ -163,7 +168,6 @@ end
 SMODS.current_mod.optional_features = function()
     return {
         post_trigger = true,
-        retrigger_joker = true,
         object_weights = true,
         cardareas = {
             discard = true,
