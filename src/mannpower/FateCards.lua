@@ -260,12 +260,12 @@ SMODS.Consumable {      -- VI, UberCharge
     },
     --    select_card = 'consumeables',
     set_ability = function(self, card)
-        card.ability.extra.duration = math.ceil((3 + (G.GAME.extended_duration_turns or 0)) *
+        card.ability.extra.duration = math.ceil((4 + (G.GAME.extended_duration_turns or 0)) *
             (G.GAME.extended_duration_mult or 1))
     end,
     config = {
         extra = {
-            duration = 3
+            duration = 4
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -654,11 +654,10 @@ SMODS.Consumable {      -- XXX (2), Hell's Bells
 }
 
 SMODS.Consumable {      -- MMM, Cherry Bomb
-    key = 'cherrybomb', -- ???
+    key = 'cherrybomb', -- 1 in 2 chance to destroy each held card at end of round
     set = 'WheelofFate',
     atlas = 'ghostfort',
     pos = { x = 2, y = 2 },
-
     set_ability = function(self, card)
         card.ability.extra.duration = math.ceil((2 + (G.GAME.extended_duration_turns or 0)) *
             (G.GAME.extended_duration_mult or 1))
@@ -667,24 +666,25 @@ SMODS.Consumable {      -- MMM, Cherry Bomb
     config = {
         extra = {
             duration = 2,
-            xmult = 1,
+            odds = 2,
         }
     },
     loc_vars = function(self, info_queue, card)
-        return {
-            vars = {
-                card.ability.extra.duration,
-                card.ability.extra.xmult,
-            }
-        }
+        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'cherrybomb_odds')
+        return { vars = { card.ability.extra.duration, numerator, denominator } }
     end,
     calculate = function(self, card, context)
-        if context.joker_main and not context.retrigger_joker then
-            return {
-                xmult = card.ability.extra.xmult,
-            }
-        end
+        --[[if context.end_of_round and context.individual and context.cardarea == G.hand then
+            if SMODS.pseudorandom_probability(card, 'cherrybomb_odds', 1, card.ability.extra.odds) then
+                SMODS.destroy_cards(context.other_card)
+            end
+        end--]]
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.retrigger_joker then
+            for i = 1, #G.hand.cards do
+                if SMODS.pseudorandom_probability(card, 'cherrybomb_odds', 1, card.ability.extra.odds) then
+                    SMODS.destroy_cards(G.hand.cards[i])
+                end
+            end
             card.ability.extra.duration = card.ability.extra.duration - 1
             if card.ability.extra.duration <= 0 then
                 SMODS.destroy_cards(card, nil, nil, true)

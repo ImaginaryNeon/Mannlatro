@@ -3,7 +3,7 @@ SMODS.ConsumableType {
     name = 'Wheel of Fate',
     primary_colour = HEX('5bf8d0'),
     secondary_colour = HEX('50e986'),
-    badge_colour = HEX('43c77b'),
+    badge_colour = HEX('45de8d'), --43c77b
     default = "c_mannpower_whammy",
     select_card = "consumeables",
     shop_rate = 1,

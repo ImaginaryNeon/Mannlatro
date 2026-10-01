@@ -4,8 +4,11 @@ SMODS.Blind {
     pos = {
         y = 10
     },
+    config = {
+        extra = { odds = 4 }
+    },
     loc_vars = function(self)
-        local numerator, denominator = SMODS.get_probability_vars(self, 1, 4, 'vremade_wheel')
+        local numerator, denominator = SMODS.get_probability_vars(self, 1, 4, 'mannpower_plague')
         return { vars = { numerator, denominator } }
     end,
     boss = { min = 2 },
@@ -16,7 +19,7 @@ SMODS.Blind {
             for _, scored_card in ipairs(context.scoring_hand) do
                 if not scored_card.debuff then
                     enhanced[#enhanced + 1] = scored_card
-                    if SMODS.pseudorandom_probability(blind, 'vremade_wheel', 1, 4) then
+                    if SMODS.pseudorandom_probability(blind, 'mannpower_plague', 1, 4) then
                         scored_card.ability.perma_p_dollars = (scored_card.ability.perma_p_dollars or 0) - 1
                         G.E_MANAGER:add_event(Event({
                             func = function()

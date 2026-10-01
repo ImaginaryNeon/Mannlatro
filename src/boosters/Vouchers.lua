@@ -102,7 +102,7 @@ SMODS.Voucher {
     key = 'fancy_spellbook', -- Wheel of Fate cards have +1 Duration
     atlas = 'merasmus_vouchers',
     pos = { x = 1, y = 0 },
-    config = { extra = { bonus = 1 } },
+    config = { extra = { bonus = 2 } },
     requires = { 'v_mannpower_spellbook_magazine' },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.bonus, colours = { HEX('43c77b') } } }

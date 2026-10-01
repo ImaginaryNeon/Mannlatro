@@ -119,6 +119,14 @@ SMODS.Atlas { -- Color Cards
     px = 71,
     py = 95,
 }
+
+SMODS.Atlas { -- Tag
+    key = "tags",
+    path = "tags.png",
+    px = 34,
+    py = 34,
+}
+
 --merasmus_vouchers
 --[[
 SMODS.Atlas { -- Spectral Spectrum
@@ -139,8 +147,9 @@ SMODS.Attribute {
 
 Mannlatro.custom_colors = {
     MANNPOWER = HEX("FFA630"),
-    MERASMUS = HEX("5bf8d0"),
+    MERASMUS = HEX("2bc87c"), -- 33d487
 }
+G.ARGS.LOC_COLOURS.mann_merasmus = Mannlatro.custom_colors.MERASMUS
 --#endregion
 
 --#region File Loading
