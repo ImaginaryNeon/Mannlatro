@@ -6,7 +6,7 @@ return {
                 text = {
                     "{C:green}#1# in #2#{} chance for each",
                     "played {C:attention}Jack{} to create a",
-                    "{C:diamonds}Mannpower{} card when scored",
+                    "{C:mannpower}Mannpower{} card when scored",
                     "{C:inactive}(Must have room)",
                 }
             },
@@ -16,7 +16,7 @@ return {
                     "When a Booster Pack is {C:attention}skipped{},",
                     "this Joker, if empty, gains",
                     "{C:attention}#2#{} charges of the effect",
-                    "associated with the Booster Pack type",
+                    "listed for the Booster Pack type",
                     "{C:inactive}(Charges: {C:attention}#1#{C:inactive})",
                     "{C:inactive}(Current type: {C:attention}#3#{C:inactive})"
                 }
@@ -27,15 +27,15 @@ return {
                 name = 'Mannpower Deck',
                 text = {
                     "After defeating each {C:attention}Boss Blind{},",
-                    "open a {C:attention}Mannpower Pack{}"
+                    "open a {C:mannpower}Mannpower Pack{}"
                 },
                 unlock = {
                     "Trigger playing cards with",
-                    "a {V:1}Stat Clock{} 25 times",
+                    "a {C:mannpower}Stat Clock{} 25 times",
                     "in a single run"
                     --[[
                     "Trigger playing cards with",
-                    "a {V:1}Stat Clock{} 10 times",
+                    "a {C:mannpower}Stat Clock{} 10 times",
                     "in a single run on {C:red}Red Stake{}",
                     "or {C:blue}Blue Stake{} difficulty"
                     --]]
@@ -55,7 +55,7 @@ return {
                 text = {
                     "All number cards",
                     "are debuffed",
-                    "{C:inactive}#1#{}"
+                    "{C:mannpower}#1#{}"
                 }
             },
             bl_mannpower_strength = {
@@ -76,7 +76,7 @@ return {
                 name = 'The Plague',
                 text = {
                     'Played cards have a',
-                    '1 in 4 chance to',
+                    '#1# in #2# chance to',
                     'gain a permanent -$1'
                 }
             },
@@ -90,7 +90,7 @@ return {
             bl_mannpower_reflect = {
                 name = 'The Reflect',
                 text = {
-                    'Lose $1 for each owned Joker',
+                    'Lose $1 per Joker owned',
                     'when hand is played'
                 }
             },
@@ -113,7 +113,7 @@ return {
                 name = 'The Knockout',
                 text = {
                     'Played hands may not contain',
-                    'more than 1 card'
+                    'more than 2 cards'
                 }
             },
             bl_mannpower_haste = {
@@ -130,37 +130,80 @@ return {
                     "per card played"
                 },
             },
+            bl_mannpower_final_vaccinator = {
+                name = "Vintage Vaccinator",
+                text = {
+                    "#1# and #2#",
+                    "are debuffed",
+                    "(Changes categories each hand)"
+                },
+            },
+        },
+        Stake = {
+            stake_mannpower_haunted = {
+                name = "Haunted Stake",
+                text = {
+                    "Shop can have {C:attention}Halloween-Restricted{} Jokers",
+                    "{C:inactive,s:0.8}(Debuffed until a {C:mann_merasmus,s:0.8}Wheel of Fate{C:inactive,s:0.8} card is used)",
+                    "{s:0.8}Applies all previous Stakes",
+                },
+            },
+        },
+        Tag = {
+            tag_mannpower_teufort = {
+                name = "Teufort Tag",
+                text = {
+                    "Gives a free",
+                    "{C:mannpower}Mega Mannpower Pack",
+                },
+            },
+            tag_mannpower_eyeaduct = {
+                name = "Monoculus Tag",
+                text = {
+                    "Gives a free",
+                    "{C:mann_merasmus}Mega Merasmus Pack",
+                },
+            },
         },
         Other = {
             p_mannpower_powerpack = { -- say that five times fast
                 name = 'Mannpower Pack',
                 text = {
                     "Choose {C:attention}#1#{} of up to",
-                    "{C:attention}#2# {C:diamonds}Power-Up{} cards"
+                    "{C:attention}#2# {C:mannpower}Mannpower{} cards"
                 }
             },
             mannpower_strange_seal = {
                 name = 'Stat Clock',
                 text = {
                     'Gains {C:mult}+#1#{} Mult when',
-                    'this card is played',
-                    'and scores',
+                    'this card is scored',
                 }
+            },
+            p_mannpower_big_powerpack = {
+                name = "Mega Mannpower Pack",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2# {C:mannpower}Mannpower{} cards"
+                },
             },
             mannpower_explanation = {
                 name = 'Effects',
                 text = {
-                    "{C:tarot}Arcana{}: Gain {C:money}$#1#{} per",
-                    "Joker owned",
-                    "{C:planet}Planet{}: Level up played hand",
-                    "{C:spectral}Spectral{}: Creates a random",
-                    "{C:spectral}Spectral{} card",
+                    "{C:tarot}Arcana{}: Earn {C:money}$#1#{} for",
+                    "each Joker owned",
+                    "{C:planet}Celestial{}: {C:green}#5# in #6#{} chance to",
+                    "level up played poker hand",
+                    "{C:spectral}Spectral{}: {C:green}#3# in #4#{} chance",
+                    "to create a {C:spectral}Spectral{} card",
                     "{C:inactive}(Must have room)",
                     "{C:attention}Standard{}: Copies the {C:attention}first{}",
                     "card of hand when scored",
                     "{C:attention}Buffoon{}: {X:mult,C:white}X#2#{} Mult",
-                    "{C:diamonds}Mannpower{}: Gain {C:red}+3{} discards",
+                    "{C:mannpower}Mannpower{}: {C:red}+#8#{} discards",
                     "when {C:attention}Blind{} is selected",
+                    "{C:mann_merasmus}Merasmus{}: Held {C:attention}Lucky Cards{}",
+                    "give {X:blind,C:white}X#7#{} Blind size",
                 }
             },
             mannpower_explanation_cry = {
@@ -173,6 +216,79 @@ return {
                     "of {V:2}Epic{} or higher rarity",
                     "{C:inactive}(Must have room)",
                     "{V:1}Baneful{}: What If Reskins Were Different?"
+                }
+            },
+            mannpower_explanation_fluff = {
+                name = 'More Fluff Effects',
+                text = {
+                    "{V:1}Color{}: Creates a {C:dark_edition}Negative{} {V:1}Color{} card",
+                    "after all charges are exhausted",
+                    "{V:2}Rotarot{}: Earn {C:money}$#3#{} for",
+                    "each consumable owned",
+                    "{C:dark_edition}Modded{}: {C:green}#1# in #2#{} chance to create",
+                    "a random non-Common Modded Joker",
+                    "{C:inactive}(Must have room)"
+                }
+            },
+            mannpower_explanation_menthol = {
+                name = 'Menthol Effects',
+                text = {
+                    "{C:purple}Every Card{}: Adds a playing card",
+                    "with a random {C:dark_edition}Edition",
+                    "to the deck",
+                    "{C:dark_edition}Modded{}: Creates a random",
+                    "{C:common}Common{} Modded Joker",
+                    "{C:inactive}(Must have room)"
+                }
+            },
+            mannpower_explanation_menthol_full = {
+                name = 'Menthol Effects',
+                text = {
+                    "{C:purple}Every Card{}: Adds a playing card",
+                    "with a random {C:dark_edition}Edition",
+                    "to the deck",
+                    "{C:dark_edition}Modded{}: Creates a random",
+                    "{C:common}Common{} Modded Joker",
+                    "{C:inactive}(Must have room)",
+                    "{C:dark_edition}Treat{}: {C:green}#1# in #2#{} chance to",
+                    "permenantly give {C:red}+#3#{} discard"
+                }
+            },
+            mannpower_explanation_unknown = {
+                name = 'Unknown Effect',
+                text = {
+                    "{C:dark_edition}Unknown{}: {C:chips}+#1#{} Chips",
+                    "per Booster Pack in the Collection",
+                    "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
+                }
+            },
+            mannpower_halloween = {
+                name = "Holiday Restriction: Halloween / Full Moon",
+                text = {
+                    "Debuffed until a",
+                    "{C:mann_merasmus}Wheel of Fate{} card",
+                    "is {C:attention}used{}"
+                },
+            },
+            p_mannpower_spell_normal = {
+                name = 'Merasmus Pack',
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2# {C:mann_merasmus}Wheel of Fate{} cards"
+                }
+            },
+            p_mannpower_spell_rare = {
+                name = 'Jumbo Merasmus Pack',
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2# {C:mann_merasmus}Wheel of Fate{} cards"
+                }
+            },
+            p_mannpower_spell_rarer = {
+                name = 'Mega Merasmus Pack',
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2# {C:mann_merasmus}Wheel of Fate{} cards"
                 }
             },
         },
@@ -190,7 +306,15 @@ return {
                     "All {C:attention}Editionless{} cards in hand",
                     "become {C:dark_edition}Polychrome{}"
                 }
-            }
+            },
+            c_mannpower_luckyyou = {
+                name = 'Lucky You',
+                text = {
+                    "{X:mult,C:white}X#2#{} Mult, {X:chips,C:white}X#2#{} Chips,",
+                    "Earn {C:money}$#2#{} at end of round",
+                    "{C:inactive}(Rounds remaining: {C:attention}#1#{C:inactive})"
+                }
+            },
 
         },
         Mannpower = {
@@ -212,7 +336,7 @@ return {
             c_mannpower_vampire = {
                 name = 'Vampire',
                 text = {
-                    "Removes {C:red}all {C:green}modifications{}",
+                    "Remove {C:red}all {C:green}modifications{}",
                     "from up to {C:attention}#1#{} cards,",
                     "Earn {C:money}$#2#{} per {C:green}modification{} removed",
                     "{C:inactive,s:0.7}(ex. Enhancements, Seals, Editions)",
@@ -221,8 +345,8 @@ return {
             c_mannpower_reflect = {
                 name = 'Reflect',
                 text = {
-                    'Select up to #1# card',
-                    'and permenantly give it {X:blind,C:white}X#2#{} Blind size',
+                    'Select up to {C:attention}#1#{} card and',
+                    'permanently give it {X:blind,C:white}X#2#{} Blind size',
                     '{C:inactive}(This effect stacks){}'
                 }
             },
@@ -253,71 +377,209 @@ return {
                 text = {
                     'Use this card to earn {C:money}$#2#{}',
                     'Earn {C:money}$#3#{} more if the last hand scored',
-                    'more than the Blind requirements.'
+                    'more than the Blind requirements'
                 }
             },
             c_mannpower_knockout = {
                 name = 'Knockout',
                 text = {
-                    "Increases rank of",
-                    "up to {C:attention}#1#{} selected",
-                    "cards by {C:attention}#2#{} and",
-                    "remove their {C:attention}Enhancements{}",
+                    "Increase rank of",
+                    "up to {C:attention}#1#{} cards",
+                    "by {C:attention}#2#{} and remove",
+                    "their {C:attention}Enhancements{}",
                 },
             },
             c_mannpower_kingmp = {
                 name = 'King',
                 text = {
-                    'Enhance up to #1# card',
-                    'into a Steel King'
+                    'Enhance up to {C:attention}#1#{} card',
+                    'into a {C:attention}Steel King{}'
                 }
             },
             c_mannpower_plague = {
                 name = 'Plague',
                 text = {
-                    'Make #1# Joker {C:legendary}Eternal{},',
-                    '{C:common}Perishable{}, and {C:dark_edition}Negative{}'
+                    '{C:green}#2# in #3#{} chance to add',
+                    --'{C:legendary}Eternal{}, {C:money}Rental{}, and {C:dark_edition}Negative{}',
+                    '{C:money}Rental{} and {C:dark_edition}Negative{}',
+                    'to {C:attention}#1#{} selected Joker',
                 }
             },
             c_mannpower_supernova = {
                 name = 'Supernova',
                 text = {
-                    'Remove all Stickers',
-                    'from 1 Joker'
+                    'Remove all {C:attention}vanilla{}',
+                    'Stickers from {C:attention}1{} Joker'
                 }
             }
+        },
+        WheelofFate = {
+            c_mannpower_superjump = {
+                name = 'Super Jump',
+                text = {
+                    "Scoring cards have their",
+                    "rank increased by {C:attention}1{}",
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                },
+            },
+            c_mannpower_smallhead = {
+                name = 'Small Head',
+                text = {
+                    '{C:chips}+#2#{} Chips',
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                },
+            },
+            c_mannpower_superspeed = {
+                name = 'Super Speed',
+                text = {
+                    "Earn {C:money}$#2#{} when skipping",
+                    "a {C:attention}Blind{} or {C:attention}Booster Pack{}",
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                }
+            },
+            c_mannpower_zerogravity = {
+                name = 'Zero Gravity',
+                text = {
+                    "{C:attention}+#2#{} hand size",
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                }
+            },
+            c_mannpower_bighead = {
+                name = 'Big Head',
+                text = {
+                    "{X:mult,C:white}X#2#{} Mult",
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                }
+            },
+            c_mannpower_ubercharge = {
+                name = 'UberCharge',
+                text = {
+                    "Prevents Jokers and Consumables",
+                    "from being {C:attention}destroyed{}",
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                }
+            },
+            c_mannpower_criticals = {
+                name = 'Critical Hits',
+                text = {
+                    '{C:green}#3# in #4#{} chance',
+                    'for {X:mult,C:white}X#1#{} Mult',
+                    "{C:inactive}(Rounds Remaining: {C:attention}#2#{C:inactive})",
+                }
+            },
+            c_mannpower_danceoff = {
+                name = 'Dance Off',
+                text = {
+                    'Creates a copy of {C:tarot}The Fool',
+                    'when Blind is selected',
+                    "{C:inactive}(Must have room)",
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                }
+            },
+            c_mannpower_fish = {
+                name = 'Fish Troll',
+                text = {
+                    "Creates a random {C:attention}Joker{}",
+                    "at the end of the round",
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                },
+            },
+            c_mannpower_nohead = {
+                name = 'Decapitated',
+                text = {
+                    "Destroys the {C:attention}first card{}",
+                    "of each discard",
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                }
+            },
+            c_mannpower_whammy = {
+                name = 'Whammy',
+                text = {
+                    "Ante changes are {X:attention,C:white}#2#X{} more potent",
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                }
+            },
+            c_mannpower_hellsbells = {
+                name = "Hell's Bells",
+                text = {
+                    "Played {C:attention}6{}s have a {C:green}#2# in #3#{}",
+                    "chance to create a {C:dark_edition}Negative",
+                    "{C:tarot}Tarot{} card when scored",
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                }
+            },
+            c_mannpower_cherrybomb = {
+                name = 'Cherry Bomb',
+                text = {
+                    "Each card {C:attention}held in hand",
+                    "at end of round has a",
+                    "{C:green}#2# in #3#{} chance of",
+                    "being {C:red}destroyed{}",
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                }
+            },
+        },
+        Colour = {
+            c_mannpower_col_mannco_orange = {
+                name = "{E:mf_colour_title}Mann Co. Orange",
+                text = {
+                    "Create a random {C:dark_edition}Negative{}",
+                    "{C:mannpower}Mannpower{} card for every",
+                    "{C:attention}#4#{} rounds this has been held",
+                    "{C:inactive}(Currently {C:attention}#1#{C:inactive}, {}[{C:attention,f:mf_emoji}#2#{C:inactive,f:mf_emoji}#3#{}]{C:inactive})",
+                },
+            },
+            c_mannpower_col_teamspirit = {
+                name = "{E:mf_colour_title}Team Spirit",
+                text = {
+                    "Add a {C:attention}Stat Clock{} to a",
+                    "random card in hand for every",
+                    "{C:attention}#4#{} rounds this has been held",
+                    "{C:inactive}(Currently {C:attention}#1#{C:inactive}, {}[{C:attention,f:mf_emoji}#2#{C:inactive,f:mf_emoji}#3#{}]{C:inactive})",
+                },
+            },
+            c_mannpower_col_quintbaked = {
+                name = "{E:mf_colour_title}Quintuple-Baked",
+                text = {
+                    "Create a random {C:dark_edition}Negative{}",
+                    "{C:mannpower}Mannpower{} card for every",
+                    "{C:attention}#4#{} rounds this has been held",
+                    "{C:inactive}(Currently {C:attention}#1#{C:inactive}, {}[{C:attention,f:mf_emoji}#2#{C:inactive,f:mf_emoji}#3#{}]{C:inactive})",
+                },
+            },
         },
         Sleeve = {
             sleeve_mannpower_mannsleve = {
                 name = "Mannpower Sleeve",
                 text = {
                     "After defeating each {C:attention}Boss Blind{},",
-                    "open a {C:attention}Mannpower Pack{}"
+                    "open a {C:mannpower}Mannpower Pack{}"
                 },
             },
             sleeve_mannpower_mannsleve_alt = {
                 name = "Mannpower Sleeve",
                 text = {
                     "Start run with",
-                    "{C:attention}Tour of Duty{}",
-                    "and {C:attention}Squad Surplus{}"
+                    "{C:mannpower}Tour of Duty{}",
+                    "and {C:mannpower}Squad Surplus{}"
                 },
             },
             sleeve_mannpower_mannsleve_cry_alt = {
                 name = "Mannpower Sleeve",
                 text = {
                     "Start run with",
-                    "{C:attention}Tour of Duty{},",
-                    "{C:attention}Squad Surplus{},",
+                    "{C:mannpower}Tour of Duty{},",
+                    "{C:mannpower}Squad Surplus{},",
                     "and {C:cry_code}Developer Console{}"
                 },
             }
         },
+
         Voucher = {
             v_mannpower_tour_of_duty = {
                 name = "Tour of Duty",
                 text = {
-                    "{C:attention}Mannpower{} cards",
+                    "{C:mannpower}Mannpower{} cards",
                     "can appear",
                     "in the {C:attention}shop{}",
                 },
@@ -325,7 +587,7 @@ return {
             v_mannpower_squad_surplus = {
                 name = "Squad Surplus",
                 text = {
-                    "{C:attention}Mannpower{} cards appear",
+                    "{C:mannpower}Mannpower{} cards appear",
                     "{C:attention}#1#X{} more frequently",
                     "in the shop",
                 },
@@ -333,9 +595,31 @@ return {
             v_mannpower_developer_console = {
                 name = "Developer Console",
                 text = {
-                    "{C:attention}Mannpower{} cards may",
+                    "{C:mannpower}Mannpower{} cards may",
                     "appear in any of",
                     "the {C:cry_code}Code Packs",
+                },
+            },
+            v_mannpower_spellbook_magazine = {
+                name = "Spellbook Magazine",
+                text = {
+                    "{C:mann_merasmus}Wheel of Fate{} cards appear",
+                    "{C:attention}#1#X{} more frequently",
+                    "in the shop",
+                },
+            },
+            v_mannpower_fancy_spellbook = {
+                name = "Fancy Spellbook",
+                text = {
+                    "{C:mann_merasmus}Wheel of Fate{} cards last",
+                    "{C:attention}#1#{} rounds longer",
+                },
+            },
+            v_mannpower_fireproof_diary = {
+                name = "Fireproof Secret Diary",
+                text = {
+                    "{C:mann_merasmus}Wheel of Fate{} cards last",
+                    "for {C:attention}#1#X{} as long",
                 },
             },
         }
@@ -343,10 +627,13 @@ return {
     misc = {
         dictionary = {
             k_mannpower_pack = "Mannpower Pack",
-            mannpower_plus_mann = "+1 Power-Up"
+            mannpower_plus_mann = "+1 Power-Up",
+            k_merasmus_pack = "Elige Fatum!",
+            mannpower_plus_fate = "+1 Card of Fate"
         },
         labels = {
             mannpower_strange_seal = "Stat Clock",
+            mannpower_halloween = "Halloween-Restricted"
         },
         achievement_names = {
             ach_mannpower_strange0 = "Strange",

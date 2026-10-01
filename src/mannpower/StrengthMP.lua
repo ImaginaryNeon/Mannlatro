@@ -10,6 +10,7 @@ SMODS.Consumable {
         seal = { extra = { change = 2 } },
         max_highlighted = 1,
     },
+    cost = 4,
     loc_vars = function(self, info_queue, center)
         -- Handle creating a tooltip with set args.
         info_queue[#info_queue + 1] =
@@ -25,7 +26,6 @@ SMODS.Consumable {
                 return true
             end
         }))
-
         G.E_MANAGER:add_event(Event({
             trigger = 'after',
             delay = 0.1,
@@ -35,7 +35,6 @@ SMODS.Consumable {
                 return true
             end
         }))
-
         delay(0.5)
         G.E_MANAGER:add_event(Event({
             trigger = 'after',

@@ -2,6 +2,7 @@ SMODS.Consumable {
     key = 'reflect',
     set = 'Mannpower',
     atlas = 'mannpowercards',
+    cost = 4,
     pos = {
         x = 3,
         y = 0

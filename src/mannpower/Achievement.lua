@@ -8,9 +8,13 @@ SMODS.Achievement {
     end,
 }
 SMODS.current_mod.calculate = function(self, context)
+    G.GAME.extended_duration_turns = G.GAME.extended_duration_turns or 0
+    G.GAME.extended_duration_mult = G.GAME.extended_duration_mult or 1
     if context.skipping_booster then
         G.GAME.mannpower_last_skipped_booster = context.booster
-        G.GAME.mannpower_last_skipped_booster_kind = context.booster.kind
+        if context.booster.kind then
+            G.GAME.mannpower_last_skipped_booster_kind = context.booster.kind
+        end
         if context.booster.key == 'p_cry_empowered' then
             G.GAME.mannpower_last_skipped_booster_kind = 'Empowered'
         end

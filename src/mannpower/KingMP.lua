@@ -6,9 +6,11 @@ SMODS.Consumable {
         x = 1,
         y = 2
     },
+    cost = 4,
     select_card = 'consumeables',
     config = { max_highlighted = 1 },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS['m_steel']
         return { vars = { card.ability.max_highlighted } }
     end,
     use = function(self, card, area, copier)

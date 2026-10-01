@@ -4,14 +4,16 @@
     "author": [
         "ImaginaryNeon"
     ],
-    "description": "Adds Mannpower-themed Boss Blinds and consumables, with a few other items to go alongside them.",
+    "description": "Adds various TF2-themed items to Balatro.",
     "prefix": "mannpower",
     "main_file": "main.lua",
     "icon_path": "Logo.png",
-    "version": "1.1.0",
+    "version": "2.0.0",
     "badge_colour": "56351b",
+    "priority": 1,
     "dependencies": [
-        "Steamodded (>=1.)"
+        "Steamodded (>=1.0.0~BETA-1814a)",
+        "Amulet (>=3.*~)"
     ],
     "badge_text_colour": "ffa233"
 }

@@ -9,7 +9,7 @@ function Game.update(self, dt)
         if blind.effect.extra.timer >= 6 and not blind.debuffed then
             -- reset timer to 0
             blind.effect.extra.timer = 0
-
+            SMODS.juice_up_blind()
             -- do your effect that happens every 10 seconds here (thanks to srockw for helping with this)
             G.E_MANAGER:add_event(Event({
                 func = function()
@@ -23,7 +23,9 @@ function Game.update(self, dt)
                     end
                     --                    local any_selected = nil
                     if hand_card_count - highlight_card_count == nil or hand_card_count - highlight_card_count < 1 then
-                        message = "Missed!"
+                        return {
+                            message = "Missed!"
+                        }
                     else
                         local _cards = {}
                         for _, playing_card in ipairs(G.hand.cards) do
@@ -62,7 +64,7 @@ SMODS.Blind {
             timer_end = 10
         },
     },
-    boss = { min = 1, max = 10 },
+    boss = { min = 3 },
     boss_colour = HEX('ED712B'),
     loc_vars = function(self)
         return { vars = { self.config.extra.timer, self.config.extra.timer_speed, self.config.extra.timer_end } }

@@ -6,6 +6,7 @@ SMODS.Consumable {
         x = 3,
         y = 1
     },
+    cost = 4,
     select_card = 'consumeables',
     config = { extra = { money = 5, money_base = 5, money_bonus = 10 } },
     loc_vars = function(self, info_queue, card)

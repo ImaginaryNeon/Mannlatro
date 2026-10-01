@@ -5,7 +5,7 @@ SMODS.Blind {
 	pos = {
 		y = 1
 	},
-	boss = { min = 3 },
+	boss = { min = 2 },
 	config = {
 		blind_mod = 0.25,
 	},

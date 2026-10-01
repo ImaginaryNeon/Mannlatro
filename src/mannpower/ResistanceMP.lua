@@ -6,6 +6,7 @@ SMODS.Consumable {
         x = 1,
         y = 0
     },
+    cost = 4,
     select_card = 'consumeables',
     use = function(self, card, area, copier)
         G.E_MANAGER:add_event(Event({

@@ -1,3 +1,6 @@
+Mannlatro = Mannlatro or {}
+Mannlatro.mod = SMODS.current_mod
+
 --#region Atlases
 
 SMODS.Atlas { -- Jokers
@@ -14,6 +17,13 @@ SMODS.Atlas { -- Vouchers
     py = 95
 }
 
+SMODS.Atlas { -- Merasmus Vouchers
+    key = 'merasmus_vouchers',
+    path = 'merasmus_vouchers.png',
+    px = 71,
+    py = 95
+}
+
 SMODS.Atlas { -- Mannpower Blinds
     key = 'mannpowerblind',
     path = 'mannpower.png',
@@ -21,6 +31,16 @@ SMODS.Atlas { -- Mannpower Blinds
     frames = 21,
     px = 34,
     py = 34
+}
+
+SMODS.Atlas { -- Vaccinator Blind
+    key = 'vaccinator',
+    path = 'vaccinator.png',
+    atlas_table = 'ANIMATION_ATLAS',
+    frames = 21,
+    px = 34,
+    py = 34,
+    fps = 5, -- 10 is base
 }
 
 SMODS.Atlas { -- Mannpower Cards
@@ -65,6 +85,71 @@ SMODS.Atlas { -- Jokers
     py = 95
 }
 
+SMODS.Atlas { -- ghostfort
+    key = 'ghostfort',
+    path = 'meratlas.png',
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas { -- Spoopy Packs
+    key = 'halloweenpack',
+    path = 'merasmus.png',
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas { -- Spoopy Sticker
+    key = 'sticker',
+    path = 'sticker.png',
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas { -- stake
+    key = 'stake',
+    path = 'stake.png',
+    px = 29,
+    py = 29
+}
+
+SMODS.Atlas { -- Color Cards
+    key = "mp_colors",
+    path = "mp_colors.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas { -- Tag
+    key = "tags",
+    path = "tags.png",
+    px = 34,
+    py = 34,
+}
+
+--merasmus_vouchers
+--[[
+SMODS.Atlas { -- Spectral Spectrum
+    key = "mp_spectral_spectrum",
+    path = "spectral_spectrum.png",
+    px = 71,
+    py = 95,
+}
+]]
+
+SMODS.Attribute {
+    key = "mannpower",
+}
+
+SMODS.Attribute {
+    key = "screamfortress",
+}
+
+Mannlatro.custom_colors = {
+    MANNPOWER = HEX("FFA630"),
+    MERASMUS = HEX("2bc87c"), -- 33d487
+}
+G.ARGS.LOC_COLOURS.mann_merasmus = Mannlatro.custom_colors.MERASMUS
 --#endregion
 
 --#region File Loading
@@ -84,10 +169,14 @@ for _, file in ipairs(boosters_src) do
     assert(SMODS.load_file("src/boosters/" .. file))()
 end
 
+local jokers_src = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "src/jokers")
+for _, file in ipairs(jokers_src) do
+    assert(SMODS.load_file("src/jokers/" .. file))()
+end
+
 SMODS.current_mod.optional_features = function()
     return {
         post_trigger = true,
-        retrigger_joker = true,
         object_weights = true,
         cardareas = {
             discard = true,

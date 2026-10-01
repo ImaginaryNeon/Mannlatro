@@ -3,12 +3,12 @@ Adds Mannpower-themed blinds and consumables, plus some other items to go alongs
 Requires Steammodded and probably Lovely?
 
 Contains:
-- 12 Boss Blinds
-- 12 Mannpower consumables, with 2 Soul-like Spectrals to go alongside them
+- 13 Boss Blinds
+- Two new sets of Consumables
 - A new Deck (and, if CardSleeves is installed, a corresponding Sleeve)
-- 2 new vouchers, plus a Tier 3 if Cryptid is installed
-- 1 new Seal
+- Two new sets of Vouchers, with Tier 3s if Cryptid is enabled
+- One new Seal
 
 To-do:
-- Update Booster Pack designs
-- Add larger Booster Packs and a tag for said packs
+- Fix the Halloween-Restricted Sticker
+- Wait for SMODS to add the ability to cycle through a whole atlas (like with the Bad Apple mod) so I can add a Color Card (MoreFluff) for the Merasmus cards based on the Spectral Spectrum spell paint thing

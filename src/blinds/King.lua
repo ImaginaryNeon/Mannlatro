@@ -4,7 +4,6 @@ SMODS.Blind {
 	pos = {
 		y = 9
 	},
-	mult = 2,
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
@@ -20,7 +19,7 @@ SMODS.Blind {
 		}
 	end,
 	mult = 1.5,
-	boss = { min = 2, max = 10 },
+	boss = { min = 3 },
 	boss_colour = HEX('ED712B'),
 	calculate = function(self, blind, context)
 		if not blind.disabled then
@@ -33,10 +32,23 @@ SMODS.Blind {
 		end
 	end,
 	in_pool = function(self, args)
-		if G.GAME.starting_params.no_faces == true then
+		if G.GAME.starting_params.no_faces == true or G.GAME.round_resets.ante <= 3 then
 			return false
 		else
 			return true
 		end
 	end
 }
+
+--[[local function reset_mannpower_vaccinator()
+	G.GAME.current_round.neonmod_cheatcode_cards = G.GAME.current_round.neonmod_cheatcode_cards or
+		{ 'Hearts', 'Diamonds', 'Spades', 'Clubs', 'Hearts', 'Diamonds', 'Spades', 'Clubs', 'Hearts', 'Spades' }
+	for i = 1, 10 do
+		local ancient_card = pseudorandom_element(SMODS.Suits, 'neonmod_konamicode' .. G.GAME.round_resets.ante)
+		G.GAME.current_round.neonmod_cheatcode_cards[i] = ancient_card.key
+	end
+end
+
+function SMODS.current_mod.reset_game_globals(run_start)
+	reset_mannpower_vaccinator()
+end]]

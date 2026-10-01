@@ -22,13 +22,6 @@ SMODS.Back {
 			}))
 		end
 	end,
-	locked_loc_vars = function(self, info_queue, back)
-		return {
-			vars = {
-				colours = { SMODS.ConsumableTypes['Mannpower'].badge_colour }
-			}
-		}
-	end,
 	check_for_unlock = function(self, args)
 		if args.type == "strange_threshold2" then
 			return true
