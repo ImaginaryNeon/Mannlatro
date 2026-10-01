@@ -14,7 +14,7 @@ SMODS.Blind {
     collection_loc_vars = function(self)
         return { vars = { '1', '4' } }
     end,
-    boss = { min = 2 },
+    boss = { min = 3 },
     boss_colour = HEX('ED712B'),
     calculate = function(self, blind, context)
         if context.before and not context.blueprint then
