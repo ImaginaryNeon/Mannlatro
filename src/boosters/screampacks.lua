@@ -292,7 +292,7 @@ SMODS.Booster {
 
 SMODS.Booster {
     key = "spell_rarer_1",
-    weight = 0.4,
+    weight = 0.5,
     kind = 'Merasmus', -- You can also use Arcana if you want it to belong to the vanilla kind
     cost = 8,
     atlas = 'halloweenpack',
