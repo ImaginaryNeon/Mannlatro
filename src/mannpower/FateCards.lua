@@ -6,6 +6,7 @@ SMODS.Consumable {     -- I, Super Jump
         x = 0,
         y = 0
     },
+    cost = 4,
     set_ability = function(self, card)
         card.ability.extra.duration = math.ceil((2 + (G.GAME.extended_duration_turns or 0)) *
             (G.GAME.extended_duration_mult or 1))
@@ -60,6 +61,7 @@ SMODS.Consumable {     -- II, Small Head
         x = 1,
         y = 0
     },
+    cost = 4,
     set_ability = function(self, card)
         card.ability.extra.duration = math.ceil((3 + (G.GAME.extended_duration_turns or 0)) *
             (G.GAME.extended_duration_mult or 1))
@@ -68,7 +70,7 @@ SMODS.Consumable {     -- II, Small Head
     config = {
         extra = {
             chips = 125,
-            duration = 3,
+            duration = 4,
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -108,6 +110,7 @@ SMODS.Consumable {      -- III, Super Speed
         x = 2,
         y = 0
     },
+    cost = 4,
     set_ability = function(self, card)
         card.ability.extra.duration = math.ceil((2 + (G.GAME.extended_duration_turns or 0)) *
             (G.GAME.extended_duration_mult or 1))
@@ -154,7 +157,7 @@ SMODS.Consumable {      -- III, Super Speed
 
 
 SMODS.Consumable {       -- IV, Zero Gravity
-    key = 'zerogravity', -- +2 Hand Size
+    key = 'zerogravity', -- +1 Hand Size
     set = 'WheelofFate',
     atlas = 'ghostfort',
     pos = {
@@ -260,12 +263,12 @@ SMODS.Consumable {      -- VI, UberCharge
     },
     --    select_card = 'consumeables',
     set_ability = function(self, card)
-        card.ability.extra.duration = math.ceil((4 + (G.GAME.extended_duration_turns or 0)) *
+        card.ability.extra.duration = math.ceil((5 + (G.GAME.extended_duration_turns or 0)) *
             (G.GAME.extended_duration_mult or 1))
     end,
     config = {
         extra = {
-            duration = 4
+            duration = 5
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -598,13 +601,13 @@ SMODS.Consumable {      -- XXX (2), Hell's Bells
         y = 2
     },
     set_ability = function(self, card)
-        card.ability.extra.duration = math.ceil((3 + (G.GAME.extended_duration_turns or 0)) *
+        card.ability.extra.duration = math.ceil((4 + (G.GAME.extended_duration_turns or 0)) *
             (G.GAME.extended_duration_mult or 1))
     end,
     --    select_card = 'consumeables',
     config = {
         extra = {
-            duration = 3,
+            duration = 4,
             odds = 6,
         }
     },

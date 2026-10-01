@@ -5,13 +5,12 @@ SMODS.Consumable {
 	pos = { x = 2, y = 2 },
 	cost = 4,
 	select_card = 'consumeables',
-	config = { max_highlighted = 1, odds = 4 },
+	config = { max_highlighted = 1, odds = 3 },
 	-- weight = 7.5, -- Apparently weights are 10 by default, so 0.75 was practically banning it outright.
 	loc_vars = function(self, info_queue, card)
-		--info_queue[#info_queue + 1] = { key = 'e_negative', set = 'Edition', config = { extra = 1 } }
-		--info_queue[#info_queue + 1] = { key = 'e_negative', set = 'Edition', config = { extra = 1 } }
+		info_queue[#info_queue + 1] = { set = 'Other', key = 'rental', vars = { G.GAME.rental_rate or 1 } }
 		info_queue[#info_queue + 1] = { key = 'e_negative', set = 'Edition', config = { extra = 1 } }
-		local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds,
+		local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.odds,
 			'mannpower_plaguecard')
 		return { vars = { card.ability.max_highlighted, numerator, denominator } }
 	end,
@@ -22,7 +21,7 @@ SMODS.Consumable {
 		return #cards == 1
 	end,
 	use = function(self, card, area, copier)
-		if SMODS.pseudorandom_probability(card, 'mannpower_plaguecard', 1, card.ability.extra.odds) then
+		if SMODS.pseudorandom_probability(card, 'mannpower_plaguecard', 1, card.ability.odds) then
 			local cards = SMODS.get_highlighted_cards({ G.jokers }, card, 1, 1, function(card)
 				return card.ability.set == "Joker"
 			end)

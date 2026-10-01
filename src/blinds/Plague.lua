@@ -11,6 +11,9 @@ SMODS.Blind {
         local numerator, denominator = SMODS.get_probability_vars(self, 1, 4, 'mannpower_plague')
         return { vars = { numerator, denominator } }
     end,
+    collection_loc_vars = function(self)
+        return { vars = { '1', '4' } }
+    end,
     boss = { min = 2 },
     boss_colour = HEX('ED712B'),
     calculate = function(self, blind, context)
