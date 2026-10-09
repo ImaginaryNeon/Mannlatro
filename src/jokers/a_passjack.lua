@@ -1,7 +1,7 @@
 SMODS.Joker {
     key = "passjack",
     blueprint_compat = true,
-    rarity = 2,
+    rarity = 1,
     cost = 6,
     atlas = "jonklers",
     pos = { x = 1, y = 0 },

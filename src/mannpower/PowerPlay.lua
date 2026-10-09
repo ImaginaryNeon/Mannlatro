@@ -38,7 +38,7 @@ SMODS.Consumable {
     soul_rate = 0.003,
     hidden = true,
     soul_set = 'Mannpower',
-    select_card = 'consumeables',
+    --select_card = 'consumeables',
     no_doe = true,
     use = function(self, card, area, copier)
         for i = 1, #G.jokers.cards do

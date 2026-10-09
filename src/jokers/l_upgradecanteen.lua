@@ -11,7 +11,7 @@ local isMenthol = SMODS.find_mod("Menthol")[1]
 SMODS.Joker {
     key = "canteen",
     blueprint_compat = true,
-    rarity = 3,
+    rarity = 2,
     cost = 8,
     atlas = "jonklers",
     pos = { x = 0, y = 0 },

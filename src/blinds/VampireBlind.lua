@@ -64,7 +64,7 @@ SMODS.Blind {
     dollars = 8,
     config = {
         extra = {
-            list = { "Cards with Enhancements", "Cards with Editions", "Cards with Seals", "Face cards", "Cards with Enhancements", "Hearts", "Diamonds", "Clubs", "Spades" },
+            list = { "Cards with Enhancements", "Cards with Editions", "Cards with Seals", "Face cards", "Odd ranks", "Even ranks", "Hearts", "Diamonds", "Clubs", "Spades" },
             item_1 = '???',
             item_2 = '???',
         },
@@ -102,15 +102,13 @@ SMODS.Blind {
                         table.insert(item1list, blind.effect.extra.list[i])
                     end
                 end
-                blind.effect.extra.item_1 = pseudorandom_element(item1list,
-                    "mannpower_vaccinator" .. G.GAME.round_resets.ante)
+                blind.effect.extra.item_1 = pseudorandom_element(item1list, "mannpower_vaccinator" .. G.GAME.round_resets.ante)
                 for i = 1, #blind.effect.extra.list do
                     if not (blind.effect.extra.list[i] == prioritem2) and not (blind.effect.extra.list[i] == blind.effect.extra.item_1) and not (blind.effect.extra.list[i] == prioritem1) then
                         table.insert(item2list, blind.effect.extra.list[i])
                     end
                 end
-                blind.effect.extra.item_2 = pseudorandom_element(item2list,
-                    "mannpower_vaccinator" .. G.GAME.round_resets.ante)
+                blind.effect.extra.item_2 = pseudorandom_element(item2list, "mannpower_vaccinator" .. G.GAME.round_resets.ante)
                 local item_1 = blind.effect.extra.item_1
                 local item_2 = blind.effect.extra.item_2
                 --[[for i, playing_card in ipairs(G.hand.cards) do -- trying this because the fuckass debuff recalcage doesn't actually recalc it I guess
@@ -166,6 +164,12 @@ SMODS.Blind {
                 return { debuff = true }
             end
             if next(SMODS.get_enhancements(context.debuff_card)) and ((item_1 == "Cards with Enhancements") or (item_2 == "Cards with Enhancements")) then
+                return { debuff = true }
+            end
+            if ((rank <= 10 and rank >= 0 and rank % 2 == 1) or (rank == 14)) and ((item_1 == "Odd ranks") or (item_2 == "Odd ranks")) then
+                return { debuff = true }
+            end
+            if (rank <= 10 and rank >= 0 and rank % 2 == 0) and ((item_1 == "Even ranks") or (item_2 == "Even ranks")) then
                 return { debuff = true }
             end
             if context.debuff_card.edition and ((item_1 == "Cards with Editions") or (item_2 == "Cards with Editions")) then
