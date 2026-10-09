@@ -20,7 +20,14 @@ return {
                     "{C:inactive}(Charges: {C:attention}#1#{C:inactive})",
                     "{C:inactive}(Current type: {C:attention}#3#{C:inactive})"
                 }
-            }
+            },
+            j_mannpower_fatejkr = {
+                name = 'Eternaween Joker',
+                text = {
+                    "{C:mann_merasmus}Wheel of Fate{} cards",
+                    "cannot {C:attention}self-destruct{}",
+                }
+            },
         },
         Back = {
             b_mannpower_manndeck = {

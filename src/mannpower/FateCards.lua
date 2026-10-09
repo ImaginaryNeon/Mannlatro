@@ -668,7 +668,7 @@ SMODS.Consumable {      -- MMM, Cherry Bomb
     --    select_card = 'consumeables',
     config = {
         extra = {
-            duration = 2,
+            duration = 1,
             odds = 2,
         }
     },
