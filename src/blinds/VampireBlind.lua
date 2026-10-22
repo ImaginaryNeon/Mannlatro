@@ -87,7 +87,7 @@ SMODS.Blind {
             blind.effect.extra.item_2 = "???"
         end
         if blind.disabled then return end
-        if context.press_play and G.jokers.cards[1] then
+        if context.press_play then --and G.jokers.cards[1] then
             blind.triggered = true -- This won't trigger Matador in this context due to a Vanilla bug (a workaround is setting it in context.debuff_hand)
             blind.prepped = true
         end
@@ -102,13 +102,15 @@ SMODS.Blind {
                         table.insert(item1list, blind.effect.extra.list[i])
                     end
                 end
-                blind.effect.extra.item_1 = pseudorandom_element(item1list, "mannpower_vaccinator" .. G.GAME.round_resets.ante)
+                blind.effect.extra.item_1 = pseudorandom_element(item1list,
+                    "mannpower_vaccinator" .. G.GAME.round_resets.ante)
                 for i = 1, #blind.effect.extra.list do
                     if not (blind.effect.extra.list[i] == prioritem2) and not (blind.effect.extra.list[i] == blind.effect.extra.item_1) and not (blind.effect.extra.list[i] == prioritem1) then
                         table.insert(item2list, blind.effect.extra.list[i])
                     end
                 end
-                blind.effect.extra.item_2 = pseudorandom_element(item2list, "mannpower_vaccinator" .. G.GAME.round_resets.ante)
+                blind.effect.extra.item_2 = pseudorandom_element(item2list,
+                    "mannpower_vaccinator" .. G.GAME.round_resets.ante)
                 local item_1 = blind.effect.extra.item_1
                 local item_2 = blind.effect.extra.item_2
                 --[[for i, playing_card in ipairs(G.hand.cards) do -- trying this because the fuckass debuff recalcage doesn't actually recalc it I guess

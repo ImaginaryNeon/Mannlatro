@@ -8,9 +8,9 @@
     "prefix": "mannpower",
     "main_file": "main.lua",
     "icon_path": "Logo.png",
-    "version": "2.0.1",
+    "version": "2.1.0",
     "badge_colour": "56351b",
-    "priority": 1,
+    "priority": 1.2,
     "dependencies": [
         "Steamodded (>=1.0.0~BETA-1814a)",
         "Amulet (>=3.*~)"

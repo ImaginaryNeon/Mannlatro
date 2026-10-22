@@ -26,7 +26,7 @@ SMODS.current_mod.calculate = function(self, context)
         G.mannpower_strange_counter_total = (G.mannpower_strange_counter_total or 0) + 1
         -- print(G.GAME.mannpower_strange_counter)
         -- print(G.mannpower_strange_counter_total)
-        if G.GAME.mannpower_strange_counter >= 10 and G.GAME.mannpower_strange_counter <= 10000 then
+        if G.GAME.mannpower_strange_counter >= 10 and G.GAME.mannpower_strange_counter <= 200 then
             --[[ if G.P_CENTER_POOLS.Stake[G.GAME.stake].key == "Red" or
                 G.P_CENTER_POOLS.Stake[G.GAME.stake].key == "Blue" then
                 check_for_unlock({ type = "manndeckunlock" })

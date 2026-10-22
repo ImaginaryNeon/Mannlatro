@@ -28,6 +28,14 @@ return {
                     "cannot {C:attention}self-destruct{}",
                 }
             },
+            j_mannpower_vaccinator = {
+                name = "Violent Vaccinator",
+                text = {
+                    "Played {C:attention}#2#{} and {C:attention}#3#{}",
+                    "give {X:mult,C:white}X#1#{} Mult when scored",
+                    "{C:inactive,s:0.8}(Categories change when Boss Blind defeated){}",
+                }
+            },
         },
         Back = {
             b_mannpower_manndeck = {
@@ -138,7 +146,7 @@ return {
                 },
             },
             bl_mannpower_final_vaccinator = {
-                name = "Vintage Vaccinator",
+                name = "Violent Vaccinator",
                 text = {
                     "#1# and #2#",
                     "are debuffed",
@@ -687,6 +695,40 @@ return {
             ach_mannpower_strange18 = "Trigger playing cards with Stat Clocks a total of 7500 times",
             ach_mannpower_strange19 = "Trigger playing cards with Stat Clocks a total of 7616 times",
             ach_mannpower_strange20 = "Trigger playing cards with Stat Clocks a total of 8500 times",
-        }
+        },
+        quips = {
+            lq_vaccinator_1 = {
+                "My skill is",
+                "VASTED with",
+                "zis fool!",
+            },
+            lq_vaccinator_2 = {
+                "Velcome to the",
+                "'ve lose vonce",
+                "again'-fest...",
+            },
+            lq_vaccinator_3 = {
+                "Auf Wiedersehen,",
+                "Dummkopfs!",
+            },
+            wq_vaccinator_1 = {
+                "Wunderbar!",
+            },
+            wq_vaccinator_2 = {
+                "TODAY, I",
+                "am a GOD!!"
+            },
+            lq_endless_vaccinator_1 = {
+                "TODAY, I",
+                "am a GOD!!"
+            },
+            lq_endless_vaccinator_2 = {
+                "Zat vas fun!",
+                "Ha ha!"
+            },
+            lq_endless_vaccinator_3 = {
+                "Fascinating."
+            },
+        },
     }
 }

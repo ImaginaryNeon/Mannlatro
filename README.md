@@ -1,13 +1,15 @@
-Adds Mannpower-themed blinds and consumables, plus some other items to go alongside them.
+Adds TF2-themed items, mainly focusing on blinds and consumables, with some other items to go alongside them.
 
-Requires Steammodded and probably Lovely?
+Requires Steammodded and Lovely
 
 Contains:
-- 13 Boss Blinds
+- 12 Boss Blinds (and 1 Finisher Blind)
 - Two new sets of Consumables
 - A new Deck (and, if CardSleeves is installed, a corresponding Sleeve)
 - Two new sets of Vouchers, with Tier 3s if Cryptid is enabled
 - One new Seal
+- 3-ish Jokers
+- Finity crossmod
 
 To-do:
 - Fix the Halloween-Restricted Sticker

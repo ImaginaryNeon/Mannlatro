@@ -10,6 +10,14 @@ SMODS.Atlas { -- Jokers
     py = 95
 }
 
+SMODS.Atlas { -- Jokers
+    key = 'bossjoker',
+    path = 'finity.png',
+    px = 71,
+    py = 95
+}
+
+
 SMODS.Atlas { -- Vouchers
     key = 'vouchers',
     path = 'Vouchers.png',
@@ -67,6 +75,12 @@ SMODS.Atlas {
 SMODS.Atlas { -- Deck
     key = 'deck',
     path = 'manndeck.png',
+    px = 71,
+    py = 95
+}
+SMODS.Atlas { -- Finity Deck
+    key = 'finitydeck',
+    path = 'findeck.png',
     px = 71,
     py = 95
 }
@@ -185,3 +199,13 @@ SMODS.current_mod.optional_features = function()
     }
 end
 --#endregion
+
+-- Finity shit
+local isFinity = SMODS.find_mod("finity")[1]
+--function initialize_cruel_finity_stuff()
+if isFinity then
+    FinisherBossBlindStringMap['bl_mannpower_final_vaccinator'] = { 'j_mannpower_vaccinator', 'Violent Vaccinator' }
+    FinisherBossBlindQuips["bl_mannpower_final_vaccinator"] = { "vaccinator", 3, 3 }
+    FinisherBossBlinddecksprites["bl_mannpower_final_vaccinator"] = { "finitydeck", { x = 0, y = 0 } }
+end
+--end
