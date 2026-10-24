@@ -202,10 +202,25 @@ end
 
 -- Finity shit
 local isFinity = SMODS.find_mod("finity")[1]
---function initialize_cruel_finity_stuff()
 if isFinity then
     FinisherBossBlindStringMap['bl_mannpower_final_vaccinator'] = { 'j_mannpower_vaccinator', 'Violent Vaccinator' }
     FinisherBossBlindQuips["bl_mannpower_final_vaccinator"] = { "vaccinator", 3, 3 }
     FinisherBossBlinddecksprites["bl_mannpower_final_vaccinator"] = { "finitydeck", { x = 0, y = 0 } }
+end
+if Finity and Finity.register_showdown then
+    Finity.register_showdown({
+        blind = "bl_mannpower_final_vaccinator", --key of your boss blind
+        joker = "j_mannpower_vaccinator",        --key of the joker the showdown tag gives (give it the "finity_showdown" rarity)
+        name = "Violent Vaccinator",             --fallback display name, only used when the blind has no localized name
+        deck = {                                 --Taunting deck art for this blind, uses the placeholder if left out
+            atlas = "mannpower_finitydeck",      --full atlas key, mod prefix included
+            pos = { x = 0, y = 0 },
+        },
+        quips = {               --the boss joker replaces jimbo on the game over screen
+            key = "vaccinator", --quips are read from misc.quips as lq_scarlet_1, lq_scarlet_2...
+            count = 3,          --how many lq_scarlet_N quips you have
+            endless = 3,        --optional, quips for losing in endless, lq_endless_scarlet_1...
+        },
+    })
 end
 --end
