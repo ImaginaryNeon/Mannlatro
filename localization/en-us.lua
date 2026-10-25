@@ -698,13 +698,12 @@ return {
         },
         quips = {
             lq_vaccinator_1 = {
-                "My skill is",
-                "VASTED with",
-                "zis fool!",
+                "My skill is VASTED",
+                "with zis fool!",
             },
             lq_vaccinator_2 = {
                 "Velcome to the",
-                "'ve lose vonce",
+                "'you lose vonce",
                 "again'-fest...",
             },
             lq_vaccinator_3 = {
