@@ -183,9 +183,6 @@ SMODS.Blind {
             if context.debuff_card:is_face(true) and ((item_1 == "Face cards") or (item_2 == "Face cards")) then
                 return { debuff = true }
             end
-            --if rank == 2 or rank == 3 or rank == 4 or rank == 5 or rank == 6 or rank == 8 or rank == 7 or rank == 9 or rank == 10 then
-            --	return { debuff = true }
-            --end
         end
     end,
 }

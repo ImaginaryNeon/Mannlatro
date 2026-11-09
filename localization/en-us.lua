@@ -698,8 +698,8 @@ return {
         },
         quips = {
             lq_vaccinator_1 = {
-                "My skill is VASTED",
-                "with zis fool!",
+                "Oops! Zat vas",
+                "not medicine!",
             },
             lq_vaccinator_2 = {
                 "Velcome to the",
@@ -710,23 +710,39 @@ return {
                 "Auf Wiedersehen,",
                 "Dummkopfs!",
             },
-            wq_vaccinator_1 = {
-                "Wunderbar!",
+            lq_vaccinator_4 = {
+                "Dit zat sting?",
+                "SAW-ry!",
             },
-            wq_vaccinator_2 = {
-                "TODAY, I",
-                "am a GOD!!"
+            lq_vaccinator_5 = {
+                "Zat vas",
+                "doktor-assisted",
+                "homicide!"
             },
             lq_endless_vaccinator_1 = {
                 "TODAY, I",
                 "am a GOD!!"
             },
             lq_endless_vaccinator_2 = {
-                "Zat vas fun!",
-                "Ha ha!"
+                "Gesundheit!"
             },
             lq_endless_vaccinator_3 = {
-                "Fascinating."
+                "It looks like",
+                "Dummkopffest!"
+            },
+            lq_endless_vaccinator_4 = {
+                "Vould you like a",
+                "second opinion?",
+                "You are also ugly!"
+            },
+            lq_endless_vaccinator_5 = {
+                "Ze healing is not",
+                "as rewarding as",
+                "ze hurting..."
+            },
+            lq_endless_vaccinator_6 = {
+                "You vill go",
+                "no furzher!"
             },
         },
     }
