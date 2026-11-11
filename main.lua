@@ -218,8 +218,8 @@ if Finity and Finity.register_showdown then
         },
         quips = {               --the boss joker replaces jimbo on the game over screen
             key = "vaccinator", --quips are read from misc.quips as lq_scarlet_1, lq_scarlet_2...
-            count = 3,          --how many lq_scarlet_N quips you have
-            endless = 3,        --optional, quips for losing in endless, lq_endless_scarlet_1...
+            count = 5,          --how many lq_scarlet_N quips you have
+            endless = 6,        --optional, quips for losing in endless, lq_endless_scarlet_1...
         },
     })
 end
