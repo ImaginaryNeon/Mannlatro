@@ -1,3 +1,4 @@
+local Benjamin = SMODS.find_mod("War")[1]
 SMODS.Consumable {     -- I, Super Jump
     key = 'superjump', -- cards played increase by 1 rank
     set = 'WheelofFate',
@@ -543,7 +544,6 @@ SMODS.Consumable {  -- X, Decapitated
     end
 }
 
-
 SMODS.Consumable {  -- XXX, Whammy
     key = 'whammy', -- Ante changes are doubled
     set = 'WheelofFate',
@@ -564,6 +564,9 @@ SMODS.Consumable {  -- XXX, Whammy
         }
     },
     loc_vars = function(self, info_queue, card)
+        if Benjamin then
+            return { key = self.key .. "_alt", vars = { card.ability.extra.duration, card.ability.extra.change_mult } }
+        end
         return {
             vars = {
                 card.ability.extra.duration,
@@ -574,12 +577,23 @@ SMODS.Consumable {  -- XXX, Whammy
     calculate = function(self, card, context)
         if context.modify_ante and not context.retrigger_joker then
             local piss = card.ability.extra.change_mult * context.modify_ante
-            return {
-                modify = piss,
-            }
+            return { modify = piss, }
         end
-        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.retrigger_joker then
+        if context.end_of_round and context.game_over == false and context.main_eval
+            and not context.blueprint and not context.retrigger_joker then
             card.ability.extra.duration = card.ability.extra.duration - 1
+            if Benjamin then
+                if WAR.GAME.pvp_round() then
+                    if context.beat_boss and WAR.GAME.pvp_lost then
+                        WAR.GAME.ease_lives({ my = WAR.GAME.my_lives - (card.ability.extra.change_mult - 1) })
+                    end
+                    if context.beat_boss and not WAR.GAME.pvp_lost then
+                        --if WAR.LOBBY.config.pvp_start_ante and (WAR.LOBBY.config.pvp_start_ante <= G.GAME.round_resets.ante) then
+                        WAR.GAME.ease_lives({ enemy = WAR.GAME.enemy_lives - (card.ability.extra.change_mult - 1) })
+                        --end
+                    end
+                end
+            end
             if card.ability.extra.duration <= 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
             end

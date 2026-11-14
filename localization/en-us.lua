@@ -510,8 +510,19 @@ return {
             c_mannpower_whammy = {
                 name = 'Whammy',
                 text = {
-                    "Ante changes are {X:attention,C:white}#2#X{} more potent",
+                    "{C:attention}Ante changes{} are {X:attention,C:white}#2#X{} more potent",
                     "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                }
+            },
+            c_mannpower_whammy_alt = {
+                name = 'Whammy',
+                text = {
+                    "{C:attention}Ante changes{} and {C:red}life losses{} from",
+                    "{C:attention}PvP Blinds{} are {X:attention,C:white}#2#X{} more potent",
+                    "{C:inactive}(Rounds Remaining: {C:attention}#1#{C:inactive})",
+                    --Ante changes and life losses from
+                    --PvP blinds are [2X] more potent
+                    --(Rounds Remaining: 6)
                 }
             },
             c_mannpower_hellsbells = {
