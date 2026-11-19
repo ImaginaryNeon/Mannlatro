@@ -80,10 +80,6 @@ SMODS.Joker {
                 or (context.other_card:is_face(true) and ((item_1 == "face cards") or (item_2 == "face cards"))) then
                 return { xmult = card.ability.extra.xmult }
             end
-            --return {
-            --      Xmult_mod = card.ability.extra.xmult,
-            --      message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.xmult } }
-            --}
         end
     end
 }
